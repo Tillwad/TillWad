@@ -1,59 +1,42 @@
-# TillWad – Portfolio & Automation Showcase
+# 👋 Hi, ich bin Till Wadehn
 
-![Profilfoto](./public/images/profile-picture.jpg)
+Full Stack Entwickler & Automations-Spezialist aus Berlin. Ich kombiniere Design-Anspruch mit technischer Präzision, um digitale Produkte und Prozesse zu bauen, die messbar Wirkung zeigen.
 
-> Moderner Portfolio-Auftritt von Till Wadehn – Full Stack Entwickler aus Berlin – mit Fokus auf digitale Produkte, Automationen und skalierbare Prozesse.
+## Was mich ausmacht
+- **Von Idee zu Launch:** Ich begleite Projekte ganzheitlich – von Branding & UX über Frontend/Backend bis hin zu automatisierten Delivery-Prozessen.
+- **Automation-First Mindset:** n8n, Integrationen und eigens komponierte Workflows sorgen dafür, dass Teams skalieren können.
+- **Performance & Ästhetik:** Moderne Interfaces mit Augenmerk auf Micro-Interactions, Accessibility und klare Typografie.
+- **Partnerschaftlich:** Transparente Kommunikation, dokumentierte Entscheidungen, schnelle Iterationszyklen.
 
-![Next.js](https://img.shields.io/badge/Next.js-16-000?logo=next.js&logoColor=fff)
-![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=000)
-![Tailwind%20CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=fff)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-2d79c7?logo=typescript&logoColor=fff)
+## Fokusbereiche
+- Websites & SaaS-Produkte mit Next.js, React und TypeScript
+- Dashboarding & interne Tools für datengetriebene Teams
+- Prozess-Automation (n8n, APIs, Low-Code/No-Code Integrationen)
+- Technisches Consulting für digitale Agenturen und Startups
 
-## Highlights
-- Statement-Hero mit Profil, Elevator-Pitch und direktem Kontakt-CTA.
-- Projekte-Sektion mit interaktiven Cards, Fokus-Tags und externen Case-Study-Links.
-- Floating Dock für Social Links sowie ein persistenter Dark/Light-Mode Switch mit LocalStorage.
-- Smooth Framer-Like Hover States und lineare Gradienten für eigenständigen Look.
-- Responsives Layout für Desktop, Tablet und Mobile.
+## Aktuelle Highlights
+- `dgtill.com` – Launch einer eigenen Agency mit automatisiertem Sales- & Delivery-Backend.
+- `AWT Finanz Automations` – Compliance-konforme Datenpipelines, Reporting und System-Integrationen.
+- `Notepilot` – Produktivitätsplattform mit Markdown, KI-Suche & Automations-Hooks.
 
-## Tech Stack
-- Next.js 16 (App Router, React 19, Client Components)
-- Tailwind CSS 4 für Utility-First Styling und moderne Design Tokens
-- TypeScript 5 für typisierte Komponenten
-- lucide-react Icons für Social- und UI-Symbole
+## Stack & Tools
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232a?logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-0f172a?logo=tailwindcss&logoColor=38bdf8)
+![Node.js](https://img.shields.io/badge/Node.js-000000?logo=node.js&logoColor=68a063)
+![n8n](https://img.shields.io/badge/n8n-EA4C89?logo=n8n&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-181818?logo=supabase&logoColor=3ecf8e)
 
-## Seitenaufbau
-- `Hero`: Vorstellung, Standort und Expertise von Till inkl. Kontakt-CTA.
-- `Recent Work`: Grid mit ausgewählten Projekten und Tech-Fokus.
-- `Floating Dock`: Sticky Social Links + Theme Switch, die sich beim Scrollen in den Footer ausblenden.
-- `Footer`: Direkte Kontaktmöglichkeiten & Social Media.
+> „Automatisiere alles, was repetitiv ist – so bleibt Raum für echtes Produktdenken und sauberen Code.“
 
-## Getting Started
-1. Stelle sicher, dass Node.js ≥ 18 installiert ist.
-2. Abhängigkeiten installieren:
-   ```bash
-   npm install
-   ```
-3. Entwicklungsserver starten:
-   ```bash
-   npm run dev
-   ```
-   Der Server läuft anschließend auf `http://localhost:3000`.
-4. Production Build:
-   ```bash
-   npm run build
-   npm start
-   ```
-5. Linting:
-   ```bash
-   npm run lint
-   ```
+## So arbeite ich
+- Discovery & Tech-Scoping mit klaren Deliverables
+- Design Sprints & Prototyping mit validierten Interaktionsmustern
+- Clean Code, typed APIs, strukturierte Repos und CI/CD Pipelines
+- Dokumentation & Übergabe, damit Teams nahtlos übernehmen können
 
-## Anpassungen
-- Projekte, Texte und Social Links befinden sich in `app/page.tsx`.
-- Globale Styles, Animationsklassen und Dark-Theme-Primitives liegen in `app/globals.css`.
-- Assets & Bilder werden unter `public/` verwaltet; das Profilfoto liegt z. B. in `public/images/profile-picture.jpg`.
-
-## Deployment
-- Ideal für Vercel: Repository verbinden, Build Command `npm run build`, Output `.next`.
-- Alternativ jeden Node-kompatiblen Hoster nutzen (z. B. Netlify mit Next-Adapter).
+## Lass uns sprechen
+- 📬 `till.wadehn@gmail.com`
+- 🌐 [tillwaehnd.com](https://tillwadehn.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/tillwad) · 🧑‍💻 [GitHub](https://github.com/tillwad) · 📸 [Instagram](https://www.instagram.com/till.wad)
