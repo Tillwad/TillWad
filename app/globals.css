@@ -1,0 +1,418 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark &));
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-zinc-50 text-zinc-900 antialiased;
+}
+
+.dark body {
+  color-scheme: dark;
+  @apply bg-[#050505] text-zinc-100;
+}
+
+.dark-water {
+  position: absolute;
+  inset: -15%;
+  pointer-events: none;
+  background:
+    radial-gradient(35% 40% at 20% 20%, rgba(220, 220, 220, 0.7), transparent 70%),
+    radial-gradient(30% 35% at 80% 25%, rgba(200, 200, 200, 0.65), transparent 55%),
+    radial-gradient(45% 60% at 50% 80%, rgba(210, 210, 210, 0.7), rgba(240, 240, 240, 0.6));
+  filter: saturate(115%) contrast(110%);
+  opacity: 0.8;
+  overflow: hidden;
+  animation: water-hues 18s linear infinite;
+}
+
+.dark .dark-water {
+  background:
+    radial-gradient(35% 40% at 20% 20%, rgba(36, 36, 36, 0.85), transparent 70%),
+    radial-gradient(30% 35% at 80% 25%, rgba(18, 18, 18, 0.75), transparent 55%),
+    radial-gradient(45% 60% at 50% 80%, rgba(24, 24, 24, 0.85), rgba(0, 0, 0, 0.65));
+  filter: saturate(120%) contrast(115%);
+  opacity: 0.95;
+}
+
+.dark-water::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    60% 60% at 50% 50%,
+    rgba(255, 255, 255, 0.5),
+    rgba(220, 220, 220, 0.4) 65%,
+    rgba(255, 255, 255, 0.2)
+  );
+  mix-blend-mode: multiply;
+  filter: blur(90px);
+  animation: water-drift 28s ease-in-out infinite alternate;
+  opacity: 0.7;
+}
+
+.dark .dark-water::before {
+  background: radial-gradient(
+    60% 60% at 50% 50%,
+    rgba(90, 90, 90, 0.2),
+    rgba(0, 0, 0, 0.65) 65%,
+    rgba(0, 0, 0, 0.9)
+  );
+  mix-blend-mode: screen;
+  filter: blur(80px);
+  opacity: 0.65;
+}
+
+.dark-water::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(60% 70% at 50% 110%, rgba(220, 220, 220, 0.55), transparent),
+    repeating-radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.05) 0 12px, transparent 12px 24px);
+  mix-blend-mode: screen;
+  animation: water-flow 32s linear infinite;
+  opacity: 0.6;
+}
+
+.dark .dark-water::after {
+  background:
+    radial-gradient(65% 65% at 50% 110%, rgba(20, 20, 20, 0.85), transparent),
+    repeating-radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.02) 0 12px, transparent 12px 24px);
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+}
+
+.bg-linear-glow {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(17, 17, 17, 0.35) 35%,
+    rgba(17, 17, 17, 0.6) 50%,
+    rgba(17, 17, 17, 0.25) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.dark .bg-linear-glow {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 35%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.3) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(15, 15, 15, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2.5rem;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, background 0.4s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 16px 45px rgba(17, 17, 17, 0.08);
+}
+
+.project-card__image {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: saturate(60%) contrast(90%);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+.dark .project-card__image {
+  opacity: 0.25;
+  filter: saturate(90%) contrast(115%);
+}
+
+.project-card:hover .project-card__image {
+  opacity: 0.5;
+  transform: scale(1.04);
+  filter: saturate(95%) contrast(110%);
+}
+
+.dark .project-card:hover .project-card__image {
+  opacity: 0.4;
+  filter: saturate(110%) contrast(125%);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(15, 15, 15, 0.28);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 24px 55px rgba(17, 17, 17, 0.12);
+}
+
+.dark .project-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 8, 0.9);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+}
+
+.dark .project-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(16, 16, 16, 0.95);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.45);
+}
+
+.project-card__glare {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 30% 10%, rgba(255, 255, 255, 0.16), transparent 60%);
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.project-card:hover .project-card__glare {
+  opacity: 0.9;
+}
+
+.project-card__lines {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      120deg,
+      rgba(0, 0, 0, 0.035) 0 2px,
+      transparent 2px 18px
+    ),
+    repeating-linear-gradient(
+      -120deg,
+      rgba(0, 0, 0, 0.02) 0 1px,
+      transparent 1px 16px
+    );
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  transition: opacity 0.6s ease;
+}
+
+.project-card:hover .project-card__lines {
+  opacity: 0.55;
+}
+
+.dark .project-card__lines {
+  background:
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.025) 0 2px,
+      transparent 2px 18px
+    ),
+    repeating-linear-gradient(
+      -120deg,
+      rgba(255, 255, 255, 0.015) 0 1px,
+      transparent 1px 16px
+    );
+  opacity: 0.4;
+  mix-blend-mode: screen;
+}
+
+.dark .project-card:hover .project-card__lines {
+  opacity: 0.85;
+}
+
+.floating-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(15, 15, 15, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 20px 45px rgba(15, 15, 15, 0.18);
+  z-index: 40;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease, background 0.6s ease, border-color 0.6s ease;
+}
+
+.floating-dock--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 30px);
+}
+
+.dark .floating-dock {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(12, 12, 12, 0.82);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+}
+
+.floating-dock:hover {
+  transform: translate(-50%, -8px);
+  box-shadow: 0 28px 60px rgba(17, 17, 17, 0.22);
+}
+
+.dark .floating-dock:hover {
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45);
+  background: rgba(16, 16, 16, 0.9);
+}
+
+.floating-dock__links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.floating-dock__link {
+  transition: color 0.3s ease;
+}
+
+.floating-dock__switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  background: none;
+  border: 1px solid transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, transform 0.4s ease;
+}
+
+.floating-dock__switch:hover {
+  border-color: rgba(15, 15, 15, 0.2);
+  transform: translateY(-2px);
+}
+
+.dark .floating-dock__switch:hover {
+  border-color: rgba(255, 255, 255, 0.36);
+  transform: translateY(-2px);
+}
+
+.floating-dock__indicator {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  width: 42px;
+  height: 22px;
+  border-radius: 9999px;
+  background: rgba(15, 15, 15, 0.1);
+  padding: 2px;
+  transition: background 0.3s ease;
+}
+
+.dark .floating-dock__indicator {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.indicator-dot {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #111;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.dark .indicator-dot {
+  background: #f8f8f8;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.indicator-dot--right {
+  transform: translate(16px, -50%);
+}
+
+.floating-dock__label {
+  font-size: 0.7rem;
+}
+
+.floating-dock__icon {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.floating-dock__switch:hover .floating-dock__icon {
+  transform: rotate(6deg);
+}
+
+@media (max-width: 720px) {
+  .floating-dock {
+    bottom: 1.5rem;
+    padding: 0.75rem 1.1rem;
+    gap: 1.25rem;
+    width: calc(100% - 2.5rem);
+    justify-content: space-between;
+  }
+
+  .floating-dock__links {
+    gap: 0.8rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+  }
+
+  .floating-dock__switch {
+    gap: 0.5rem;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .floating-dock__label {
+    letter-spacing: 0.2em;
+  }
+}
+
+@keyframes water-hues {
+  0% {
+    filter: saturate(108%) contrast(112%) hue-rotate(0deg);
+  }
+  50% {
+    filter: saturate(120%) contrast(108%) hue-rotate(4deg);
+  }
+  100% {
+    filter: saturate(108%) contrast(112%) hue-rotate(0deg);
+  }
+}
+
+@keyframes water-drift {
+  0% {
+    transform: translate3d(-2%, -1.5%, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(2.5%, 2%, 0) scale(1.06);
+  }
+}
+
+@keyframes water-flow {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.015);
+  }
+  50% {
+    transform: translate3d(1%, -1%, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(-1%, 1%, 0) scale(1.015);
+  }
+}
+
+@keyframes lines-shift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-60px, -120px, 0);
+  }
+}
