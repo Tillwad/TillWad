@@ -94,7 +94,7 @@ type ThemeMode = "dark" | "light";
 const SOCIAL_LINKS = [
   { href: "https://www.instagram.com/till.wad", label: "Instagram" },
   { href: "https://github.com/tillwad", label: "GitHub" },
-  { href: "https://www.linkedin.com/in/tillwad", label: "LinkedIn" },
+  { href: "https://www.linkedin.com/in/till-wad", label: "LinkedIn" },
 ];
 
 export default function Home() {
@@ -231,7 +231,7 @@ export default function Home() {
                 </Link>
 
                 <a
-                  href="mailto:hello@tillwad.com"
+                  href="mailto:till.wadehn@dgtill.com"
                   className="inline-flex items-center gap-3 rounded-full bg-zinc-900 px-6 py-4 text-sm font-medium uppercase tracking-[0.25em] text-white transition-all duration-500 ease-out hover:-translate-y-1 hover:bg-zinc-800 hover:shadow-lg dark:bg-white/10 dark:text-white dark:hover:-translate-y-1 dark:hover:bg-white/20 dark:hover:shadow-xl"
                 >
                   Kontakt
@@ -314,13 +314,13 @@ export default function Home() {
           <span>© {new Date().getFullYear()} Till Wadehn</span>
           <div className="flex gap-6">
             <a
-              href="mailto:hello@tillwad.com"
+              href="mailto:till.wadehn@dgtill.com"
               className="transition hover:text-zinc-900 dark:hover:text-white"
             >
               Mail
             </a>
             <a
-              href="https://www.instagram.com/tillwadehn"
+              href="https://www.instagram.com/till.wad"
               className="transition hover:text-zinc-900 dark:hover:text-white"
             >
               Instagram
@@ -332,7 +332,7 @@ export default function Home() {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/tillwadehn"
+              href="https://www.linkedin.com/in/till-wad"
               className="transition hover:text-zinc-900 dark:hover:text-white"
             >
               LinkedIn
