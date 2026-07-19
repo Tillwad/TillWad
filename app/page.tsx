@@ -1,395 +1,481 @@
-﻿'use client';
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, InstagramIcon, GithubIcon, MapPin, ChevronsLeftRightEllipsis } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Car,
+  MapPin,
+  CheckCircle2,
+  PhoneCall,
+  CalendarCheck,
+  Home as HomeIcon,
+} from "lucide-react";
+import { PREIS_STUNDE, leistungen, orte } from "./daten";
+import { KopfZeile, FussZeile } from "./komponenten";
+import {
+  TelefonLink,
+  TelefonAnzeige,
+  MailLink,
+  MailAnzeige,
+} from "./schutz-links";
 
-
-type Project = {
-  title: string;
-  year: string;
-  description: string;
-  focus: string[];
-  links?: Link[];
-};
-
-type Link = {
-  href: string;
-  label: string;
-  icon?: React.ReactNode;
-};
-
-const projects: Project[] = [
+const schritte = [
   {
-    title: "dgtill.com - DGT Agency",
-    year: "2025",
-    description:
-      "Launch einer Website und Automation Agency inklusive Branding, Webauftritt und automatisierten Sales- sowie Deliveryprozessen.",
-    focus: ["Agency Launch", "Branding", "Automation"],
-    links: [
-      {
-        href: "https://dgtill.com",
-        label: "Website",
-        icon: <ArrowUpRight size={16} />,
-      },
-      {
-        href: "https://www.instagram.com/dgtill.agency",
-        label: "Instagram",
-        icon: <InstagramIcon size={16} />,
-      },
-    ],
+    icon: PhoneCall,
+    titel: "1. Sie rufen an",
+    beschreibung:
+      "Rufen Sie mich einfach an oder schreiben Sie mir. Schildern Sie mir in Ruhe, wobei Sie Hilfe brauchen.",
   },
   {
-    title: "AWT Finanz Automations",
-    year: "2025",
-    description:
-      "n8n basierte Automationen für Finanzprozesse: Daten Sync, Reporting Pipelines und Compliance Checks, nahtlos an bestehende Systeme gekoppelt.",
-    focus: ["n8n", "System Integration", "Finance Ops"],
-    links: [
-      {
-        href: "https://www.awt-finanz.de",
-        label: "Website",
-        icon: <ArrowUpRight size={16} />,
-      },
-    ],
+    icon: CalendarCheck,
+    titel: "2. Wir machen einen Termin",
+    beschreibung:
+      "Wir finden gemeinsam einen Termin, der Ihnen passt. Sie müssen nichts vorbereiten.",
   },
   {
-    title: "Notepilot.de",
-    year: "2024",
-    description:
-      "Produktivitätsplattform für Teams mit Markdown Editor, KI Suche und Workflow Automationen - umgesetzt als SaaS mit Next.js.",
-    focus: ["Product Design", "Full Stack", "Next.js"],
-    links: [
-      {
-        href: "https://notepilot.de",
-        label: "Website",
-        icon: <ArrowUpRight size={16} />,
-      },
-      {
-        href: "https://www.github.com/tillwad/notepilot",
-        label: "GitHub",
-        icon: <GithubIcon size={16} />,
-      },
-    ],
-  },
-  {
-    title: "Autoshow 3D Configurator",
-    year: "2023",
-    description:
-      "Interaktive Autoshow mit frei navigierbarer Three.js Szene, konfigurierbaren 3D Modellen und Realtime Lighting für Messe und Web.",
-    focus: ["Three.js", "Realtime Configurator"],
-    links: [
-      {
-        href: "https://www.github.com/tillwad/autoshow",
-        label: "GitHub",
-        icon: <GithubIcon size={16} />,
-      },
-    ],
+    icon: HomeIcon,
+    titel: "3. Ich komme zu Ihnen",
+    beschreibung:
+      "Ich komme zu Ihnen nach Hause, löse das Problem und erkläre Ihnen alles in Ruhe – so oft Sie möchten.",
   },
 ];
 
-type ThemeMode = "dark" | "light";
+const versprechen = [
+  "Geduldig – ich nehme mir Zeit und erkläre alles so oft Sie möchten",
+  "Verständlich – ich spreche Deutsch, kein Fachchinesisch",
+  "Ehrlich – ich empfehle nur, was Sie wirklich brauchen",
+  "Aus der Nachbarschaft – kurze Wege, keine Anfahrtskosten",
+];
 
-const SOCIAL_LINKS = [
-  { href: "https://www.instagram.com/till.wad", label: "Instagram" },
-  { href: "https://github.com/tillwad", label: "GitHub" },
-  { href: "https://www.linkedin.com/in/till-wad", label: "LinkedIn" },
+const preise = [
+  {
+    icon: PhoneCall,
+    farbe: "bg-green-100 text-green-700",
+    titel: "Beratung am Telefon",
+    preis: "Kostenlos",
+    beschreibung:
+      "Kurze Fragen beantworte ich gerne direkt am Telefon – das kostet Sie nichts.",
+  },
+  {
+    icon: HomeIcon,
+    farbe: "bg-blue-100 text-blue-700",
+    titel: "Hausbesuch",
+    preis: PREIS_STUNDE,
+    beschreibung:
+      "Abgerechnet wird nur die tatsächliche Zeit bei Ihnen vor Ort. Den Preis nenne ich Ihnen vor jedem Besuch.",
+  },
+  {
+    icon: Car,
+    farbe: "bg-amber-100 text-amber-700",
+    titel: "Anfahrt",
+    preis: "Kostenlos",
+    beschreibung:
+      "Innerhalb meines Einzugsgebiets berechne ich keine Anfahrtskosten.",
+  },
 ];
 
 export default function Home() {
-  const [theme, setTheme] = useState<ThemeMode>(() => {
-    if (typeof document !== "undefined") {
-      return document.documentElement.classList.contains("dark")
-        ? "dark"
-        : "light";
-    }
-
-    if (typeof window === "undefined") {
-      return "dark";
-    }
-
-    const storedTheme = window.localStorage.getItem("tillwad-theme");
-    if (storedTheme === "light" || storedTheme === "dark") {
-      return storedTheme;
-    }
-
-    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-    return prefersLight ? "light" : "dark";
-  });
-  const isDark = theme === "dark";
-  const footerRef = useRef<HTMLElement | null>(null);
-  const [footerVisible, setFooterVisible] = useState(false);
-
-  useEffect(() => {
-    if (typeof document === "undefined") {
-      return;
-    }
-
-    const root = document.documentElement;
-    const body = document.body;
-    root.classList.toggle("dark", theme === "dark");
-    if (body) {
-      body.classList.toggle("dark", theme === "dark");
-    }
-    window.localStorage.setItem("tillwad-theme", theme);
-  }, [theme]);
-
-  useEffect(() => {
-    if (typeof window === "undefined" || !footerRef.current) {
-      return;
-    }
-
-    const target = footerRef.current;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        setFooterVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(target);
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
   return (
-    <div className="relative min-h-screen overflow-hidden bg-zinc-50 text-zinc-900 dark:bg-[#050505] dark:text-zinc-100">
-      <div className="dark-water" aria-hidden />
+    <>
+      <a href="#inhalt" className="skip-link">
+        Direkt zum Inhalt springen
+      </a>
 
-      <main className="relative z-10 mx-auto flex min-h-screen w-full max-w-5xl flex-col gap-24 px-6 pb-24 pt-24 sm:px-12 lg:gap-32">
-        <header className="relative flex flex-col gap-12 lg:gap-16">
-          <div className="pointer-events-none absolute -right-6 top-16 hidden h-72 w-px bg-gradient-to-b from-zinc-900/40 via-zinc-900/10 to-transparent dark:from-white/45 dark:via-white/15 dark:to-transparent lg:block" />
+      <KopfZeile />
 
-          <div className="flex flex-col items-center gap-8 text-center sm:items-start sm:text-left lg:grid lg:grid-cols-[minmax(0,200px)_1fr] lg:items-start lg:gap-12">
-            <aside className="flex w-full sm:max-w-[200px] flex-col items-center gap-6 lg:w-auto lg:items-start">
-              <div className="group relative flex aspect-square w-32 shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-900/10 bg-white/60 p-1 shadow-lg shadow-zinc-900/5 transition hover:shadow-xl dark:border-white/10 dark:bg-white/5 dark:shadow-none dark:hover:shadow-white/10 sm:w-40 sm:aspect-square lg:w-44">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-zinc-900/10 via-transparent to-transparent dark:from-white/15 dark:via-transparent dark:to-transparent" />
-                <div className="absolute -inset-2 rounded-full border border-zinc-900/10 blur-sm dark:border-white/15" />
-                <div className="relative h-full w-full overflow-hidden rounded-full">
-                  <Image
-                    src="/images/profile-picture.jpg"
-                    alt="Portrait von Till Wadehn"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 768px) 9rem, 11rem"
-                  />
-                </div>
-                <div className="pointer-events-none absolute -bottom-6 left-1/2 h-12 w-40 -translate-x-1/2 rounded-full bg-zinc-900/15 opacity-80 blur-2xl transition-opacity duration-500 group-hover:opacity-100 dark:bg-white/10" />
-              </div>
+      <main id="inhalt" className="bg-slate-50">
+        {/* Einstieg */}
+        <section
+          aria-labelledby="einstieg-titel"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+        >
+          {/* Dekorative Hintergrund-Kreise */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-blue-50"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-24 right-1/3 h-64 w-64 rounded-full bg-amber-50"
+          />
 
-              <div className="flex w-full flex-col items-center gap-3 text-left text-xs uppercase tracking-[0.45em] text-zinc-500 dark:text-white/45 lg:items-start">
-                <span className="text-sm font-semibold tracking-[0.4em] text-zinc-900 dark:text-white">
-                  Till Wadehn
-                </span>
-                <ul className="flex w-full flex-col gap-2 text-[0.7rem] tracking-[0.4em] text-zinc-500 dark:text-white/40">
-                  <li className="flex items-center gap-2">
-                    <MapPin size={12} />
-                    Berlin, Germany
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <ChevronsLeftRightEllipsis size={12} />
-                    Software Engineer
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <ChevronsLeftRightEllipsis size={12} />
-                    Full Stack & Automation
-                  </li>
-                </ul>
-              </div>
-            </aside>
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
+            <figure className="relative w-full max-w-xs sm:max-w-sm lg:order-2 lg:max-w-md lg:shrink-0 lg:basis-2/5">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-6 -top-8 h-28 w-28 rounded-full bg-amber-200"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-10 -left-10 h-36 w-36 rounded-full border-8 border-blue-100"
+              />
+              <div
+                aria-hidden="true"
+                className="dot-grid pointer-events-none absolute -left-14 top-8 h-32 w-32"
+              />
+              <Image
+                src="/images/till_wadehn_it_support.jpg"
+                alt="Till Wadehn sitzt mit einer Kundin am Tisch und erklärt ihr etwas am Laptop"
+                width={1400}
+                height={1867}
+                priority
+                sizes="(max-width: 640px) 20rem, (max-width: 1024px) 24rem, 28rem"
+                className="blob-mask relative z-10 h-auto w-full border-4 border-white shadow-xl"
+              />
+              <figcaption className="relative z-10 mt-4 text-center text-lg text-slate-600">
+                Till Wadehn – Ihr IT-Helfer vor Ort
+              </figcaption>
+            </figure>
 
-            <div className="flex flex-1 flex-col items-center gap-6 text-left sm:items-start lg:pl-10">
-              <span className="text-xs uppercase tracking-[0.45em] text-zinc-500 dark:text-white/40">
-                Portfolio
-              </span>
-
-              <div className="h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-zinc-900/30 to-transparent dark:via-white/20" />
-
-              <h1 className="w-full max-w-3xl text-left text-4xl font-semibold leading-tight text-zinc-900 dark:text-white sm:text-5xl lg:text-6xl">
-                Websites und Automationen, die Prozesse antreiben.
+            <div className="flex max-w-3xl flex-col gap-6 text-center lg:order-1 lg:text-left">
+              <h1
+                id="einstieg-titel"
+                className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
+              >
+                Hilfe bei Computer, Handy und Internet – bei Ihnen zu Hause
               </h1>
-
-              <p className="max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-                Ich bin Till Wadehn - Full Stack Developer aus Berlin. Ich baue Websites, Dashboards
-                und Automatisierungen mit modernen Stacks wie Next.js, Node und n8n, damit Teams
-                schneller liefern und skalieren können.
+              <div
+                aria-hidden="true"
+                className="mx-auto h-2 w-28 rounded-full bg-amber-400 lg:mx-0"
+              />
+              <p className="text-xl leading-relaxed text-slate-700 sm:text-2xl">
+                Ich bin Till aus Ihrer Nachbarschaft. Ich helfe Ihnen geduldig
+                bei allen Fragen rund um Technik – verständlich erklärt und
+                ohne Fachchinesisch.
               </p>
-
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-start">
-                <Link
-                  href="#work"
-                  className="group inline-flex items-center gap-3 rounded-full border border-zinc-900/10 px-6 py-3 text-sm font-medium uppercase tracking-[0.25em] text-zinc-900 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-zinc-900/40 hover:text-zinc-900 hover:shadow-lg dark:border-white/20 dark:text-white dark:hover:-translate-y-1 dark:hover:border-white/50 dark:hover:text-white dark:hover:shadow-xl"
-                >
-                  <span className="h-8 w-8 rounded-full border border-zinc-900/10 bg-zinc-900/5 transition-all duration-500 group-hover:border-zinc-900/40 group-hover:bg-zinc-900/10 group-hover:rotate-3 dark:border-white/20 dark:bg-white/5 dark:group-hover:border-white/50 dark:group-hover:bg-white/10 dark:group-hover:rotate-6" />
-                  Recent Work
-                </Link>
-
-                <a
-                  href="mailto:till.wadehn@dgtill.com"
-                  className="inline-flex items-center gap-3 rounded-full bg-zinc-900 px-6 py-4 text-sm font-medium uppercase tracking-[0.25em] text-white transition-all duration-500 ease-out hover:-translate-y-1 hover:bg-zinc-800 hover:shadow-lg dark:bg-white/10 dark:text-white dark:hover:-translate-y-1 dark:hover:bg-white/20 dark:hover:shadow-xl"
-                >
-                  Kontakt
-                </a>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+                <TelefonLink className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-700 px-8 py-5 text-2xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto">
+                  <Phone size={28} aria-hidden="true" />
+                  Jetzt anrufen
+                </TelefonLink>
+                <MailLink className="inline-flex w-full items-center justify-center gap-3 rounded-xl border-2 border-slate-400 bg-white px-8 py-5 text-2xl font-bold text-slate-900 hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto">
+                  <Mail size={28} aria-hidden="true" />
+                  E-Mail schreiben
+                </MailLink>
               </div>
-            </div>
-          </div>
-        </header>
-        <section id="work" className="flex flex-col gap-10">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <h2 className="text-sm uppercase tracking-[0.4em] text-zinc-500 dark:text-white/40">
-                Recent Work
-              </h2>
-              <p className="mt-3 text-3xl font-semibold text-zinc-900 dark:text-white">
-                Ausgewählte Projekte und Systeme
+              <p className="text-lg text-slate-600">
+                Sie erreichen mich unter{" "}
+                <TelefonLink className="font-bold text-blue-800 underline underline-offset-4">
+                  <TelefonAnzeige />
+                </TelefonLink>{" "}
+                – gerne auch auf den Anrufbeantworter sprechen, ich rufe
+                zurück.
               </p>
             </div>
-            <p className="max-w-md text-sm uppercase tracking-[0.3em] text-zinc-500 dark:text-white/35">
-              Von 3D Konfiguratoren bis Automationen - Full Stack Projekte mit klaren Outcomes.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((project) => (
-              <article key={project.title} className="project-card group">
-                <div className="project-card__glare" aria-hidden />
-                <div className="project-card__lines" aria-hidden />
-
-                <div className="relative z-10 flex items-center justify-between text-xs uppercase tracking-[0.35em] text-zinc-500 transition-colors duration-500 group-hover:text-zinc-900/60 dark:text-white/40 dark:group-hover:text-white/55">
-                  <span className="transition-transform duration-500 group-hover:translate-x-1">
-                    {project.year}
-                  </span>
-                  <span className="flex items-center gap-2 transition-all duration-500 group-hover:gap-3">
-                    <span className="h-[3px] w-12 bg-zinc-900/40 transition-all duration-500 group-hover:w-16 dark:bg-white/30" />
-                    Case Study
-                  </span>
-                </div>
-
-                <h3 className="relative z-10 mt-6 text-2xl font-semibold text-zinc-900 transition-colors duration-500 group-hover:text-zinc-950 dark:text-white dark:group-hover:text-white">
-                  {project.title}
-                </h3>
-                <p className="relative z-10 mt-4 text-sm leading-relaxed text-zinc-700 transition-colors duration-500 group-hover:text-zinc-600 dark:text-zinc-300 dark:group-hover:text-zinc-200">
-                  {project.description}
-                </p>
-
-                <ul className="relative z-10 mt-6 flex flex-wrap gap-3 text-xs uppercase tracking-[0.25em] text-zinc-500 transition-colors duration-500 group-hover:text-zinc-600 dark:text-white/40 dark:group-hover:text-white/60">
-                  {project.focus.map((item) => (
-                    <li
-                      key={item}
-                      className="inline-flex items-center gap-2 transition-all duration-500 hover:underline"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="relative z-10 mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-zinc-500 transition-colors duration-500 group-hover:text-zinc-600 dark:text-white/40 dark:group-hover:text-white/60">
-                  {project.links?.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex gap-4  border border-zinc-900/20 px-3 py-2 transition-all duration-500 hover:-translate-y-0.5 hover:border-zinc-900/40 dark:border-white/20 dark:hover:-translate-y-0.5 dark:hover:border-white/40"
-                    >
-                      {link.icon}
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </article>
-            ))}
           </div>
         </section>
 
-        <footer
-          ref={footerRef}
-          className="flex flex-col gap-4 border-t border-zinc-900/10 pt-10 text-sm uppercase tracking-[0.25em] text-zinc-500 dark:border-white/10 dark:text-white/35 sm:flex-row sm:items-center sm:justify-between"
+        {/* Leistungen */}
+        <section
+          aria-labelledby="leistungen-titel"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
         >
-          <span>© {new Date().getFullYear()} Till Wadehn</span>
-          <div className="flex gap-6">
-            <a
-              href="mailto:till.wadehn@dgtill.com"
-              className="transition hover:text-zinc-900 dark:hover:text-white"
-            >
-              Mail
-            </a>
-            <a
-              href="https://www.instagram.com/till.wad"
-              className="transition hover:text-zinc-900 dark:hover:text-white"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://github.com/tillwadehn"
-              className="transition hover:text-zinc-900 dark:hover:text-white"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/till-wad"
-              className="transition hover:text-zinc-900 dark:hover:text-white"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </footer>
-      </main>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full border-[14px] border-blue-100/70"
+          />
+          <div
+            aria-hidden="true"
+            className="dot-grid pointer-events-none absolute bottom-10 left-6 h-32 w-32"
+          />
 
-      <div className={`floating-dock ${footerVisible ? "floating-dock--hidden" : ""}`}>
-        <div className="floating-dock__links" role="group" aria-label="Social Links">
-          {SOCIAL_LINKS.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noreferrer"
-              className="floating-dock__link text-zinc-600 transition hover:text-zinc-900 dark:text-white/50 dark:hover:text-white"
+          <div className="relative z-10 mx-auto w-full max-w-5xl">
+            <h2
+              id="leistungen-titel"
+              className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
             >
-              {social.label}
-            </a>
-          ))}
+              Wobei ich Ihnen helfen kann
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+            <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
+              Egal ob großes oder kleines Problem – fragen Sie einfach. Es
+              gibt keine dummen Fragen.
+            </p>
+
+            <ul className="mt-10 grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {leistungen.map((leistung) => (
+                <li
+                  key={leistung.titel}
+                  className="rounded-2xl border-2 border-slate-200 bg-white p-7 shadow-sm"
+                >
+                  <span
+                    className={`inline-flex h-20 w-20 items-center justify-center rounded-full ${leistung.farbe}`}
+                  >
+                    <leistung.icon size={40} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 text-2xl font-bold text-slate-900">
+                    {leistung.titel}
+                  </h3>
+                  <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                    {leistung.beschreibung}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* So funktioniert es */}
+        <section
+          aria-labelledby="ablauf-titel"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-28 bottom-0 h-80 w-80 rounded-full bg-blue-50"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-5xl">
+            <h2
+              id="ablauf-titel"
+              className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              So einfach geht es
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+
+            <ol className="relative mt-10 grid list-none gap-6 sm:grid-cols-3">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-[18%] right-[18%] top-[4.5rem] hidden border-t-4 border-dashed border-blue-200 sm:block"
+              />
+              {schritte.map((schritt) => (
+                <li
+                  key={schritt.titel}
+                  className="relative rounded-2xl bg-blue-50 p-7 text-center"
+                >
+                  <span className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-4 border-blue-100 bg-white shadow-sm">
+                    <schritt.icon
+                      size={44}
+                      aria-hidden="true"
+                      className="text-blue-700"
+                    />
+                  </span>
+                  <h3 className="mt-5 text-2xl font-bold text-slate-900">
+                    {schritt.titel}
+                  </h3>
+                  <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                    {schritt.beschreibung}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Über mich */}
+        <section
+          aria-labelledby="ueber-mich-titel"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-28 bottom-8 h-72 w-72 rounded-full bg-amber-50"
+          />
+          <div
+            aria-hidden="true"
+            className="dot-grid pointer-events-none absolute right-10 top-10 h-28 w-28"
+          />
+
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
+            <div className="flex max-w-2xl flex-col gap-6 text-center lg:text-left">
+              <h2
+                id="ueber-mich-titel"
+                className="text-3xl font-bold text-slate-900 sm:text-4xl"
+              >
+                Über mich
+              </h2>
+              <div
+                aria-hidden="true"
+                className="mx-auto h-2 w-28 rounded-full bg-amber-400 lg:mx-0"
+              />
+              <p className="text-xl leading-relaxed text-slate-700">
+                Mein Name ist Till Wadehn. Beruflich entwickle ich Software
+                und Websites – Technik ist mein tägliches Handwerk. In meiner
+                Freizeit helfe ich Menschen aus der Nachbarschaft, die mit
+                Computer, Handy oder Internet nicht weiterkommen.
+              </p>
+              <p className="text-xl leading-relaxed text-slate-700">
+                Mir ist wichtig, dass Sie sich gut aufgehoben fühlen: Ich
+                nehme mir Zeit, erkläre alles in Ruhe und Sie zahlen nur, was
+                vorher besprochen wurde.
+              </p>
+            </div>
+
+            <ul className="flex w-full max-w-xl list-none flex-col gap-4 rounded-3xl border-2 border-slate-200 bg-white p-8 shadow-sm lg:shrink-0 lg:basis-2/5">
+              {versprechen.map((punkt) => (
+                <li key={punkt} className="flex items-start gap-4">
+                  <CheckCircle2
+                    size={32}
+                    aria-hidden="true"
+                    className="mt-1 shrink-0 text-green-600"
+                  />
+                  <span className="text-lg leading-relaxed text-slate-800">
+                    {punkt}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Preise */}
+        <section
+          aria-labelledby="preise-titel"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-24 top-1/3 h-64 w-64 rounded-full border-[12px] border-amber-100"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-5xl">
+            <h2
+              id="preise-titel"
+              className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              Faire und klare Preise
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+            <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
+              Keine versteckten Kosten, keine Überraschungen – Sie wissen
+              immer vorher, was die Hilfe kostet.
+            </p>
+
+            <ul className="mt-10 grid list-none gap-6 sm:grid-cols-3">
+              {preise.map((eintrag) => (
+                <li
+                  key={eintrag.titel}
+                  className="rounded-2xl border-2 border-slate-200 bg-white p-7 text-center shadow-sm"
+                >
+                  <span
+                    className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full ${eintrag.farbe}`}
+                  >
+                    <eintrag.icon size={40} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 text-2xl font-bold text-slate-900">
+                    {eintrag.titel}
+                  </h3>
+                  <p className="mt-2 text-2xl font-bold text-blue-800">
+                    {eintrag.preis}
+                  </p>
+                  <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                    {eintrag.beschreibung}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Einzugsgebiet */}
+        <section
+          aria-labelledby="einzugsgebiet-titel"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-blue-50"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-5xl">
+            <h2
+              id="einzugsgebiet-titel"
+              className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              Hier bin ich für Sie unterwegs
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+            <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
+              Ich helfe im Berliner Südwesten und in der direkten Umgebung.
+              Klicken Sie auf Ihren Ort, um mehr zu erfahren:
+            </p>
+
+            <ul className="mt-10 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {orte.map((ort) => (
+                <li key={ort.slug}>
+                  <Link
+                    href={`/it-hilfe/${ort.slug}`}
+                    className="flex items-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-xl font-semibold text-slate-900 shadow-sm hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+                  >
+                    <MapPin
+                      size={26}
+                      aria-hidden="true"
+                      className="shrink-0 text-blue-700"
+                    />
+                    {ort.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Wellen-Übergang zum Kontaktbereich */}
+        <div aria-hidden="true" className="bg-slate-50">
+          <svg
+            viewBox="0 0 1440 90"
+            preserveAspectRatio="none"
+            className="block h-14 w-full text-blue-700 sm:h-20"
+          >
+            <path
+              fill="currentColor"
+              d="M0,64 C240,96 480,16 720,32 C960,48 1200,80 1440,48 L1440,90 L0,90 Z"
+            />
+          </svg>
         </div>
 
-        <button
-          type="button"
-          className="floating-dock__switch"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
+        {/* Kontakt */}
+        <section
+          aria-labelledby="kontakt-titel"
+          className="relative overflow-hidden bg-blue-700 px-5 pb-14 pt-6 text-white sm:pb-20 sm:pt-8"
         >
-          <span className="floating-dock__indicator">
-            <span className={`indicator-dot ${isDark ? "indicator-dot--right" : ""}`} />
-          </span>
-          <span className="floating-dock__label text-zinc-600 dark:text-white/60">
-            {isDark ? "Dark" : "Light"}
-          </span>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            aria-hidden
-            className="floating-dock__icon text-zinc-700 dark:text-white"
-          >
-            {isDark ? (
-              <path
-                d="M12 3a1 1 0 0 1 1 1v1.268a7.5 7.5 0 1 0 6.732 6.732H21a1 1 0 0 1 1 1A10 10 0 1 1 11 3a1 1 0 0 1 1-1Z"
-                fill="currentColor"
-              />
-            ) : (
-              <path
-                d="M12 5.5a6.5 6.5 0 1 0 6.5 6.5A6.508 6.508 0 0 0 12 5.5Zm0-3.5a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1Zm0 17a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm10-6a1 1 0 0 1-1 1h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 1 1Zm-17 0a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm12.728-7.071a1 1 0 0 1 0 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0ZM7.393 16.97a1 1 0 0 1 0 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0Zm0-11.314-.707-.707A1 1 0 1 1 8.1 3.535l.707.707A1 1 0 0 1 7.393 5.656Zm9.9 9.9-.707-.707a1 1 0 1 1 1.414-1.414l.707.707a1 1 0 0 1-1.414 1.414Z"
-                fill="currentColor"
-              />
-            )}
-          </svg>
-        </button>
-      </div>
-    </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full border-8 border-white/15"
+          />
+
+          <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-6 text-center">
+            <h2
+              id="kontakt-titel"
+              className="text-3xl font-bold sm:text-4xl"
+            >
+              Rufen Sie mich einfach an
+            </h2>
+            <p className="text-xl leading-relaxed sm:text-2xl">
+              Ich freue mich auf Ihren Anruf und nehme mir Zeit für Sie.
+            </p>
+            <TelefonLink className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-3xl">
+              <Phone size={32} aria-hidden="true" />
+              <TelefonAnzeige />
+            </TelefonLink>
+            <p className="text-xl">
+              Oder per E-Mail:{" "}
+              <MailLink className="font-bold underline underline-offset-4">
+                <MailAnzeige />
+              </MailLink>
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <FussZeile />
+    </>
   );
 }
-

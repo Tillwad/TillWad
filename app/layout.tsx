@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist } from "next/font/google";
+import { SITE_URL } from "./daten";
+import { CookieHinweis } from "./cookie-hinweis";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,14 +9,16 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Till Wadehn – Full Stack Developer & Automation Engineer",
-  description: "Portfolio von Till Wadehn – Full Stack Developer aus Berlin. Websites, Dashboards und Automatisierungen mit Next.js, Node und n8n.",
+  metadataBase: new URL(SITE_URL),
+  title: "IT-Hilfe von Till – Computerhilfe für Ihre Nachbarschaft",
+  description:
+    "Geduldige Hilfe bei Computer, Handy, Tablet, Internet und Drucker – bei Ihnen zu Hause. Verständlich erklärt, ohne Fachchinesisch. Rufen Sie einfach an.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -23,17 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var storageKey='tillwad-theme';var stored=window.localStorage.getItem(storageKey);var prefersLight=window.matchMedia('(prefers-color-scheme: light)').matches;var theme=stored==='light'||stored==='dark'?stored:(prefersLight?'light':'dark');var root=document.documentElement;var body=document.body;root.classList.toggle('dark', theme==='dark');if(body){body.classList.toggle('dark', theme==='dark');}window.localStorage.setItem(storageKey, theme);}catch(e){}})();`,
-          }}
-        />
+    <html lang="de">
+      <body className={`${geistSans.variable} antialiased`}>
         {children}
+        <CookieHinweis />
       </body>
     </html>
   );
