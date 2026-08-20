@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
-import { leistungen, orte } from "../../daten";
-import { KopfZeile, FussZeile } from "../../komponenten";
+import { Phone, Mail, MapPin, CheckCircle2, Car } from "lucide-react";
+import {
+  SITE_URL,
+  fragen as allgemeineFragen,
+  leistungen,
+  orte,
+  type Ort,
+} from "../../daten";
+import { KopfZeile, FussZeile, FragenAbschnitt } from "../../komponenten";
+import { FragenDaten } from "../../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -15,6 +22,13 @@ type Params = { ort: string };
 
 export function generateStaticParams(): Params[] {
   return orte.map((ort) => ({ ort: ort.slug }));
+}
+
+// Die ortsspezifischen Fragen zuerst, danach eine kleine Auswahl der
+// allgemeinen. Der Rest steht auf der Startseite, damit sich die Ortsseiten
+// nicht zu stark ähneln.
+function fragenFuerOrt(ort: Ort) {
+  return [...ort.fragen, ...allgemeineFragen.slice(0, 3)];
 }
 
 export async function generateMetadata({
@@ -30,7 +44,12 @@ export async function generateMetadata({
 
   return {
     title: `IT-Hilfe in ${ort.name} – Computerhilfe bei Ihnen zu Hause`,
-    description: `Geduldige Hilfe bei Computer, Handy, Tablet, WLAN und Drucker in ${ort.name} – direkt bei Ihnen zu Hause, verständlich erklärt. Rufen Sie einfach an.`,
+    // Bewusst aus dem ortsspezifischen Text gebildet statt aus einer Schablone:
+    // identische Beschreibungen sind ein Signal für doppelte Inhalte.
+    description: `${ort.text} Computer, Handy, WLAN, Drucker und Fernseher – verständlich erklärt in ${ort.name}.`,
+    alternates: {
+      canonical: `/it-hilfe/${ort.slug}`,
+    },
   };
 }
 
@@ -49,6 +68,11 @@ export default async function OrtSeite({
 
   return (
     <>
+      <FragenDaten
+        fragen={fragenFuerOrt(ort)}
+        seitenUrl={`${SITE_URL}/it-hilfe/${ort.slug}`}
+      />
+
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen
       </a>
@@ -151,10 +175,76 @@ export default async function OrtSeite({
           </figure>
         </div>
 
+        {/* Was hier vor Ort typisch ist */}
+        <section
+          aria-labelledby="vor-ort-titel"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-amber-50"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-4xl">
+            <h2
+              id="vor-ort-titel"
+              className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              Technik in {ort.name} – was mir hier oft begegnet
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+
+            <p className="mx-auto mt-8 max-w-3xl text-xl leading-relaxed text-slate-700">
+              {ort.lokal}
+            </p>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              <div className="rounded-2xl border-2 border-slate-200 bg-white p-7 shadow-sm">
+                <h3 className="text-2xl font-bold text-slate-900">
+                  Hier bin ich in {ort.name} unterwegs
+                </h3>
+                <ul className="mt-5 flex list-none flex-col gap-3">
+                  {ort.gebiete.map((gebiet) => (
+                    <li key={gebiet} className="flex items-start gap-3">
+                      <MapPin
+                        size={26}
+                        aria-hidden="true"
+                        className="mt-1 shrink-0 text-blue-700"
+                      />
+                      <span className="text-lg leading-relaxed text-slate-800">
+                        {gebiet}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-lg leading-relaxed text-slate-600">
+                  Ihre Straße ist nicht dabei? Rufen Sie trotzdem an – die
+                  Aufzählung ist nur eine Auswahl.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border-2 border-slate-200 bg-white p-7 shadow-sm">
+                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+                  <Car size={34} aria-hidden="true" />
+                </span>
+                <h3 className="mt-5 text-2xl font-bold text-slate-900">
+                  So komme ich zu Ihnen
+                </h3>
+                <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                  {ort.anfahrt}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Leistungen im Ort */}
         <section
           aria-labelledby="leistungen-titel"
-          className="relative overflow-hidden px-5 py-14 sm:py-20"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
         >
           <div
             aria-hidden="true"
@@ -222,6 +312,14 @@ export default async function OrtSeite({
             </p>
           </div>
         </section>
+
+        {/* Häufige Fragen aus dem Ort */}
+        <FragenAbschnitt
+          fragen={fragenFuerOrt(ort)}
+          titel={`Häufige Fragen aus ${ort.name}`}
+          einleitung={`Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an – ich beantworte sie gern am Telefon.`}
+          hell={false}
+        />
 
         {/* Wellen-Übergang zum Kontaktbereich */}
         <div aria-hidden="true" className="bg-slate-50">

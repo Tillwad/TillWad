@@ -11,6 +11,9 @@ import {
 export const metadata: Metadata = {
   title: "Datenschutzerklärung – IT-Hilfe von Till",
   description: "Datenschutzerklärung der Website IT-Hilfe von Till Wadehn.",
+  alternates: {
+    canonical: "/datenschutz",
+  },
 };
 
 export default function Datenschutz() {

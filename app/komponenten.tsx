@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Phone } from "lucide-react";
-import { orte } from "./daten";
+import { Phone, HelpCircle } from "lucide-react";
+import { orte, type Frage } from "./daten";
 import { TelefonLink, TelefonAnzeige, WhatsAppLink } from "./schutz-links";
 
 function WhatsAppIcon({ groesse }: { groesse: number }) {
@@ -43,6 +43,83 @@ export function KopfZeile() {
         </div>
       </div>
     </header>
+  );
+}
+
+/**
+ * Sichtbarer Fragen-und-Antworten-Bereich. Die Antworten stehen bewusst
+ * offen da und nicht hinter einem Aufklapper: Das ist für ältere Leserinnen
+ * und Leser einfacher, und die Auszeichnung als FAQPage verlangt ohnehin,
+ * dass derselbe Text auch sichtbar auf der Seite steht.
+ */
+export function FragenAbschnitt({
+  fragen,
+  titel = "Häufige Fragen",
+  einleitung,
+  hell = true,
+}: {
+  fragen: Frage[];
+  titel?: string;
+  einleitung?: string;
+  /** false, wenn der Abschnitt auf dem grauen Seitenhintergrund stehen soll. */
+  hell?: boolean;
+}) {
+  return (
+    <section
+      id="fragen"
+      aria-labelledby="fragen-titel"
+      className={`relative overflow-hidden px-5 py-14 sm:py-20 ${
+        hell ? "bg-white" : ""
+      }`}
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-blue-50"
+      />
+      <div
+        aria-hidden="true"
+        className="dot-grid pointer-events-none absolute bottom-12 right-8 h-28 w-28"
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-4xl">
+        <h2
+          id="fragen-titel"
+          className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+        >
+          {titel}
+        </h2>
+        <div
+          aria-hidden="true"
+          className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+        />
+        {einleitung ? (
+          <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
+            {einleitung}
+          </p>
+        ) : null}
+
+        <dl className="mt-10 flex flex-col gap-5">
+          {fragen.map((eintrag) => (
+            <div
+              key={eintrag.frage}
+              className="rounded-2xl border-2 border-slate-200 bg-white p-7 shadow-sm"
+            >
+              <dt className="flex items-start gap-4">
+                <span className="mt-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-700">
+                  <HelpCircle size={26} aria-hidden="true" />
+                </span>
+                <h3 className="text-2xl font-bold text-slate-900">
+                  {eintrag.frage}
+                </h3>
+              </dt>
+              <dd className="mt-3 text-lg leading-relaxed text-slate-700 sm:pl-15">
+                {eintrag.antwort}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
   );
 }
 

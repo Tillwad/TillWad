@@ -11,6 +11,9 @@ import {
 export const metadata: Metadata = {
   title: "Impressum – IT-Hilfe von Till",
   description: "Impressum und Anbieterkennzeichnung der IT-Hilfe von Till Wadehn.",
+  alternates: {
+    canonical: "/impressum",
+  },
 };
 
 export default function Impressum() {
