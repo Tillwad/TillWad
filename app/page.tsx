@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,14 +11,24 @@ import {
   CalendarCheck,
   Home as HomeIcon,
 } from "lucide-react";
-import { PREIS_STUNDE, leistungen, orte } from "./daten";
-import { KopfZeile, FussZeile } from "./komponenten";
+import { PREIS_STUNDE, SITE_URL, fragen, leistungen, orte } from "./daten";
+import { KopfZeile, FussZeile, FragenAbschnitt } from "./komponenten";
+import { FragenDaten } from "./strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
   MailLink,
   MailAnzeige,
 } from "./schutz-links";
+
+// Ohne eigenes Canonical meldet die Google Search Console "Duplikat – ohne
+// vom Nutzer ausgewählten Canonical", weil Google sich dann selbst einen
+// aussuchen muss.
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const schritte = [
   {
@@ -77,6 +88,8 @@ const preise = [
 export default function Home() {
   return (
     <>
+      <FragenDaten fragen={fragen} seitenUrl={`${SITE_URL}/`} />
+
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen
       </a>
@@ -422,6 +435,12 @@ export default function Home() {
             </ul>
           </div>
         </section>
+
+        {/* Häufige Fragen */}
+        <FragenAbschnitt
+          fragen={fragen}
+          einleitung="Hier finden Sie Antworten auf die Fragen, die mir am häufigsten gestellt werden. Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an."
+        />
 
         {/* Wellen-Übergang zum Kontaktbereich */}
         <div aria-hidden="true" className="bg-slate-50">
