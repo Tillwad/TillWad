@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { SITE_URL } from "./daten";
-import { CookieHinweis } from "./cookie-hinweis";
+import { EinwilligungProvider } from "./einwilligung";
 import { Banner } from "./banner";
 import { einstellungenLesen } from "./einstellungen";
 import { KontaktKontextProvider } from "./schutz-links";
@@ -34,14 +34,15 @@ export default async function RootLayout({
   return (
     <html lang="de">
       <body className={`${geistSans.variable} antialiased`}>
-        <KontaktKontextProvider
-          telefon={!einstellungen.telefonVersteckt}
-          whatsapp={!einstellungen.whatsappVersteckt}
-        >
-          <Banner />
-          {children}
-          <CookieHinweis />
-        </KontaktKontextProvider>
+        <EinwilligungProvider>
+          <KontaktKontextProvider
+            telefon={!einstellungen.telefonVersteckt}
+            whatsapp={!einstellungen.whatsappVersteckt}
+          >
+            <Banner />
+            {children}
+          </KontaktKontextProvider>
+        </EinwilligungProvider>
       </body>
     </html>
   );

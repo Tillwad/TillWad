@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { ereignisMelden } from "./einwilligung";
 
 // Welche Kontaktwege angezeigt werden, entscheidet Till unter /admin. Telefon
 // und WhatsApp lassen sich getrennt abschalten. Die Werte werden im Layout
@@ -98,11 +99,21 @@ type SchutzLinkProps = {
 // oder im Seiten-DOM.
 function SchutzKnopf({
   macheZiel,
+  ereignis,
   neuerTab = false,
   className,
   children,
-}: SchutzLinkProps & { macheZiel: () => string; neuerTab?: boolean }) {
+}: SchutzLinkProps & {
+  macheZiel: () => string;
+  /** Name des Ereignisses für die Besuchsmessung. */
+  ereignis: string;
+  neuerTab?: boolean;
+}) {
   const oeffnen = () => {
+    // Dass die Kontaktdaten kodiert sind, stört die Messung nicht: Gezählt
+    // wird der Klick, nicht das Ziel. Ohne Einwilligung ist gtag nicht
+    // geladen und der Aufruf verpufft folgenlos.
+    ereignisMelden(ereignis);
     const ziel = macheZiel();
     if (neuerTab) {
       window.open(ziel, "_blank", "noopener");
@@ -127,20 +138,33 @@ function SchutzKnopf({
 export function TelefonLink(props: SchutzLinkProps) {
   return (
     <WennTelefonSichtbar>
-      <SchutzKnopf macheZiel={telefonHref} {...props} />
+      <SchutzKnopf
+        macheZiel={telefonHref}
+        ereignis="telefon_klick"
+        {...props}
+      />
     </WennTelefonSichtbar>
   );
 }
 
 export function MailLink(props: SchutzLinkProps) {
   return (
-    <SchutzKnopf macheZiel={() => window.atob(MAIL_HREF_B64)} {...props} />
+    <SchutzKnopf
+      macheZiel={() => window.atob(MAIL_HREF_B64)}
+      ereignis="email_klick"
+      {...props}
+    />
   );
 }
 
 export function WhatsAppLink(props: SchutzLinkProps) {
   return useContext(KontaktKontext).whatsapp ? (
-    <SchutzKnopf macheZiel={whatsappHref} neuerTab {...props} />
+    <SchutzKnopf
+      macheZiel={whatsappHref}
+      ereignis="whatsapp_klick"
+      neuerTab
+      {...props}
+    />
   ) : null;
 }
 

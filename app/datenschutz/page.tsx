@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ADRESSE } from "../daten";
 import { KopfZeile, FussZeile } from "../komponenten";
+import { EinwilligungSteuerung } from "../einwilligung";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -63,9 +64,11 @@ export default function Datenschutz() {
           </h2>
           <p className="mt-4 text-xl leading-relaxed text-slate-700">
             Diese Website dient ausschließlich der Information über mein
-            Hilfsangebot. Sie verwendet keine Cookies, keine
-            Analyse-Werkzeuge und keine Werbedienste. Es gibt keine
-            Kontaktformulare und keine Benutzerkonten.
+            Hilfsangebot. Es gibt keine Kontaktformulare, keine
+            Benutzerkonten und keine Werbedienste. Zur Besuchsmessung setze
+            ich Google Analytics ein – aber nur, wenn Sie vorher zugestimmt
+            haben (siehe Abschnitt 4). Ohne Ihre Zustimmung werden keine
+            Cookies gesetzt und keine Daten an Dritte übertragen.
           </p>
 
           <h2 className="mt-10 text-2xl font-bold text-slate-900">
@@ -90,7 +93,50 @@ export default function Datenschutz() {
           </p>
 
           <h2 className="mt-10 text-2xl font-bold text-slate-900">
-            4. Kontaktaufnahme
+            4. Besuchsmessung mit Google Analytics
+          </h2>
+          <p className="mt-4 text-xl leading-relaxed text-slate-700">
+            Um zu verstehen, welche Seiten gefragt sind und wo ich mein
+            Angebot verbessern kann, nutze ich Google Analytics 4, einen
+            Dienst der Google Ireland Limited, Gordon House, Barrow Street,
+            Dublin 4, Irland. Erfasst werden dabei zum Beispiel die
+            aufgerufenen Seiten, die Verweildauer, ungefährer Standort,
+            Gerätetyp und Browser sowie Klicks auf die Schaltflächen für
+            Telefon, WhatsApp und E-Mail. Google Analytics kürzt Ihre
+            IP-Adresse, bevor sie gespeichert wird.
+          </p>
+          <p className="mt-4 text-xl leading-relaxed text-slate-700">
+            Dabei werden Cookies auf Ihrem Gerät gespeichert, und es können
+            Daten an Server von Google übertragen werden – auch in die USA.
+            Für diese Übermittlung stützt sich Google auf die
+            Standardvertragsklauseln der EU-Kommission. Ein den europäischen
+            Standards entsprechendes Datenschutzniveau kann für die USA nicht
+            in jedem Fall garantiert werden; insbesondere ist ein Zugriff
+            durch US-Behörden nicht vollständig auszuschließen.
+          </p>
+          <p className="mt-4 text-xl leading-relaxed text-slate-700">
+            Rechtsgrundlage ist ausschließlich Ihre Einwilligung nach Art. 6
+            Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Ohne Ihre Zustimmung
+            wird Google Analytics gar nicht erst geladen. Sie können Ihre
+            Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen –
+            die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt
+            davon unberührt. Weitere Informationen finden Sie in der{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              className="font-bold text-blue-800 underline underline-offset-4"
+            >
+              Datenschutzerklärung von Google
+            </a>
+            .
+          </p>
+
+          <h3 className="mt-8 text-xl font-bold text-slate-900">
+            Ihre Entscheidung ändern
+          </h3>
+          <EinwilligungSteuerung />
+
+          <h2 className="mt-10 text-2xl font-bold text-slate-900">
+            5. Kontaktaufnahme
           </h2>
           <p className="mt-4 text-xl leading-relaxed text-slate-700">
             Wenn Sie mich per Telefon oder E-Mail kontaktieren, verwende ich
@@ -104,7 +150,7 @@ export default function Datenschutz() {
           </p>
 
           <h2 className="mt-10 text-2xl font-bold text-slate-900">
-            5. Ihre Rechte
+            6. Ihre Rechte
           </h2>
           <p className="mt-4 text-xl leading-relaxed text-slate-700">
             Sie haben das Recht auf Auskunft über die von Ihnen
