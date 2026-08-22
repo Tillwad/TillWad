@@ -69,10 +69,14 @@ export async function speichern(
 
   try {
     await einstellungenSpeichern({ bannerText, bannerBis, telefonVersteckt });
-  } catch {
+  } catch (fehler) {
+    // Die genaue Ursache mit anzeigen: Diese Seite sieht nur Till, und ohne
+    // den Originaltext lässt sich ein Speicherproblem kaum eingrenzen.
+    console.error("Einstellungen speichern fehlgeschlagen:", fehler);
+    const grund = fehler instanceof Error ? fehler.message : String(fehler);
     return {
       art: "fehler",
-      text: "Das Speichern hat nicht geklappt. Ist der Blob-Speicher in Vercel eingerichtet?",
+      text: `Das Speichern hat nicht geklappt: ${grund}`,
     };
   }
 

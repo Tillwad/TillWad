@@ -1,4 +1,4 @@
-import { head, put } from "@vercel/blob";
+import { get, put } from "@vercel/blob";
 import { unstable_cache, updateTag } from "next/cache";
 
 // Einstellungen, die Till über /admin ändern kann, ohne dass die Seite neu
@@ -53,12 +53,15 @@ function bereinigen(daten: unknown): Einstellungen {
 const gespeicherteEinstellungen = unstable_cache(
   async (): Promise<Einstellungen> => {
     try {
-      const blob = await head(DATEI);
-      const antwort = await fetch(blob.url, { cache: "no-store" });
-      if (!antwort.ok) {
+      // useCache: false liest direkt aus dem Speicher statt über das CDN.
+      // Sonst könnte direkt nach dem Speichern noch der alte Stand kommen.
+      const ergebnis = await get(DATEI, { access: "public", useCache: false });
+      if (!ergebnis || ergebnis.statusCode !== 200) {
         return STANDARD;
       }
-      return bereinigen(await antwort.json());
+      return bereinigen(
+        JSON.parse(await new Response(ergebnis.stream).text()),
+      );
     } catch {
       // Noch keine Datei vorhanden, kein Blob Store eingerichtet oder das
       // Netzwerk streikt: Die Website läuft dann einfach ohne Hinweisleiste
@@ -108,7 +111,6 @@ export async function einstellungenSpeichern(
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
-    cacheControlMaxAge: 0,
   });
   // updateTag statt revalidateTag: Es sorgt dafür, dass die Verwaltungsseite
   // direkt nach dem Speichern schon den neuen Stand sieht.
