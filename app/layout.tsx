@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { SITE_URL } from "./daten";
 import { CookieHinweis } from "./cookie-hinweis";
+import { Banner } from "./banner";
+import { einstellungenLesen } from "./einstellungen";
+import { TelefonKontextProvider } from "./schutz-links";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,16 +24,21 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const einstellungen = await einstellungenLesen();
+
   return (
     <html lang="de">
       <body className={`${geistSans.variable} antialiased`}>
-        {children}
-        <CookieHinweis />
+        <TelefonKontextProvider sichtbar={!einstellungen.telefonVersteckt}>
+          <Banner />
+          {children}
+          <CookieHinweis />
+        </TelefonKontextProvider>
       </body>
     </html>
   );

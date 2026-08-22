@@ -1,7 +1,13 @@
 import Link from "next/link";
-import { Phone, HelpCircle } from "lucide-react";
+import { Phone, HelpCircle, Mail } from "lucide-react";
 import { orte, type Frage } from "./daten";
-import { TelefonLink, TelefonAnzeige, WhatsAppLink } from "./schutz-links";
+import {
+  TelefonLink,
+  TelefonAnzeige,
+  WhatsAppLink,
+  MailLink,
+  WennTelefonNichtSichtbar,
+} from "./schutz-links";
 
 function WhatsAppIcon({ groesse }: { groesse: number }) {
   return (
@@ -40,6 +46,13 @@ export function KopfZeile() {
             <Phone size={26} aria-hidden="true" />
             <TelefonAnzeige />
           </TelefonLink>
+          {/* Ohne Telefon bleibt die Kopfzeile sonst ohne Kontaktmöglichkeit. */}
+          <WennTelefonNichtSichtbar>
+            <MailLink className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+              <Mail size={26} aria-hidden="true" />
+              E-Mail schreiben
+            </MailLink>
+          </WennTelefonNichtSichtbar>
         </div>
       </div>
     </header>

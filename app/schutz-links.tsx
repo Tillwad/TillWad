@@ -1,6 +1,49 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
+
+// Ob die Telefonnummer angezeigt wird, entscheidet Till unter /admin. Der Wert
+// wird im Layout gelesen und hier über den Kontext an alle Schaltflächen
+// weitergereicht – so muss ihn nicht jede Seite einzeln durchschleifen.
+const TelefonKontext = createContext(true);
+
+export function TelefonKontextProvider({
+  sichtbar,
+  children,
+}: {
+  sichtbar: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <TelefonKontext.Provider value={sichtbar}>
+      {children}
+    </TelefonKontext.Provider>
+  );
+}
+
+/**
+ * Zeigt seinen Inhalt nur, wenn die Telefonnummer sichtbar sein soll. Damit
+ * lassen sich auch die Sätze rund um die Schaltflächen ausblenden, die ohne
+ * Telefonnummer keinen Sinn ergeben.
+ */
+export function WennTelefonSichtbar({ children }: { children: ReactNode }) {
+  return useContext(TelefonKontext) ? <>{children}</> : null;
+}
+
+/** Das Gegenstück: Inhalt nur zeigen, solange die Telefonnummer aus ist. */
+export function WennTelefonNichtSichtbar({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return useContext(TelefonKontext) ? null : <>{children}</>;
+}
 
 // Die Kontaktdaten sind Base64-kodiert und werden erst im Browser dekodiert.
 // So stehen Telefonnummer und E-Mail-Adresse weder im HTML noch im Klartext
@@ -65,8 +108,14 @@ function SchutzKnopf({
   );
 }
 
+// Telefon und WhatsApp verschwinden gemeinsam, wenn Till nicht erreichbar ist.
+// Die E-Mail-Adresse bleibt bewusst stehen, damit man ihn trotzdem erreicht.
 export function TelefonLink(props: SchutzLinkProps) {
-  return <SchutzKnopf macheZiel={telefonHref} {...props} />;
+  return (
+    <WennTelefonSichtbar>
+      <SchutzKnopf macheZiel={telefonHref} {...props} />
+    </WennTelefonSichtbar>
+  );
 }
 
 export function MailLink(props: SchutzLinkProps) {
@@ -76,15 +125,20 @@ export function MailLink(props: SchutzLinkProps) {
 }
 
 export function WhatsAppLink(props: SchutzLinkProps) {
-  return <SchutzKnopf macheZiel={whatsappHref} neuerTab {...props} />;
+  return (
+    <WennTelefonSichtbar>
+      <SchutzKnopf macheZiel={whatsappHref} neuerTab {...props} />
+    </WennTelefonSichtbar>
+  );
 }
 
 export function TelefonAnzeige() {
+  const sichtbar = useContext(TelefonKontext);
   const [text, setText] = useState("");
   useEffect(() => {
     setText(telefonAnzeige());
   }, []);
-  return <>{text}</>;
+  return <>{sichtbar ? text : ""}</>;
 }
 
 // Zeigt die Adresse bewusst als "info [at] dgtill.com" an: Diese Schreibweise

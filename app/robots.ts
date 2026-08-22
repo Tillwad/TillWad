@@ -6,6 +6,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      // Der Verwaltungsbereich gehört nicht in den Index. Die Seite selbst
+      // setzt zusätzlich noindex, denn robots.txt allein hält Suchmaschinen
+      // nicht zuverlässig davon ab, eine URL aufzunehmen.
+      disallow: "/admin",
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
     // Sagt Suchmaschinen, welche Schreibweise der Domain die richtige ist.
