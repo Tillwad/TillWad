@@ -1,12 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "cookie-hinweis-bestaetigt";
 
 export function CookieHinweis() {
   const [sichtbar, setSichtbar] = useState(false);
+  // Der Verwaltungsbereich setzt sehr wohl ein Cookie (für die Anmeldung).
+  // Dort wäre der Hinweis also schlicht falsch – und da ihn ohnehin nur Till
+  // zu sehen bekäme, bleibt er auf diesen Seiten weg.
+  const pfad = usePathname();
 
   useEffect(() => {
     try {
@@ -18,7 +23,7 @@ export function CookieHinweis() {
     }
   }, []);
 
-  if (!sichtbar) {
+  if (!sichtbar || pfad?.startsWith("/admin")) {
     return null;
   }
 

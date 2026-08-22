@@ -13,12 +13,14 @@ import {
 } from "lucide-react";
 import { PREIS_STUNDE, SITE_URL, fragen, leistungen, orte } from "./daten";
 import { KopfZeile, FussZeile, FragenAbschnitt } from "./komponenten";
-import { FragenDaten } from "./strukturierte-daten";
+import { FragenDaten, UnternehmensDaten } from "./strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
   MailLink,
   MailAnzeige,
+  WennTelefonSichtbar,
+  WennTelefonNichtSichtbar,
 } from "./schutz-links";
 
 // Ohne eigenes Canonical meldet die Google Search Console "Duplikat – ohne
@@ -88,6 +90,7 @@ const preise = [
 export default function Home() {
   return (
     <>
+      <UnternehmensDaten />
       <FragenDaten fragen={fragen} seitenUrl={`${SITE_URL}/`} />
 
       <a href="#inhalt" className="skip-link">
@@ -166,14 +169,16 @@ export default function Home() {
                   E-Mail schreiben
                 </MailLink>
               </div>
-              <p className="text-lg text-slate-600">
-                Sie erreichen mich unter{" "}
-                <TelefonLink className="font-bold text-blue-800 underline underline-offset-4">
-                  <TelefonAnzeige />
-                </TelefonLink>{" "}
-                – gerne auch auf den Anrufbeantworter sprechen, ich rufe
-                zurück.
-              </p>
+              <WennTelefonSichtbar>
+                <p className="text-lg text-slate-600">
+                  Sie erreichen mich unter{" "}
+                  <TelefonLink className="font-bold text-blue-800 underline underline-offset-4">
+                    <TelefonAnzeige />
+                  </TelefonLink>{" "}
+                  – gerne auch auf den Anrufbeantworter sprechen, ich rufe
+                  zurück.
+                </p>
+              </WennTelefonSichtbar>
             </div>
           </div>
         </section>
@@ -475,17 +480,25 @@ export default function Home() {
               id="kontakt-titel"
               className="text-3xl font-bold sm:text-4xl"
             >
-              Rufen Sie mich einfach an
+              <WennTelefonSichtbar>Rufen Sie mich einfach an</WennTelefonSichtbar>
+              <WennTelefonNichtSichtbar>
+                Schreiben Sie mir einfach
+              </WennTelefonNichtSichtbar>
             </h2>
-            <p className="text-xl leading-relaxed sm:text-2xl">
-              Ich freue mich auf Ihren Anruf und nehme mir Zeit für Sie.
-            </p>
+            <WennTelefonSichtbar>
+              <p className="text-xl leading-relaxed sm:text-2xl">
+                Ich freue mich auf Ihren Anruf und nehme mir Zeit für Sie.
+              </p>
+            </WennTelefonSichtbar>
             <TelefonLink className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-3xl">
               <Phone size={32} aria-hidden="true" />
               <TelefonAnzeige />
             </TelefonLink>
             <p className="text-xl">
-              Oder per E-Mail:{" "}
+              <WennTelefonSichtbar>Oder per E-Mail: </WennTelefonSichtbar>
+              <WennTelefonNichtSichtbar>
+                Sie erreichen mich per E-Mail:{" "}
+              </WennTelefonNichtSichtbar>
               <MailLink className="font-bold underline underline-offset-4">
                 <MailAnzeige />
               </MailLink>

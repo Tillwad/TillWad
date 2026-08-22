@@ -16,6 +16,8 @@ import {
   TelefonLink,
   TelefonAnzeige,
   MailLink,
+  WennTelefonSichtbar,
+  WennTelefonNichtSichtbar,
 } from "../../schutz-links";
 
 type Params = { ort: string };
@@ -285,7 +287,7 @@ export default async function OrtSeite({
               {[
                 `Ich komme zu Ihnen nach Hause – überall in ${ort.name}`,
                 "Die Anfahrt ist für Sie kostenlos",
-                "Beratung am Telefon kostet nichts – rufen Sie einfach an",
+                "Eine kurze Beratung vorab kostet Sie nichts",
               ].map((punkt) => (
                 <li key={punkt} className="flex items-start gap-4">
                   <CheckCircle2
@@ -351,12 +353,27 @@ export default async function OrtSeite({
 
           <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-6 text-center">
             <h2 id="kontakt-titel" className="text-3xl font-bold sm:text-4xl">
-              Rufen Sie mich einfach an
+              <WennTelefonSichtbar>Rufen Sie mich einfach an</WennTelefonSichtbar>
+              <WennTelefonNichtSichtbar>
+                Schreiben Sie mir einfach
+              </WennTelefonNichtSichtbar>
             </h2>
-            <p className="text-xl leading-relaxed sm:text-2xl">
-              Ich freue mich auf Ihren Anruf aus {ort.name} und nehme mir Zeit
-              für Sie.
-            </p>
+            <WennTelefonSichtbar>
+              <p className="text-xl leading-relaxed sm:text-2xl">
+                Ich freue mich auf Ihren Anruf aus {ort.name} und nehme mir
+                Zeit für Sie.
+              </p>
+            </WennTelefonSichtbar>
+            <WennTelefonNichtSichtbar>
+              <p className="text-xl leading-relaxed sm:text-2xl">
+                Schreiben Sie mir, worum es in {ort.name} geht – ich melde mich
+                bei Ihnen.
+              </p>
+              <MailLink className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white">
+                <Mail size={30} aria-hidden="true" />
+                E-Mail schreiben
+              </MailLink>
+            </WennTelefonNichtSichtbar>
             <TelefonLink className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-3xl">
               <Phone size={32} aria-hidden="true" />
               <TelefonAnzeige />

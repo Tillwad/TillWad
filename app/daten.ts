@@ -14,7 +14,10 @@ export const SITE_URL = "https://www.tillwadehn.de";
 
 export const ADRESSE = ["Breisgauer Str. 27", "14129 Berlin"];
 
-export const PREIS_STUNDE = "46 € pro Stunde";
+/** Stundensatz als Zahl – Grundlage für Anzeige und strukturierte Daten. */
+export const PREIS_ZAHL = 46;
+
+export const PREIS_STUNDE = `${PREIS_ZAHL} € pro Stunde`;
 
 export const leistungen = [
   {
