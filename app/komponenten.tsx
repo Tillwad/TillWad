@@ -6,7 +6,7 @@ import {
   TelefonAnzeige,
   WhatsAppLink,
   MailLink,
-  WennTelefonNichtSichtbar,
+  WennKeinSofortkontakt,
 } from "./schutz-links";
 
 function WhatsAppIcon({ groesse }: { groesse: number }) {
@@ -46,13 +46,14 @@ export function KopfZeile() {
             <Phone size={26} aria-hidden="true" />
             <TelefonAnzeige />
           </TelefonLink>
-          {/* Ohne Telefon bleibt die Kopfzeile sonst ohne Kontaktmöglichkeit. */}
-          <WennTelefonNichtSichtbar>
+          {/* Sind beide Wege aus, bliebe die Kopfzeile sonst ganz ohne
+              Kontaktmöglichkeit. */}
+          <WennKeinSofortkontakt>
             <MailLink className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
               <Mail size={26} aria-hidden="true" />
               E-Mail schreiben
             </MailLink>
-          </WennTelefonNichtSichtbar>
+          </WennKeinSofortkontakt>
         </div>
       </div>
     </header>

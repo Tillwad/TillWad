@@ -24,14 +24,17 @@ export type Einstellungen = {
    * Leer bedeutet: läuft nicht automatisch ab.
    */
   bannerBis: string;
-  /** Blendet Telefon- und WhatsApp-Schaltflächen auf der ganzen Seite aus. */
+  /** Blendet die Telefon-Schaltflächen auf der ganzen Seite aus. */
   telefonVersteckt: boolean;
+  /** Blendet die WhatsApp-Schaltflächen auf der ganzen Seite aus. */
+  whatsappVersteckt: boolean;
 };
 
 export const STANDARD: Einstellungen = {
   bannerText: "",
   bannerBis: "",
   telefonVersteckt: false,
+  whatsappVersteckt: false,
 };
 
 /**
@@ -44,6 +47,13 @@ function bereinigen(daten: unknown): Einstellungen {
     return STANDARD;
   }
   const roh = daten as Record<string, unknown>;
+  // Früher schaltete ein einziges Feld Telefon und WhatsApp gemeinsam ab. In
+  // einer schon gespeicherten Datei fehlt whatsappVersteckt deshalb noch –
+  // dann gilt weiterhin, was für das Telefon eingestellt war.
+  const whatsappVersteckt =
+    typeof roh.whatsappVersteckt === "boolean"
+      ? roh.whatsappVersteckt
+      : roh.telefonVersteckt === true;
   return {
     bannerText:
       typeof roh.bannerText === "string" ? roh.bannerText.slice(0, 500) : "",
@@ -52,6 +62,7 @@ function bereinigen(daten: unknown): Einstellungen {
         ? roh.bannerBis
         : "",
     telefonVersteckt: roh.telefonVersteckt === true,
+    whatsappVersteckt,
   };
 }
 

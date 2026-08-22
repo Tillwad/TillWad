@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LogOut } from "lucide-react";
-import { bannerLaeuftNoch, einstellungenLesen } from "../einstellungen";
+import {
+  bannerLaeuftNoch,
+  einstellungenLesen,
+  type Einstellungen,
+} from "../einstellungen";
 import { abmeldenAktion } from "./aktionen";
 import { Anmeldung, EinstellungenFormular } from "./formulare";
 import { istAngemeldet, passwortIstEingerichtet } from "./sitzung";
@@ -14,6 +18,22 @@ export const metadata: Metadata = {
 // Der Anmeldestatus steckt in einem Cookie, deshalb darf diese Seite nicht
 // vorab erzeugt und zwischengespeichert werden.
 export const dynamic = "force-dynamic";
+
+function beschreibeErreichbarkeit({
+  telefonVersteckt,
+  whatsappVersteckt,
+}: Einstellungen): string {
+  if (telefonVersteckt && whatsappVersteckt) {
+    return "Telefon und WhatsApp sind ausgeblendet, erreichbar sind Sie per E-Mail.";
+  }
+  if (telefonVersteckt) {
+    return "Die Telefonnummer ist ausgeblendet, WhatsApp wird angezeigt.";
+  }
+  if (whatsappVersteckt) {
+    return "WhatsApp ist ausgeblendet, die Telefonnummer wird angezeigt.";
+  }
+  return "Telefon und WhatsApp werden angezeigt.";
+}
 
 function Rahmen({ children }: { children: React.ReactNode }) {
   return (
@@ -86,9 +106,7 @@ export default async function Admin() {
                 : ""
             }.`
           : "Es wird keine Hinweisleiste angezeigt."}{" "}
-        {einstellungen.telefonVersteckt
-          ? "Die Telefonnummer ist ausgeblendet."
-          : "Die Telefonnummer ist sichtbar."}
+        {beschreibeErreichbarkeit(einstellungen)}
       </p>
 
       <div className="mt-8">

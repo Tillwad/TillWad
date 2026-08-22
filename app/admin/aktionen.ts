@@ -56,6 +56,7 @@ export async function speichern(
   const bannerText = String(formular.get("bannerText") ?? "").trim();
   const bannerBis = String(formular.get("bannerBis") ?? "").trim();
   const telefonVersteckt = formular.get("telefonVersteckt") === "ja";
+  const whatsappVersteckt = formular.get("whatsappVersteckt") === "ja";
 
   if (bannerBis && !/^\d{4}-\d{2}-\d{2}$/.test(bannerBis)) {
     return { art: "fehler", text: "Das Datum konnte nicht gelesen werden." };
@@ -68,7 +69,12 @@ export async function speichern(
   }
 
   try {
-    await einstellungenSpeichern({ bannerText, bannerBis, telefonVersteckt });
+    await einstellungenSpeichern({
+      bannerText,
+      bannerBis,
+      telefonVersteckt,
+      whatsappVersteckt,
+    });
   } catch (fehler) {
     // Die genaue Ursache mit anzeigen: Diese Seite sieht nur Till, und ohne
     // den Originaltext lässt sich ein Speicherproblem kaum eingrenzen.

@@ -130,8 +130,13 @@ export function EinstellungenFormular({
       </section>
 
       <section className="rounded-2xl border-2 border-slate-200 bg-white p-7 shadow-sm">
-        <h2 className="text-2xl font-bold text-slate-900">Telefonnummer</h2>
-        <label className="mt-4 flex items-start gap-4">
+        <h2 className="text-2xl font-bold text-slate-900">Erreichbarkeit</h2>
+        <p className="mt-2 text-lg text-slate-600">
+          Hier blenden Sie einzelne Kontaktwege aus. Die E-Mail-Adresse bleibt
+          immer sichtbar, damit Sie erreichbar bleiben.
+        </p>
+
+        <label className="mt-6 flex items-start gap-4">
           <input
             type="checkbox"
             name="telefonVersteckt"
@@ -140,8 +145,20 @@ export function EinstellungenFormular({
             className="mt-1 h-7 w-7 shrink-0 rounded border-2 border-slate-400 accent-blue-700"
           />
           <span className="text-lg leading-relaxed text-slate-800">
-            Telefon- und WhatsApp-Schaltflächen ausblenden. Die E-Mail-Adresse
-            bleibt sichtbar, damit Sie erreichbar bleiben.
+            Telefonnummer ausblenden
+          </span>
+        </label>
+
+        <label className="mt-4 flex items-start gap-4">
+          <input
+            type="checkbox"
+            name="whatsappVersteckt"
+            value="ja"
+            defaultChecked={einstellungen.whatsappVersteckt}
+            className="mt-1 h-7 w-7 shrink-0 rounded border-2 border-slate-400 accent-blue-700"
+          />
+          <span className="text-lg leading-relaxed text-slate-800">
+            WhatsApp ausblenden
           </span>
         </label>
       </section>

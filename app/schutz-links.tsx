@@ -8,22 +8,26 @@ import {
   type ReactNode,
 } from "react";
 
-// Ob die Telefonnummer angezeigt wird, entscheidet Till unter /admin. Der Wert
-// wird im Layout gelesen und hier über den Kontext an alle Schaltflächen
-// weitergereicht – so muss ihn nicht jede Seite einzeln durchschleifen.
-const TelefonKontext = createContext(true);
+// Welche Kontaktwege angezeigt werden, entscheidet Till unter /admin. Telefon
+// und WhatsApp lassen sich getrennt abschalten. Die Werte werden im Layout
+// gelesen und hier über den Kontext an alle Schaltflächen weitergereicht – so
+// muss sie nicht jede Seite einzeln durchschleifen.
+type Kontaktwege = { telefon: boolean; whatsapp: boolean };
 
-export function TelefonKontextProvider({
-  sichtbar,
+const KontaktKontext = createContext<Kontaktwege>({
+  telefon: true,
+  whatsapp: true,
+});
+
+export function KontaktKontextProvider({
+  telefon,
+  whatsapp,
   children,
-}: {
-  sichtbar: boolean;
-  children: ReactNode;
-}) {
+}: Kontaktwege & { children: ReactNode }) {
   return (
-    <TelefonKontext.Provider value={sichtbar}>
+    <KontaktKontext.Provider value={{ telefon, whatsapp }}>
       {children}
-    </TelefonKontext.Provider>
+    </KontaktKontext.Provider>
   );
 }
 
@@ -33,7 +37,7 @@ export function TelefonKontextProvider({
  * Telefonnummer keinen Sinn ergeben.
  */
 export function WennTelefonSichtbar({ children }: { children: ReactNode }) {
-  return useContext(TelefonKontext) ? <>{children}</> : null;
+  return useContext(KontaktKontext).telefon ? <>{children}</> : null;
 }
 
 /** Das Gegenstück: Inhalt nur zeigen, solange die Telefonnummer aus ist. */
@@ -42,7 +46,17 @@ export function WennTelefonNichtSichtbar({
 }: {
   children: ReactNode;
 }) {
-  return useContext(TelefonKontext) ? null : <>{children}</>;
+  return useContext(KontaktKontext).telefon ? null : <>{children}</>;
+}
+
+/**
+ * Nur anzeigen, wenn weder Telefon noch WhatsApp erreichbar sind – dann
+ * braucht es an prominenter Stelle einen Ersatz, damit die Seite nicht ganz
+ * ohne Kontaktmöglichkeit dasteht.
+ */
+export function WennKeinSofortkontakt({ children }: { children: ReactNode }) {
+  const { telefon, whatsapp } = useContext(KontaktKontext);
+  return telefon || whatsapp ? null : <>{children}</>;
 }
 
 // Die Kontaktdaten sind Base64-kodiert und werden erst im Browser dekodiert.
@@ -108,8 +122,8 @@ function SchutzKnopf({
   );
 }
 
-// Telefon und WhatsApp verschwinden gemeinsam, wenn Till nicht erreichbar ist.
-// Die E-Mail-Adresse bleibt bewusst stehen, damit man ihn trotzdem erreicht.
+// Telefon und WhatsApp lassen sich getrennt abschalten. Die E-Mail-Adresse
+// bleibt in jedem Fall stehen, damit man Till immer erreichen kann.
 export function TelefonLink(props: SchutzLinkProps) {
   return (
     <WennTelefonSichtbar>
@@ -125,15 +139,13 @@ export function MailLink(props: SchutzLinkProps) {
 }
 
 export function WhatsAppLink(props: SchutzLinkProps) {
-  return (
-    <WennTelefonSichtbar>
-      <SchutzKnopf macheZiel={whatsappHref} neuerTab {...props} />
-    </WennTelefonSichtbar>
-  );
+  return useContext(KontaktKontext).whatsapp ? (
+    <SchutzKnopf macheZiel={whatsappHref} neuerTab {...props} />
+  ) : null;
 }
 
 export function TelefonAnzeige() {
-  const sichtbar = useContext(TelefonKontext);
+  const sichtbar = useContext(KontaktKontext).telefon;
   const [text, setText] = useState("");
   useEffect(() => {
     setText(telefonAnzeige());

@@ -4,7 +4,7 @@ import { SITE_URL } from "./daten";
 import { CookieHinweis } from "./cookie-hinweis";
 import { Banner } from "./banner";
 import { einstellungenLesen } from "./einstellungen";
-import { TelefonKontextProvider } from "./schutz-links";
+import { KontaktKontextProvider } from "./schutz-links";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,11 +34,14 @@ export default async function RootLayout({
   return (
     <html lang="de">
       <body className={`${geistSans.variable} antialiased`}>
-        <TelefonKontextProvider sichtbar={!einstellungen.telefonVersteckt}>
+        <KontaktKontextProvider
+          telefon={!einstellungen.telefonVersteckt}
+          whatsapp={!einstellungen.whatsappVersteckt}
+        >
           <Banner />
           {children}
           <CookieHinweis />
-        </TelefonKontextProvider>
+        </KontaktKontextProvider>
       </body>
     </html>
   );
