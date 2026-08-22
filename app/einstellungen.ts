@@ -11,6 +11,11 @@ import { unstable_cache, updateTag } from "next/cache";
 const DATEI = "einstellungen.json";
 export const EINSTELLUNGEN_TAG = "einstellungen";
 
+// Die Datei wird nur auf dem Server gelesen, niemand soll sie direkt über
+// eine URL abrufen können. Lesen und Schreiben müssen dieselbe Zugriffsart
+// angeben, deshalb steht sie hier an einer Stelle.
+const ZUGRIFF = "private" as const;
+
 export type Einstellungen = {
   /** Text der Hinweisleiste. Leer bedeutet: keine Leiste anzeigen. */
   bannerText: string;
@@ -55,7 +60,7 @@ const gespeicherteEinstellungen = unstable_cache(
     try {
       // useCache: false liest direkt aus dem Speicher statt über das CDN.
       // Sonst könnte direkt nach dem Speichern noch der alte Stand kommen.
-      const ergebnis = await get(DATEI, { access: "public", useCache: false });
+      const ergebnis = await get(DATEI, { access: ZUGRIFF, useCache: false });
       if (!ergebnis || ergebnis.statusCode !== 200) {
         return STANDARD;
       }
@@ -107,7 +112,7 @@ export async function einstellungenSpeichern(
   einstellungen: Einstellungen,
 ): Promise<void> {
   await put(DATEI, JSON.stringify(bereinigen(einstellungen), null, 2), {
-    access: "public",
+    access: ZUGRIFF,
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
