@@ -89,7 +89,21 @@ function whatsappHref() {
   );
 }
 
+/**
+ * Wo auf der Seite eine Kontakt-Schaltfläche steht. Wird als Parameter an die
+ * Besuchsmessung übergeben, damit erkennbar ist, welche Schaltfläche tatsächlich
+ * benutzt wird – die in der Kopfzeile oder die weiter unten.
+ *
+ * Damit das in Google Analytics sichtbar wird, muss "bereich" dort einmalig als
+ * benutzerdefinierte Dimension angelegt werden (Verwaltung → Benutzerdefinierte
+ * Definitionen). Ohne diesen Schritt kommen die Ereignisse trotzdem an, nur
+ * lässt sich nicht nach Bereich aufschlüsseln.
+ */
+export type Bereich = "kopfzeile" | "hero" | "kontakt" | "rechtliches";
+
 type SchutzLinkProps = {
+  /** Pflichtangabe, damit keine Schaltfläche ohne Herkunft gemessen wird. */
+  bereich: Bereich;
   className?: string;
   children: ReactNode;
 };
@@ -99,21 +113,30 @@ type SchutzLinkProps = {
 // oder im Seiten-DOM.
 function SchutzKnopf({
   macheZiel,
-  ereignis,
+  kontaktweg,
+  bereich,
   neuerTab = false,
   className,
   children,
 }: SchutzLinkProps & {
   macheZiel: () => string;
-  /** Name des Ereignisses für die Besuchsmessung. */
-  ereignis: string;
+  /** Welcher Kontaktweg – bestimmt den Namen des gemeldeten Ereignisses. */
+  kontaktweg: "telefon" | "whatsapp" | "email";
   neuerTab?: boolean;
 }) {
   const oeffnen = () => {
     // Dass die Kontaktdaten kodiert sind, stört die Messung nicht: Gezählt
     // wird der Klick, nicht das Ziel. Ohne Einwilligung ist gtag nicht
     // geladen und der Aufruf verpufft folgenlos.
-    ereignisMelden(ereignis);
+    //
+    // Zwei Meldungen pro Klick, mit Absicht:
+    // - Ein eigener Name je Kontaktweg. Der ist in den Berichten sofort
+    //   lesbar, ganz ohne zusätzliche Einrichtung in Google Analytics.
+    // - Zusätzlich generate_lead, ein von Google vordefiniertes Ereignis.
+    //   Darüber laufen alle Kontaktaufnahmen zusammen, sodass eine einzige
+    //   Zahl sagt, wie oft jemand Kontakt aufgenommen hat.
+    ereignisMelden(`${kontaktweg}_klick`, { bereich });
+    ereignisMelden("generate_lead", { kontaktweg, bereich });
     const ziel = macheZiel();
     if (neuerTab) {
       window.open(ziel, "_blank", "noopener");
@@ -138,11 +161,7 @@ function SchutzKnopf({
 export function TelefonLink(props: SchutzLinkProps) {
   return (
     <WennTelefonSichtbar>
-      <SchutzKnopf
-        macheZiel={telefonHref}
-        ereignis="telefon_klick"
-        {...props}
-      />
+      <SchutzKnopf macheZiel={telefonHref} kontaktweg="telefon" {...props} />
     </WennTelefonSichtbar>
   );
 }
@@ -151,7 +170,7 @@ export function MailLink(props: SchutzLinkProps) {
   return (
     <SchutzKnopf
       macheZiel={() => window.atob(MAIL_HREF_B64)}
-      ereignis="email_klick"
+      kontaktweg="email"
       {...props}
     />
   );
@@ -161,7 +180,7 @@ export function WhatsAppLink(props: SchutzLinkProps) {
   return useContext(KontaktKontext).whatsapp ? (
     <SchutzKnopf
       macheZiel={whatsappHref}
-      ereignis="whatsapp_klick"
+      kontaktweg="whatsapp"
       neuerTab
       {...props}
     />

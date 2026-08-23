@@ -38,18 +38,27 @@ export function KopfZeile() {
           IT-Hilfe von Till
         </Link>
         <div className="flex flex-col items-center gap-3 sm:flex-row">
-          <WhatsAppLink className="inline-flex items-center gap-3 rounded-xl bg-green-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-green-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700">
+          <WhatsAppLink
+            bereich="kopfzeile"
+            className="inline-flex items-center gap-3 rounded-xl bg-green-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-green-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+          >
             <WhatsAppIcon groesse={26} />
             WhatsApp
           </WhatsAppLink>
-          <TelefonLink className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+          <TelefonLink
+            bereich="kopfzeile"
+            className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
             <Phone size={26} aria-hidden="true" />
             <TelefonAnzeige />
           </TelefonLink>
           {/* Sind beide Wege aus, bliebe die Kopfzeile sonst ganz ohne
               Kontaktmöglichkeit. */}
           <WennKeinSofortkontakt>
-            <MailLink className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+            <MailLink
+              bereich="kopfzeile"
+              className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+            >
               <Mail size={26} aria-hidden="true" />
               E-Mail schreiben
             </MailLink>

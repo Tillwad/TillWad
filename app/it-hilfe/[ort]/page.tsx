@@ -121,33 +121,39 @@ export default async function OrtSeite({
             </figure>
 
             <div className="flex max-w-3xl flex-col items-center gap-6 text-center lg:order-1 lg:items-start lg:text-left">
-            <p className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-5 py-2 text-lg font-semibold text-blue-800">
-              <MapPin size={22} aria-hidden="true" />
-              {ort.name}
-            </p>
-            <h1
-              id="einstieg-titel"
-              className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
-            >
-              IT-Hilfe in {ort.name} – bei Ihnen zu Hause
-            </h1>
-            <div
-              aria-hidden="true"
-              className="h-2 w-28 rounded-full bg-amber-400"
-            />
-            <p className="max-w-2xl text-xl leading-relaxed text-slate-700 sm:text-2xl">
-              {ort.text}
-            </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <TelefonLink className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-700 px-8 py-5 text-2xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto">
-                <Phone size={28} aria-hidden="true" />
-                Jetzt anrufen
-              </TelefonLink>
-              <MailLink className="inline-flex w-full items-center justify-center gap-3 rounded-xl border-2 border-slate-400 bg-white px-8 py-5 text-2xl font-bold text-slate-900 hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto">
-                <Mail size={28} aria-hidden="true" />
-                E-Mail schreiben
-              </MailLink>
-            </div>
+              <p className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-5 py-2 text-lg font-semibold text-blue-800">
+                <MapPin size={22} aria-hidden="true" />
+                {ort.name}
+              </p>
+              <h1
+                id="einstieg-titel"
+                className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
+              >
+                IT-Hilfe in {ort.name} – bei Ihnen zu Hause
+              </h1>
+              <div
+                aria-hidden="true"
+                className="h-2 w-28 rounded-full bg-amber-400"
+              />
+              <p className="max-w-2xl text-xl leading-relaxed text-slate-700 sm:text-2xl">
+                {ort.text}
+              </p>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <TelefonLink
+                  bereich="hero"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-700 px-8 py-5 text-2xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto"
+                >
+                  <Phone size={28} aria-hidden="true" />
+                  Jetzt anrufen
+                </TelefonLink>
+                <MailLink
+                  bereich="hero"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-xl border-2 border-slate-400 bg-white px-8 py-5 text-2xl font-bold text-slate-900 hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto"
+                >
+                  <Mail size={28} aria-hidden="true" />
+                  E-Mail schreiben
+                </MailLink>
+              </div>
             </div>
           </div>
         </section>
@@ -353,15 +359,17 @@ export default async function OrtSeite({
 
           <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-6 text-center">
             <h2 id="kontakt-titel" className="text-3xl font-bold sm:text-4xl">
-              <WennTelefonSichtbar>Rufen Sie mich einfach an</WennTelefonSichtbar>
+              <WennTelefonSichtbar>
+                Rufen Sie mich einfach an
+              </WennTelefonSichtbar>
               <WennTelefonNichtSichtbar>
                 Schreiben Sie mir einfach
               </WennTelefonNichtSichtbar>
             </h2>
             <WennTelefonSichtbar>
               <p className="text-xl leading-relaxed sm:text-2xl">
-                Ich freue mich auf Ihren Anruf aus {ort.name} und nehme mir
-                Zeit für Sie.
+                Ich freue mich auf Ihren Anruf aus {ort.name} und nehme mir Zeit
+                für Sie.
               </p>
             </WennTelefonSichtbar>
             <WennTelefonNichtSichtbar>
@@ -369,12 +377,18 @@ export default async function OrtSeite({
                 Schreiben Sie mir, worum es in {ort.name} geht – ich melde mich
                 bei Ihnen.
               </p>
-              <MailLink className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white">
+              <MailLink
+                bereich="kontakt"
+                className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
                 <Mail size={30} aria-hidden="true" />
                 E-Mail schreiben
               </MailLink>
             </WennTelefonNichtSichtbar>
-            <TelefonLink className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-3xl">
+            <TelefonLink
+              bereich="kontakt"
+              className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-3xl"
+            >
               <Phone size={32} aria-hidden="true" />
               <TelefonAnzeige />
             </TelefonLink>

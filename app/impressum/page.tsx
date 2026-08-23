@@ -10,7 +10,8 @@ import {
 
 export const metadata: Metadata = {
   title: "Impressum – IT-Hilfe von Till",
-  description: "Impressum und Anbieterkennzeichnung der IT-Hilfe von Till Wadehn.",
+  description:
+    "Impressum und Anbieterkennzeichnung der IT-Hilfe von Till Wadehn.",
   alternates: {
     canonical: "/impressum",
   },
@@ -47,12 +48,18 @@ export default function Impressum() {
           <h2 className="mt-10 text-2xl font-bold text-slate-900">Kontakt</h2>
           <p className="mt-4 text-xl leading-relaxed text-slate-700">
             Telefon:{" "}
-            <TelefonLink className="font-bold text-blue-800 underline underline-offset-4">
+            <TelefonLink
+              bereich="rechtliches"
+              className="font-bold text-blue-800 underline underline-offset-4"
+            >
               <TelefonAnzeige />
             </TelefonLink>
             <br />
             E-Mail:{" "}
-            <MailLink className="font-bold text-blue-800 underline underline-offset-4">
+            <MailLink
+              bereich="rechtliches"
+              className="font-bold text-blue-800 underline underline-offset-4"
+            >
               <MailAnzeige />
             </MailLink>
           </p>

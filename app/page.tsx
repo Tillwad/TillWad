@@ -156,15 +156,21 @@ export default function Home() {
               />
               <p className="text-xl leading-relaxed text-slate-700 sm:text-2xl">
                 Ich bin Till aus Ihrer Nachbarschaft. Ich helfe Ihnen geduldig
-                bei allen Fragen rund um Technik – verständlich erklärt und
-                ohne Fachchinesisch.
+                bei allen Fragen rund um Technik – verständlich erklärt und ohne
+                Fachchinesisch.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
-                <TelefonLink className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-700 px-8 py-5 text-2xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto">
+                <TelefonLink
+                  bereich="hero"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-700 px-8 py-5 text-2xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto"
+                >
                   <Phone size={28} aria-hidden="true" />
                   Jetzt anrufen
                 </TelefonLink>
-                <MailLink className="inline-flex w-full items-center justify-center gap-3 rounded-xl border-2 border-slate-400 bg-white px-8 py-5 text-2xl font-bold text-slate-900 hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto">
+                <MailLink
+                  bereich="hero"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-xl border-2 border-slate-400 bg-white px-8 py-5 text-2xl font-bold text-slate-900 hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto"
+                >
                   <Mail size={28} aria-hidden="true" />
                   E-Mail schreiben
                 </MailLink>
@@ -172,7 +178,10 @@ export default function Home() {
               <WennTelefonSichtbar>
                 <p className="text-lg text-slate-600">
                   Sie erreichen mich unter{" "}
-                  <TelefonLink className="font-bold text-blue-800 underline underline-offset-4">
+                  <TelefonLink
+                    bereich="hero"
+                    className="font-bold text-blue-800 underline underline-offset-4"
+                  >
                     <TelefonAnzeige />
                   </TelefonLink>{" "}
                   – gerne auch auf den Anrufbeantworter sprechen, ich rufe
@@ -209,8 +218,8 @@ export default function Home() {
               className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
             />
             <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
-              Egal ob großes oder kleines Problem – fragen Sie einfach. Es
-              gibt keine dummen Fragen.
+              Egal ob großes oder kleines Problem – fragen Sie einfach. Es gibt
+              keine dummen Fragen.
             </p>
 
             <ul className="mt-10 grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -314,15 +323,15 @@ export default function Home() {
                 className="mx-auto h-2 w-28 rounded-full bg-amber-400 lg:mx-0"
               />
               <p className="text-xl leading-relaxed text-slate-700">
-                Mein Name ist Till Wadehn. Beruflich entwickle ich Software
-                und Websites – Technik ist mein tägliches Handwerk. In meiner
+                Mein Name ist Till Wadehn. Beruflich entwickle ich Software und
+                Websites – Technik ist mein tägliches Handwerk. In meiner
                 Freizeit helfe ich Menschen aus der Nachbarschaft, die mit
                 Computer, Handy oder Internet nicht weiterkommen.
               </p>
               <p className="text-xl leading-relaxed text-slate-700">
-                Mir ist wichtig, dass Sie sich gut aufgehoben fühlen: Ich
-                nehme mir Zeit, erkläre alles in Ruhe und Sie zahlen nur, was
-                vorher besprochen wurde.
+                Mir ist wichtig, dass Sie sich gut aufgehoben fühlen: Ich nehme
+                mir Zeit, erkläre alles in Ruhe und Sie zahlen nur, was vorher
+                besprochen wurde.
               </p>
             </div>
 
@@ -365,8 +374,8 @@ export default function Home() {
               className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
             />
             <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
-              Keine versteckten Kosten, keine Überraschungen – Sie wissen
-              immer vorher, was die Hilfe kostet.
+              Keine versteckten Kosten, keine Überraschungen – Sie wissen immer
+              vorher, was die Hilfe kostet.
             </p>
 
             <ul className="mt-10 grid list-none gap-6 sm:grid-cols-3">
@@ -476,11 +485,10 @@ export default function Home() {
           />
 
           <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-6 text-center">
-            <h2
-              id="kontakt-titel"
-              className="text-3xl font-bold sm:text-4xl"
-            >
-              <WennTelefonSichtbar>Rufen Sie mich einfach an</WennTelefonSichtbar>
+            <h2 id="kontakt-titel" className="text-3xl font-bold sm:text-4xl">
+              <WennTelefonSichtbar>
+                Rufen Sie mich einfach an
+              </WennTelefonSichtbar>
               <WennTelefonNichtSichtbar>
                 Schreiben Sie mir einfach
               </WennTelefonNichtSichtbar>
@@ -490,7 +498,10 @@ export default function Home() {
                 Ich freue mich auf Ihren Anruf und nehme mir Zeit für Sie.
               </p>
             </WennTelefonSichtbar>
-            <TelefonLink className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-3xl">
+            <TelefonLink
+              bereich="kontakt"
+              className="inline-flex items-center gap-4 rounded-xl bg-white px-8 py-5 text-2xl font-bold text-blue-800 shadow-md hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-3xl"
+            >
               <Phone size={32} aria-hidden="true" />
               <TelefonAnzeige />
             </TelefonLink>
@@ -499,7 +510,10 @@ export default function Home() {
               <WennTelefonNichtSichtbar>
                 Sie erreichen mich per E-Mail:{" "}
               </WennTelefonNichtSichtbar>
-              <MailLink className="font-bold underline underline-offset-4">
+              <MailLink
+                bereich="kontakt"
+                className="font-bold underline underline-offset-4"
+              >
                 <MailAnzeige />
               </MailLink>
             </p>

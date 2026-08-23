@@ -112,21 +112,18 @@ export function EinwilligungProvider({ children }: { children: ReactNode }) {
       stand !== "erteilt";
   }, [stand]);
 
-  const entscheiden = useCallback(
-    (neu: Exclude<Einwilligung, "unbekannt">) => {
-      try {
-        window.localStorage.setItem(SPEICHER, neu);
-      } catch {
-        // Kein Speicher verfügbar: Die Entscheidung gilt dann nur für diesen
-        // Besuch. Das ist unschön, aber besser als gar nicht zu funktionieren.
-      }
-      if (neu === "abgelehnt") {
-        analyseCookiesLoeschen();
-      }
-      setStand(neu);
-    },
-    [],
-  );
+  const entscheiden = useCallback((neu: Exclude<Einwilligung, "unbekannt">) => {
+    try {
+      window.localStorage.setItem(SPEICHER, neu);
+    } catch {
+      // Kein Speicher verfügbar: Die Entscheidung gilt dann nur für diesen
+      // Besuch. Das ist unschön, aber besser als gar nicht zu funktionieren.
+    }
+    if (neu === "abgelehnt") {
+      analyseCookiesLoeschen();
+    }
+    setStand(neu);
+  }, []);
 
   const zuruecksetzen = useCallback(() => {
     try {
@@ -200,8 +197,8 @@ function Einwilligungsbanner() {
         <p className="text-lg leading-relaxed text-slate-800">
           <strong className="font-bold">Darf ich mitzählen?</strong> Ich würde
           gerne anonym erfassen, welche Seiten besucht werden, um mein Angebot
-          zu verbessern. Dafür nutze ich Google Analytics, das Cookies setzt
-          und Daten an Google überträgt. Das ist freiwillig – die Website
+          zu verbessern. Dafür nutze ich Google Analytics, das Cookies setzt und
+          Daten an Google überträgt. Das ist freiwillig – die Website
           funktioniert ohne Zustimmung genauso. Mehr dazu in der{" "}
           <Link
             href="/datenschutz"
