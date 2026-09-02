@@ -58,7 +58,8 @@ function bereinigen(daten: unknown): Einstellungen {
     bannerText:
       typeof roh.bannerText === "string" ? roh.bannerText.slice(0, 500) : "",
     bannerBis:
-      typeof roh.bannerBis === "string" && /^\d{4}-\d{2}-\d{2}$/.test(roh.bannerBis)
+      typeof roh.bannerBis === "string" &&
+      /^\d{4}-\d{2}-\d{2}$/.test(roh.bannerBis)
         ? roh.bannerBis
         : "",
     telefonVersteckt: roh.telefonVersteckt === true,
@@ -75,9 +76,7 @@ const gespeicherteEinstellungen = unstable_cache(
       if (!ergebnis || ergebnis.statusCode !== 200) {
         return STANDARD;
       }
-      return bereinigen(
-        JSON.parse(await new Response(ergebnis.stream).text()),
-      );
+      return bereinigen(JSON.parse(await new Response(ergebnis.stream).text()));
     } catch {
       // Noch keine Datei vorhanden, kein Blob Store eingerichtet oder das
       // Netzwerk streikt: Die Website läuft dann einfach ohne Hinweisleiste

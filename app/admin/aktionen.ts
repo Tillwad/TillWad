@@ -90,5 +90,8 @@ export async function speichern(
   // erzeugt werden. revalidatePath mit "layout" erfasst den ganzen Baum.
   revalidatePath("/", "layout");
 
-  return { art: "erfolg", text: "Gespeichert. Die Änderung ist sofort sichtbar." };
+  return {
+    art: "erfolg",
+    text: "Gespeichert. Die Änderung ist sofort sichtbar.",
+  };
 }

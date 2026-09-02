@@ -22,8 +22,12 @@ function gleich(a: string, b: string): boolean {
   const pufferB = Buffer.from(b, "utf8");
   // timingSafeEqual verlangt gleiche Länge und würde sonst die Länge des
   // Passworts verraten. Deshalb wird vorher auf feste Länge gehasht.
-  const hashA = createHmac("sha256", "laengenausgleich").update(pufferA).digest();
-  const hashB = createHmac("sha256", "laengenausgleich").update(pufferB).digest();
+  const hashA = createHmac("sha256", "laengenausgleich")
+    .update(pufferA)
+    .digest();
+  const hashB = createHmac("sha256", "laengenausgleich")
+    .update(pufferB)
+    .digest();
   return timingSafeEqual(hashA, hashB);
 }
 

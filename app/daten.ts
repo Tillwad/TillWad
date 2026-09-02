@@ -125,6 +125,18 @@ export type Ort = {
   anfahrt: string;
   /** Nur für diesen Ort gültige Fragen. Ergänzen die allgemeinen Fragen. */
   fragen: Frage[];
+  /**
+   * Absatz über die Hilfe für ältere Menschen in diesem Ort. Bewusst je Ort
+   * eigens geschrieben: Achtmal derselbe Text wäre genau die Doppelung, die
+   * uns die Meldung "Duplikat ohne Canonical" eingebracht hat.
+   */
+  senioren: string;
+  /**
+   * Beschreibung für die Suchergebnisse, höchstens rund 155 Zeichen – mehr
+   * zeigt Google nicht an. Ebenfalls je Ort eigens geschrieben statt aus einer
+   * Schablone gebildet.
+   */
+  metaBeschreibung: string;
   bild: string;
   bildAlt: string;
   bildAutor: string;
@@ -162,6 +174,10 @@ export const orte: Ort[] = [
           "In der Regel ja. Bei den größeren Häusern hier ist das ein sehr häufiges Thema. Oft genügt es schon, den Router besser zu stellen oder einen zusätzlichen Zugangspunkt einzurichten, damit das WLAN im ganzen Haus und auch im Garten ankommt. Ich schaue mir das vor Ort an und sage Ihnen ehrlich, was nötig ist.",
       },
     ],
+    senioren:
+      "In Kleinmachnow helfe ich vielen älteren Menschen, die in ihrem Haus seit Jahrzehnten zu Hause sind und einfach möchten, dass die Technik darin funktioniert. Wir gehen das in Ruhe an: Ich erkläre jeden Schritt in normalem Deutsch und wiederhole ihn, so oft Sie mögen. Niemand muss sich hier für eine Frage schämen.",
+    metaBeschreibung:
+      "Computerhilfe in Kleinmachnow bei Ihnen zu Hause. IT-Hilfe für Senioren, dazu WLAN, das im ganzen Haus ankommt. Anfahrt kostenlos. Jetzt anrufen.",
     bild: "/images/orte/kleinmachnow.jpg",
     bildAlt: "Die Schleuse Kleinmachnow",
     bildAutor: "A.Savin",
@@ -185,8 +201,7 @@ export const orte: Ort[] = [
       "Ich komme mit dem Auto über die Königstraße zu Ihnen. Auch wenn Wannsee der am weitesten entfernte Teil meines Gebiets ist, berechne ich Ihnen keine Anfahrt – wir stimmen nur den Termin etwas großzügiger ab.",
     fragen: [
       {
-        frage:
-          "Kommen Sie auch nach Kohlhasenbrück oder Steinstücken?",
+        frage: "Kommen Sie auch nach Kohlhasenbrück oder Steinstücken?",
         antwort:
           "Ja. Auch die abgelegeneren Ecken von Wannsee gehören zu meinem Einzugsgebiet, Steinstücken und Kohlhasenbrück eingeschlossen. Sagen Sie mir am Telefon einfach, wo genau Sie wohnen, dann planen wir den Termin passend.",
       },
@@ -197,6 +212,10 @@ export const orte: Ort[] = [
           "Meistens an den Wänden. In den älteren, massiv gebauten Häusern hier kommt das Funksignal des Routers nur schwer durch, besonders über mehrere Etagen. Ein neuer Vertrag beim Anbieter hilft dagegen fast nie – nötig ist eine bessere Verteilung im Haus. Ich messe vor Ort nach und richte das entsprechend ein.",
       },
     ],
+    senioren:
+      "Weil in Wannsee alles etwas weiter auseinanderliegt, plane ich für Besuche bei älteren Kundinnen und Kunden bewusst mehr Zeit ein. Kein Blick auf die Uhr, keine Eile: Wir klären Ihre Frage so lange, bis Sie sich damit wohlfühlen – und wenn beim nächsten Mal dasselbe noch einmal drankommt, ist das völlig in Ordnung.",
+    metaBeschreibung:
+      "Computerhilfe in Wannsee bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und WLAN – auch in Kohlhasenbrück und Steinstücken.",
     bild: "/images/orte/wannsee.jpg",
     bildAlt: "Blick über den Großen Wannsee",
     bildAutor: "Times",
@@ -231,6 +250,10 @@ export const orte: Ort[] = [
           "Ja, das mache ich hier sehr häufig. Wir übertragen Ihre Fotos, Kontakte und Nachrichten vom alten auf das neue Gerät, richten alles so ein, dass Sie gut damit zurechtkommen, und ich zeige Ihnen in Ruhe, was sich verändert hat. Bringen Sie zum Termin am besten beide Geräte bereit.",
       },
     ],
+    senioren:
+      "Am Schlachtensee bin ich Ihr Nachbar, und das merken ältere Kundinnen und Kunden vor allem daran: Wenn nach meinem Besuch eine Frage offenbleibt, komme ich für ein paar Minuten noch einmal vorbei. Sie müssen sich also nicht alles auf einmal merken – gerade beim neuen Handy ist das eine große Erleichterung.",
+    metaBeschreibung:
+      "Computerhilfe am Schlachtensee bei Ihnen zu Hause. IT-Hilfe für Senioren, neues Handy einrichten, Fotos retten. Ich wohne selbst im Kiez.",
     bild: "/images/orte/schlachtensee.jpg",
     bildAlt: "Der Schlachtensee",
     bildAutor: "A.Savin",
@@ -265,6 +288,10 @@ export const orte: Ort[] = [
           "Bitte noch nicht. In den älteren Häusern hier liegt die Ursache sehr oft in der Wohnung selbst: eine alte Telefondose, ein zu langes Kabel oder ein Router, der seit Jahren nicht mehr aktualisiert wurde. Lassen Sie mich das zuerst prüfen. Wenn es wirklich an der Leitung liegt, sage ich Ihnen das ehrlich.",
       },
     ],
+    senioren:
+      "Für ältere Menschen in Nikolassee bin ich buchstäblich der Nachbar von nebenan – meine Adresse liegt hier im Ortsteil. Das heißt kurze Wege und die Ruhe, eine Sache auch zweimal zu erklären. Besonders oft geht es darum, Video-Anrufe mit Kindern und Enkeln so einzurichten, dass sie ohne Hilfe klappen.",
+    metaBeschreibung:
+      "Computerhilfe in Nikolassee bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und Internet. Ich wohne selbst hier – kurze Wege.",
     bild: "/images/orte/nikolassee.jpg",
     bildAlt: "Der S-Bahnhof Nikolassee",
     bildAutor: "A.Savin",
@@ -300,6 +327,10 @@ export const orte: Ort[] = [
           "Sehr gerne, das ist eines meiner häufigsten Themen im Grunewald. Ich richte den Smart-TV ein, verbinde ihn mit dem Internet, sortiere die Mediatheken und Streamingdienste übersichtlich und zeige Ihnen in Ruhe, wie Sie damit umgehen – so oft Sie möchten.",
       },
     ],
+    senioren:
+      "Im Grunewald werde ich von älteren Kundinnen und Kunden am häufigsten zum Fernseher gerufen: Drei Fernbedienungen, und keine tut das, was sie soll. Ich sortiere das so, dass eine genügt, schreibe die wichtigen Schritte bei Bedarf auf und zeige sie Ihnen so oft, wie Sie möchten.",
+    metaBeschreibung:
+      "Computerhilfe im Grunewald bei Ihnen zu Hause. IT-Hilfe für Senioren: Smart-TV einrichten, WLAN über alle Etagen, Mediatheken erklärt.",
     bild: "/images/orte/grunewald.jpg",
     bildAlt: "Der Grunewaldturm",
     bildAutor: "Times",
@@ -329,11 +360,16 @@ export const orte: Ort[] = [
           "Ja, und bitte zögern Sie damit nicht. Löschen Sie die Nachricht nicht sofort und klicken Sie nichts an – rufen Sie mich lieber kurz an. Oft kann ich Ihnen schon am Telefon sagen, ob es Betrug ist. Wenn nötig, komme ich vorbei, prüfe Ihr Gerät und zeige Ihnen, woran Sie solche Nachrichten künftig selbst erkennen.",
       },
       {
-        frage: "Es hat jemand angerufen und behauptet, mein Computer sei kaputt. Was nun?",
+        frage:
+          "Es hat jemand angerufen und behauptet, mein Computer sei kaputt. Was nun?",
         antwort:
           "Das ist eine bekannte Betrugsmasche und kommt hier leider regelmäßig vor. Legen Sie einfach auf, geben Sie niemandem am Telefon Zugriff auf Ihren Computer und nennen Sie keine Zugangsdaten. Wenn Sie unsicher sind, ob doch etwas passiert ist, schaue ich mir Ihr Gerät vor Ort an und mache es wieder sauber.",
       },
     ],
+    senioren:
+      "Ältere Menschen sind das bevorzugte Ziel von Betrugsmaschen im Internet, und in Dahlem werde ich deshalb oft genau dafür gerufen. Ich zeige Ihnen ohne erhobenen Zeigefinger, woran Sie falsche E-Mails und Anrufe erkennen. Fragen kostet nichts – lieber einmal zu viel angerufen als einmal zu wenig.",
+    metaBeschreibung:
+      "Computerhilfe in Dahlem bei Ihnen zu Hause. IT-Hilfe für Senioren, Schutz vor Betrug per E-Mail und Telefon. Verständlich erklärt.",
     bild: "/images/orte/dahlem.jpg",
     bildAlt: "Die Domäne Dahlem",
     bildAutor: "Karl-Heinz Meurer",
@@ -362,11 +398,16 @@ export const orte: Ort[] = [
           "Ja, gerade in Zehlendorf. Die Wege sind für mich kurz, deshalb lohnt sich auch ein kurzer Besuch. Ich rechne nach der tatsächlich benötigten Zeit ab – für eine halbe Stunde zahlen Sie also auch nur eine halbe Stunde und keine Pauschale.",
       },
       {
-        frage: "Helfen Sie in Zehlendorf auch in Mietwohnungen und nicht nur in Häusern?",
+        frage:
+          "Helfen Sie in Zehlendorf auch in Mietwohnungen und nicht nur in Häusern?",
         antwort:
           "Selbstverständlich. Ob Etagenwohnung an der Clayallee, Reihenhaus in der Waldsiedlung oder Altbau am Mexikoplatz – ich komme überall dorthin, wo Ihre Geräte stehen. Für die Arbeit an Computer, Handy oder Router brauche ich nichts weiter als einen Platz am Tisch.",
       },
     ],
+    senioren:
+      "In Zehlendorf bin ich fast täglich unterwegs, deshalb lohnt sich hier auch der kurze Besuch. Gerade ältere Kundinnen und Kunden zögern oft, wegen einer Kleinigkeit anzurufen – das müssen Sie nicht. Ich rechne nach Zeit ab, eine halbe Stunde kostet auch nur eine halbe Stunde.",
+    metaBeschreibung:
+      "Computerhilfe in Zehlendorf bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und Drucker. Auch kurze Besuche, Abrechnung nach Zeit.",
     bild: "/images/orte/zehlendorf.jpg",
     bildAlt: "Das Rathaus Zehlendorf",
     bildAutor: "Clemensfranz",
@@ -395,11 +436,16 @@ export const orte: Ort[] = [
           "Ja. Teltow gehört komplett zu meinem Einzugsgebiet, die Altstadt ebenso wie Seehof und Sigridshorst. Für die Fahrt über die Landesgrenze berechne ich Ihnen nichts extra; es gilt derselbe Stundensatz wie in Berlin.",
       },
       {
-        frage: "Mein Computer ist über die Jahre sehr langsam geworden. Muss ich einen neuen kaufen?",
+        frage:
+          "Mein Computer ist über die Jahre sehr langsam geworden. Muss ich einen neuen kaufen?",
         antwort:
           "Meistens nicht. Sehr oft liegt es an Programmen, die beim Start unbemerkt mitlaufen, an einer vollen Festplatte oder an fehlenden Aktualisierungen – das lässt sich in einem Termin beheben. Nur wenn das Gerät wirklich zu alt ist, sage ich Ihnen das ehrlich und berate Sie, was Sie brauchen und was nicht.",
       },
     ],
+    senioren:
+      "Viele ältere Menschen in Teltow fürchten, ihr langsam gewordener Computer sei nun ein Fall für den Sperrmüll. Das stimmt selten. Ich schaue mir das Gerät an, sage Ihnen ehrlich, ob sich eine Auffrischung lohnt, und rede Ihnen ganz sicher nichts Neues auf, das Sie nicht brauchen.",
+    metaBeschreibung:
+      "Computerhilfe in Teltow bei Ihnen zu Hause. IT-Hilfe für Senioren: langsamer Computer, Handy, Drucker. Altstadt und Seehof, Anfahrt kostenlos.",
     bild: "/images/orte/teltow.jpg",
     bildAlt: "Die St.-Andreas-Kirche in Teltow",
     bildAutor: "Bautsch",

@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Phone, Mail, MapPin, CheckCircle2, Car } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  CheckCircle2,
+  Car,
+  HeartHandshake,
+} from "lucide-react";
 import {
   SITE_URL,
   fragen as allgemeineFragen,
@@ -45,10 +52,12 @@ export async function generateMetadata({
   }
 
   return {
-    title: `IT-Hilfe in ${ort.name} – Computerhilfe bei Ihnen zu Hause`,
-    // Bewusst aus dem ortsspezifischen Text gebildet statt aus einer Schablone:
+    // Der Titel bleibt unter rund 60 Zeichen, damit Google ihn ungekürzt
+    // anzeigt – auch beim längsten Ortsnamen.
+    title: `Computerhilfe in ${ort.name} für Senioren | Till Wadehn`,
+    // Je Ort eigens geschrieben statt aus einer Schablone gebildet:
     // identische Beschreibungen sind ein Signal für doppelte Inhalte.
-    description: `${ort.text} Computer, Handy, WLAN, Drucker und Fernseher – verständlich erklärt in ${ort.name}.`,
+    description: ort.metaBeschreibung,
     alternates: {
       canonical: `/it-hilfe/${ort.slug}`,
     },
@@ -129,7 +138,7 @@ export default async function OrtSeite({
                 id="einstieg-titel"
                 className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
               >
-                IT-Hilfe in {ort.name} – bei Ihnen zu Hause
+                Computerhilfe in {ort.name} – bei Ihnen zu Hause
               </h1>
               <div
                 aria-hidden="true"
@@ -249,10 +258,40 @@ export default async function OrtSeite({
           </div>
         </section>
 
+        {/* Computerhilfe für Senioren im Ort */}
+        <section
+          aria-labelledby="senioren-titel"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-blue-50"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
+            <span className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+              <HeartHandshake size={40} aria-hidden="true" />
+            </span>
+            <h2
+              id="senioren-titel"
+              className="mt-6 text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              Computerhilfe für Senioren in {ort.name}
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+            <p className="mt-6 text-xl leading-relaxed text-slate-700">
+              {ort.senioren}
+            </p>
+          </div>
+        </section>
+
         {/* Leistungen im Ort */}
         <section
           aria-labelledby="leistungen-titel"
-          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
         >
           <div
             aria-hidden="true"
@@ -326,7 +365,6 @@ export default async function OrtSeite({
           fragen={fragenFuerOrt(ort)}
           titel={`Häufige Fragen aus ${ort.name}`}
           einleitung={`Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an – ich beantworte sie gern am Telefon.`}
-          hell={false}
         />
 
         {/* Wellen-Übergang zum Kontaktbereich */}

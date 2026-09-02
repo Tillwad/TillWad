@@ -1,4 +1,11 @@
-import { ADRESSE, PREIS_STUNDE, SITE_URL, fragen, leistungen, orte } from "../daten";
+import {
+  ADRESSE,
+  PREIS_STUNDE,
+  SITE_URL,
+  fragen,
+  leistungen,
+  orte,
+} from "../daten";
 
 // llms.txt nach der Konvention von llmstxt.org: eine kurze, gut lesbare
 // Zusammenfassung der Website für KI-Assistenten, die auf Fragen wie
@@ -25,7 +32,9 @@ function baueLlmsTxt(): string {
   zeilen.push("");
   zeilen.push(`- Anbieter: Till Wadehn, ${ADRESSE.join(", ")}`);
   zeilen.push(`- Website: ${SITE_URL}`);
-  zeilen.push(`- Preis: Hausbesuch ${PREIS_STUNDE}, nach tatsächlichem Zeitaufwand abgerechnet`);
+  zeilen.push(
+    `- Preis: Hausbesuch ${PREIS_STUNDE}, nach tatsächlichem Zeitaufwand abgerechnet`,
+  );
   zeilen.push("- Anfahrt innerhalb des Einzugsgebiets: kostenlos");
   zeilen.push("- Kurze Beratung am Telefon: kostenlos");
   zeilen.push("- Sprache: Deutsch");
@@ -68,10 +77,16 @@ function baueLlmsTxt(): string {
 
   zeilen.push("## Weitere Seiten");
   zeilen.push("");
-  zeilen.push(`- [Startseite](${SITE_URL}/): Leistungen, Ablauf, Preise und Einzugsgebiet`);
-  zeilen.push(`- [Impressum](${SITE_URL}/impressum): Anbieterkennzeichnung und Kontaktdaten`);
+  zeilen.push(
+    `- [Startseite](${SITE_URL}/): Leistungen, Ablauf, Preise und Einzugsgebiet`,
+  );
+  zeilen.push(
+    `- [Impressum](${SITE_URL}/impressum): Anbieterkennzeichnung und Kontaktdaten`,
+  );
   zeilen.push(`- [Datenschutz](${SITE_URL}/datenschutz): Datenschutzerklärung`);
-  zeilen.push(`- [Sitemap](${SITE_URL}/sitemap.xml): alle Seiten in Maschinenform`);
+  zeilen.push(
+    `- [Sitemap](${SITE_URL}/sitemap.xml): alle Seiten in Maschinenform`,
+  );
   zeilen.push("");
 
   return zeilen.join("\n");
@@ -81,7 +96,8 @@ export function GET() {
   return new Response(baueLlmsTxt(), {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800",
+      "Cache-Control":
+        "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800",
     },
   });
 }
