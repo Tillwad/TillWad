@@ -81,6 +81,9 @@ function baueLlmsTxt(): string {
     `- [Startseite](${SITE_URL}/): Leistungen, Ablauf, Preise und Einzugsgebiet`,
   );
   zeilen.push(
+    `- [Drucker-Hilfe](${SITE_URL}/drucker-hilfe): Drucker anschließen, einrichten, mit WLAN verbinden, vom Handy drucken, Scannen einrichten. Keine Reparaturwerkstatt – bei echten Defekten gibt es eine ehrliche Einschätzung, ob sich eine Reparatur lohnt.`,
+  );
+  zeilen.push(
     `- [Impressum](${SITE_URL}/impressum): Anbieterkennzeichnung und Kontaktdaten`,
   );
   zeilen.push(`- [Datenschutz](${SITE_URL}/datenschutz): Datenschutzerklärung`);

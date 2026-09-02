@@ -253,6 +253,16 @@ export default function Home() {
                   <p className="mt-3 text-lg leading-relaxed text-slate-700">
                     {leistung.beschreibung}
                   </p>
+                  {/* Gibt es zum Thema eine eigene Seite, führt von hier ein
+                      Weg dorthin – sonst fände sie niemand. */}
+                  {leistung.seite ? (
+                    <Link
+                      href={leistung.seite}
+                      className="mt-4 inline-block text-lg font-bold text-blue-800 underline underline-offset-4 hover:text-blue-900"
+                    >
+                      Mehr zur Drucker-Hilfe
+                    </Link>
+                  ) : null}
                 </li>
               ))}
             </ul>

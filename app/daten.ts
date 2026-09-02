@@ -1,4 +1,5 @@
 import {
+  type LucideIcon,
   Laptop,
   Smartphone,
   Wifi,
@@ -19,7 +20,16 @@ export const PREIS_ZAHL = 46;
 
 export const PREIS_STUNDE = `${PREIS_ZAHL} € pro Stunde`;
 
-export const leistungen = [
+export type Leistung = {
+  icon: LucideIcon;
+  farbe: string;
+  titel: string;
+  beschreibung: string;
+  /** Eigene Unterseite zum Thema, falls es eine gibt. */
+  seite?: string;
+};
+
+export const leistungen: Leistung[] = [
   {
     icon: Laptop,
     farbe: "bg-blue-100 text-blue-700",
@@ -47,6 +57,7 @@ export const leistungen = [
     titel: "Drucker anschließen & einrichten",
     beschreibung:
       "Drucker anschließen und einrichten, damit das Drucken vom Computer und vom Handy aus einfach funktioniert.",
+    seite: "/drucker-hilfe",
   },
   {
     icon: Tv,
@@ -110,6 +121,42 @@ export const fragen: Frage[] = [
     frage: "Kann ich Sie auch anrufen, wenn ich nur eine kurze Frage habe?",
     antwort:
       "Ja, sehr gerne. Kurze Fragen kläre ich oft schon am Telefon, und das kostet Sie nichts. Wenn sich zeigt, dass wir gemeinsam vor dem Gerät sitzen sollten, machen wir einen Termin aus.",
+  },
+];
+
+// Häufige Fragen speziell zum Drucker, für /drucker-hilfe. Bewusst eine
+// eigene Liste: Auf der Unterseite sollen andere Fragen stehen als auf der
+// Startseite, sonst wäre die neue Seite nur eine Wiederholung.
+export const druckerFragen: Frage[] = [
+  {
+    frage: "Können Sie meinen Drucker reparieren?",
+    antwort:
+      "Meistens muss gar nichts repariert werden. Wenn ein Drucker „kaputt“ wirkt, liegt es sehr oft daran, dass er die Verbindung zum Computer oder zum WLAN verloren hat, dass ein Treiber fehlt oder dass eine Einstellung verstellt wurde – das bekomme ich vor Ort in Ordnung. Ist tatsächlich etwas am Gerät defekt, öffne ich es nicht, sondern sage Ihnen ehrlich, ob sich eine Reparatur lohnt oder ein neues Gerät die vernünftigere Wahl ist.",
+  },
+  {
+    frage: "Mein Drucker wird vom Computer nicht mehr gefunden. Was tun?",
+    antwort:
+      "Das ist die mit Abstand häufigste Drucker-Frage, die man mir stellt, und sie lässt sich fast immer lösen. Typische Ursachen sind ein Router-Wechsel, ein Windows-Update oder ein neuer Computer. Ich verbinde den Drucker neu, richte ihn sauber ein und sorge dafür, dass er auch nach dem nächsten Neustart noch gefunden wird.",
+  },
+  {
+    frage: "Kann ich vom Handy oder Tablet aus drucken?",
+    antwort:
+      "Ja, das können fast alle Drucker der letzten Jahre – es ist nur oft nicht eingerichtet. Ich richte das für iPhone, iPad und Android-Geräte ein und zeige Ihnen, wie Sie ein Foto oder einen Brief mit zwei, drei Tippern zu Papier bringen.",
+  },
+  {
+    frage: "Ich habe einen neuen Drucker gekauft. Richten Sie ihn mir ein?",
+    antwort:
+      "Sehr gerne. Ich packe ihn aus, schließe ihn an, verbinde ihn mit Ihrem WLAN und Ihren Geräten, richte das Scannen ein und entsorge die Verpackung, wenn Sie möchten. Am Ende drucken wir gemeinsam eine Testseite, damit Sie sehen, dass alles läuft.",
+  },
+  {
+    frage: "Welchen Drucker soll ich kaufen?",
+    antwort:
+      "Das kommt darauf an, wie viel Sie drucken. Wer nur gelegentlich etwas ausdruckt, fährt mit einem Laserdrucker oft besser, weil dessen Toner nicht eintrocknet. Wer regelmäßig Fotos druckt, ist mit Tinte besser bedient. Rufen Sie mich vor dem Kauf gerne kurz an – diese Beratung kostet Sie nichts, und sie erspart Ihnen womöglich einen Fehlkauf.",
+  },
+  {
+    frage: "Warum druckt mein Drucker plötzlich nicht mehr richtig?",
+    antwort:
+      "Streifen im Ausdruck, blasse Farben oder leere Seiten deuten meist auf eingetrocknete Druckköpfe oder auf eine Patrone hin, die das Gerät nicht annimmt. Ich reinige die Düsen über die richtige Funktion des Geräts, prüfe die Patronen und zeige Ihnen, wie Sie das künftig selbst machen können.",
   },
 ];
 

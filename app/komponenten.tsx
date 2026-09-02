@@ -168,6 +168,18 @@ export function FussZeile() {
             ))}
           </ul>
         </nav>
+        <nav aria-label="Angebot">
+          <ul className="flex list-none flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <li>
+              <Link
+                href="/drucker-hilfe"
+                className="underline underline-offset-4 hover:text-blue-800"
+              >
+                Drucker anschließen und einrichten
+              </Link>
+            </li>
+          </ul>
+        </nav>
         <nav aria-label="Rechtliches">
           <ul className="flex list-none flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <li>

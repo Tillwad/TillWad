@@ -8,6 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 1,
     },
+    {
+      url: `${SITE_URL}/drucker-hilfe`,
+      lastModified: new Date(),
+      priority: 0.8,
+    },
     ...orte.map((ort) => ({
       url: `${SITE_URL}/it-hilfe/${ort.slug}`,
       lastModified: new Date(),
