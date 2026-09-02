@@ -44,7 +44,7 @@ export const leistungen = [
   {
     icon: Printer,
     farbe: "bg-violet-100 text-violet-700",
-    titel: "Drucker & Geräte",
+    titel: "Drucker anschließen & einrichten",
     beschreibung:
       "Drucker anschließen und einrichten, damit das Drucken vom Computer und vom Handy aus einfach funktioniert.",
   },

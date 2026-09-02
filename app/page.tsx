@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   PhoneCall,
   CalendarCheck,
+  HeartHandshake,
   Home as HomeIcon,
 } from "lucide-react";
 import { PREIS_STUNDE, SITE_URL, fragen, leistungen, orte } from "./daten";
@@ -23,10 +24,18 @@ import {
   WennTelefonNichtSichtbar,
 } from "./schutz-links";
 
+// Titel und Beschreibung stehen hier und nicht im Layout: Dort sind sie nur
+// die Vorgabe für Seiten ohne eigene Angabe, hier gelten sie gezielt für die
+// Startseite.
+//
 // Ohne eigenes Canonical meldet die Google Search Console "Duplikat – ohne
 // vom Nutzer ausgewählten Canonical", weil Google sich dann selbst einen
 // aussuchen muss.
 export const metadata: Metadata = {
+  title:
+    "Computerhilfe zu Hause & IT-Hilfe für Senioren in Berlin | Till Wadehn",
+  description:
+    "Geduldige Computerhilfe bei Ihnen zu Hause im Berliner Südwesten. IT-Hilfe für Senioren bei Computer, Handy, Internet und Drucker. Verständlich erklärt, ohne Fachchinesisch. Jetzt anrufen.",
   alternates: {
     canonical: "/",
   },
@@ -148,15 +157,18 @@ export default function Home() {
                 id="einstieg-titel"
                 className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
               >
-                Hilfe bei Computer, Handy und Internet – bei Ihnen zu Hause
+                Computerhilfe bei Ihnen zu Hause – für Handy, Internet und
+                Drucker
               </h1>
               <div
                 aria-hidden="true"
                 className="mx-auto h-2 w-28 rounded-full bg-amber-400 lg:mx-0"
               />
               <p className="text-xl leading-relaxed text-slate-700 sm:text-2xl">
-                Ich bin Till aus Ihrer Nachbarschaft. Ich helfe Ihnen geduldig
-                bei allen Fragen rund um Technik – verständlich erklärt und ohne
+                Ich bin Till aus Ihrer Nachbarschaft und biete geduldige
+                Computerhilfe bei Ihnen zu Hause. Besonders älteren Menschen und
+                Senioren helfe ich dabei, mit Computer, Handy und Internet
+                sicher zurechtzukommen – verständlich erklärt und ohne
                 Fachchinesisch.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
@@ -325,7 +337,8 @@ export default function Home() {
               <p className="text-xl leading-relaxed text-slate-700">
                 Mein Name ist Till Wadehn. Beruflich entwickle ich Software und
                 Websites – Technik ist mein tägliches Handwerk. In meiner
-                Freizeit helfe ich Menschen aus der Nachbarschaft, die mit
+                Freizeit biete ich Computerhilfe für Menschen aus der
+                Nachbarschaft, vor allem für Seniorinnen und Senioren, die mit
                 Computer, Handy oder Internet nicht weiterkommen.
               </p>
               <p className="text-xl leading-relaxed text-slate-700">
@@ -352,10 +365,49 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Computerhilfe für Senioren */}
+        <section
+          aria-labelledby="senioren-titel"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-blue-50"
+          />
+          <div
+            aria-hidden="true"
+            className="dot-grid pointer-events-none absolute bottom-10 left-8 h-28 w-28"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
+            <span className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+              <HeartHandshake size={40} aria-hidden="true" />
+            </span>
+            <h2
+              id="senioren-titel"
+              className="mt-6 text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              Computerhilfe für Senioren
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+            <p className="mt-6 text-xl leading-relaxed text-slate-700">
+              Viele meiner Kundinnen und Kunden sind ältere Menschen, die sich
+              mehr Zeit und Ruhe bei Technikfragen wünschen. Genau dafür bin ich
+              da. Ich erkläre alles in normalem Deutsch, wiederhole so oft Sie
+              möchten und dränge Sie zu nichts. Ob neues Handy, Video-Anrufe mit
+              den Enkeln oder der Schutz vor Betrug im Internet – ich helfe
+              Ihnen in Ruhe weiter.
+            </p>
+          </div>
+        </section>
+
         {/* Preise */}
         <section
           aria-labelledby="preise-titel"
-          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
         >
           <div
             aria-hidden="true"
@@ -407,7 +459,7 @@ export default function Home() {
         {/* Einzugsgebiet */}
         <section
           aria-labelledby="einzugsgebiet-titel"
-          className="relative overflow-hidden px-5 py-14 sm:py-20"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
         >
           <div
             aria-hidden="true"
@@ -453,6 +505,7 @@ export default function Home() {
         {/* Häufige Fragen */}
         <FragenAbschnitt
           fragen={fragen}
+          hell={false}
           einleitung="Hier finden Sie Antworten auf die Fragen, die mir am häufigsten gestellt werden. Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an."
         />
 
