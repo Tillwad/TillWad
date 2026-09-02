@@ -32,10 +32,12 @@ import {
 // vom Nutzer ausgewählten Canonical", weil Google sich dann selbst einen
 // aussuchen muss.
 export const metadata: Metadata = {
-  title:
-    "Computerhilfe zu Hause & IT-Hilfe für Senioren in Berlin | Till Wadehn",
+  // Auf die Länge gekürzt, die Google tatsächlich anzeigt: rund 60 Zeichen
+  // beim Titel, rund 155 in der Beschreibung. Die wichtigen Begriffe stehen
+  // vorne, damit sie auch bei einem Abschnitt sichtbar bleiben.
+  title: "Computerhilfe zu Hause für Senioren in Berlin | Till Wadehn",
   description:
-    "Geduldige Computerhilfe bei Ihnen zu Hause im Berliner Südwesten. IT-Hilfe für Senioren bei Computer, Handy, Internet und Drucker. Verständlich erklärt, ohne Fachchinesisch. Jetzt anrufen.",
+    "Geduldige Computerhilfe bei Ihnen zu Hause im Berliner Südwesten. IT-Hilfe für Senioren bei Computer, Handy, Internet und Drucker. Jetzt anrufen.",
   alternates: {
     canonical: "/",
   },
