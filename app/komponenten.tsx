@@ -35,7 +35,7 @@ export function KopfZeile() {
             aria-hidden="true"
             className="absolute -left-5 -top-2 -z-10 h-10 w-10 rounded-full bg-amber-100"
           />
-          IT-Hilfe von Till
+          Computerhilfe mit Till
         </Link>
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <WhatsAppLink
