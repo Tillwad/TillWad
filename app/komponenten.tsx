@@ -150,10 +150,7 @@ export function FussZeile() {
   return (
     <footer className="bg-white px-5 py-10">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 text-center text-lg text-slate-600">
-        <p>
-          © {new Date().getFullYear()} Till Wadehn – IT-Hilfe für die
-          Nachbarschaft
-        </p>
+        <p>© {new Date().getFullYear()} Computerhilfe mit Till</p>
         <nav aria-label="Einzugsgebiet">
           <ul className="flex list-none flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {orte.map((ort) => (

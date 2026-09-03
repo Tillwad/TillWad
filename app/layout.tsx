@@ -14,7 +14,7 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "IT-Hilfe von Till – Computerhilfe für Ihre Nachbarschaft",
+  title: "Computerhilfe mit Till – bei Ihnen zu Hause",
   description:
     "Geduldige Hilfe bei Computer, Handy, Tablet, Internet und Drucker – bei Ihnen zu Hause. Verständlich erklärt, ohne Fachchinesisch. Rufen Sie einfach an.",
 };

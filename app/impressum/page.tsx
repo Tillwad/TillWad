@@ -9,9 +9,9 @@ import {
 } from "../schutz-links";
 
 export const metadata: Metadata = {
-  title: "Impressum – IT-Hilfe von Till",
+  title: "Impressum – Computerhilfe mit Till",
   description:
-    "Impressum und Anbieterkennzeichnung der IT-Hilfe von Till Wadehn.",
+    "Impressum und Anbieterkennzeichnung von Computerhilfe mit Till – Till Wadehn, Berlin.",
   alternates: {
     canonical: "/impressum",
   },

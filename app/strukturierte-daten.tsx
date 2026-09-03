@@ -44,7 +44,7 @@ export function UnternehmensDaten() {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "@id": `${SITE_URL}/#unternehmen`,
-        name: "IT-Hilfe von Till",
+        name: "Computerhilfe mit Till",
         description:
           "Geduldige Hilfe bei Computer, Handy, Tablet, Internet, Drucker und Fernseher – als Hausbesuch im Berliner Südwesten, verständlich erklärt und ohne Fachbegriffe.",
         url: SITE_URL,

@@ -11,7 +11,7 @@ import { Anmeldung, EinstellungenFormular } from "./formulare";
 import { istAngemeldet, passwortIstEingerichtet } from "./sitzung";
 
 export const metadata: Metadata = {
-  title: "Verwaltung – IT-Hilfe von Till",
+  title: "Verwaltung – Computerhilfe mit Till",
   robots: { index: false, follow: false },
 };
 

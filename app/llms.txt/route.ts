@@ -21,7 +21,7 @@ export const dynamic = "force-static";
 function baueLlmsTxt(): string {
   const zeilen: string[] = [];
 
-  zeilen.push("# IT-Hilfe von Till – Computerhilfe für die Nachbarschaft");
+  zeilen.push("# Computerhilfe mit Till – bei Ihnen zu Hause");
   zeilen.push("");
   zeilen.push(
     "> Till Wadehn hilft Menschen im Berliner Südwesten und der direkten Umgebung " +

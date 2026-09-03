@@ -10,8 +10,9 @@ import {
 } from "../schutz-links";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung – IT-Hilfe von Till",
-  description: "Datenschutzerklärung der Website IT-Hilfe von Till Wadehn.",
+  title: "Datenschutzerklärung – Computerhilfe mit Till",
+  description:
+    "Datenschutzerklärung von Computerhilfe mit Till – Till Wadehn, Berlin.",
   alternates: {
     canonical: "/datenschutz",
   },
