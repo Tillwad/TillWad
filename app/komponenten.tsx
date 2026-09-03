@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone, HelpCircle, Mail } from "lucide-react";
-import { orte, type Frage } from "./daten";
+import { orte, leistungen, type Frage } from "./daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -170,14 +170,18 @@ export function FussZeile() {
         </nav>
         <nav aria-label="Angebot">
           <ul className="flex list-none flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <li>
-              <Link
-                href="/drucker-hilfe"
-                className="underline underline-offset-4 hover:text-blue-800"
-              >
-                Drucker anschließen und einrichten
-              </Link>
-            </li>
+            {leistungen
+              .filter((leistung) => leistung.seite)
+              .map((leistung) => (
+                <li key={leistung.seite}>
+                  <Link
+                    href={leistung.seite!}
+                    className="underline underline-offset-4 hover:text-blue-800"
+                  >
+                    {leistung.titel}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </nav>
         <nav aria-label="Rechtliches">

@@ -260,7 +260,7 @@ export default function Home() {
                       href={leistung.seite}
                       className="mt-4 inline-block text-lg font-bold text-blue-800 underline underline-offset-4 hover:text-blue-900"
                     >
-                      Mehr zur Drucker-Hilfe
+                      {leistung.seiteText}
                     </Link>
                   ) : null}
                 </li>

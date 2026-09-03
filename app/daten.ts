@@ -27,6 +27,8 @@ export type Leistung = {
   beschreibung: string;
   /** Eigene Unterseite zum Thema, falls es eine gibt. */
   seite?: string;
+  /** Beschriftung des Verweises auf diese Unterseite. */
+  seiteText?: string;
 };
 
 export const leistungen: Leistung[] = [
@@ -50,6 +52,8 @@ export const leistungen: Leistung[] = [
     titel: "Internet & WLAN",
     beschreibung:
       "Internet funktioniert nicht? Ich richte Ihren Router ein und sorge dafür, dass das WLAN in der ganzen Wohnung gut ankommt.",
+    seite: "/wlan-hilfe",
+    seiteText: "Mehr zur WLAN-Hilfe",
   },
   {
     icon: Printer,
@@ -58,6 +62,7 @@ export const leistungen: Leistung[] = [
     beschreibung:
       "Drucker anschließen und einrichten, damit das Drucken vom Computer und vom Handy aus einfach funktioniert.",
     seite: "/drucker-hilfe",
+    seiteText: "Mehr zur Drucker-Hilfe",
   },
   {
     icon: Tv,
@@ -65,6 +70,8 @@ export const leistungen: Leistung[] = [
     titel: "Fernseher & Streaming",
     beschreibung:
       "Smart-TV einrichten, Mediatheken und Streaming-Dienste wie die ARD-Mediathek oder Netflix verständlich erklärt.",
+    seite: "/fernseher-hilfe",
+    seiteText: "Mehr zur Fernseher-Hilfe",
   },
   {
     icon: ShieldCheck,
@@ -157,6 +164,74 @@ export const druckerFragen: Frage[] = [
     frage: "Warum druckt mein Drucker plötzlich nicht mehr richtig?",
     antwort:
       "Streifen im Ausdruck, blasse Farben oder leere Seiten deuten meist auf eingetrocknete Druckköpfe oder auf eine Patrone hin, die das Gerät nicht annimmt. Ich reinige die Düsen über die richtige Funktion des Geräts, prüfe die Patronen und zeige Ihnen, wie Sie das künftig selbst machen können.",
+  },
+];
+
+// Häufige Fragen rund um Internet und WLAN, für /wlan-hilfe.
+export const wlanFragen: Frage[] = [
+  {
+    frage: "In manchen Zimmern habe ich kein WLAN. Was kann man tun?",
+    antwort:
+      "Meistens eine Menge – und fast nie braucht es dafür einen neuen Vertrag. Oft steht der Router ungünstig, etwa im Flur hinter einer dicken Wand oder direkt neben der Heizung. Manchmal hilft schon ein anderer Standort, manchmal ein zusätzlicher Zugangspunkt, der das Signal weiterreicht. Ich messe bei Ihnen nach, wo das Signal abreißt, und richte es so ein, dass es überall ankommt.",
+  },
+  {
+    frage: "Mein Internet ist ständig weg. Muss ich den Anbieter wechseln?",
+    antwort:
+      "Bitte noch nicht. Sehr oft liegt die Ursache in der Wohnung selbst: eine alte Telefondose, ein zu langes oder gequetschtes Kabel oder ein Router, der seit Jahren keine Aktualisierung mehr bekommen hat. Das prüfe ich zuerst. Wenn es tatsächlich an der Leitung liegt, sage ich Ihnen das ehrlich – dann können Sie mit dieser Information beim Anbieter anrufen.",
+  },
+  {
+    frage: "Ich habe einen neuen Router bekommen. Richten Sie ihn ein?",
+    antwort:
+      "Sehr gerne. Ich schließe ihn an, übernehme wenn möglich Ihren bisherigen WLAN-Namen und das Passwort – dann müssen Sie nämlich kein einziges Gerät neu einrichten – und verbinde anschließend alles wieder: Computer, Handy, Tablet, Drucker und Fernseher. Am Ende bekommen Sie die Zugangsdaten aufgeschrieben.",
+  },
+  {
+    frage: "Ich finde mein WLAN-Passwort nicht mehr.",
+    antwort:
+      "Das ist kein Problem. Das Passwort steht bei den meisten Routern auf einem Aufkleber an der Unterseite, und falls es geändert wurde, kommt man über die Einstellungen des Geräts heran. Ich hole es hervor, schreibe es Ihnen lesbar auf und lege es an eine Stelle, an der Sie es wiederfinden.",
+  },
+  {
+    frage: "Wie bekomme ich Gäste ins WLAN, ohne mein Passwort zu verraten?",
+    antwort:
+      "Fast jeder neuere Router kann ein getrenntes Gäste-WLAN. Ihre Gäste kommen damit ins Internet, aber nicht an Ihre eigenen Geräte, und Sie müssen Ihr Hauptpasswort nicht herausgeben. Ich richte das ein und zeige Ihnen, wie Sie den Zugang bei Bedarf wieder abschalten.",
+  },
+  {
+    frage: "Brauche ich schnelleres Internet?",
+    antwort:
+      "Seltener, als die Werbung glauben macht. Für Fernsehen, Videotelefonate und normales Surfen reicht ein durchschnittlicher Anschluss gut aus. Wenn es bei Ihnen hakt, liegt es meist an der Verteilung im Haus und nicht an der Geschwindigkeit des Anschlusses. Ich schaue mir das an, bevor Sie mehr Geld im Monat ausgeben.",
+  },
+];
+
+// Häufige Fragen rund um Fernseher und Streaming, für /fernseher-hilfe.
+export const fernseherFragen: Frage[] = [
+  {
+    frage: "Ich habe einen neuen Fernseher. Richten Sie ihn mir ein?",
+    antwort:
+      "Ja, von Anfang bis Ende. Ich schließe ihn an, sortiere die Sender in eine Reihenfolge, die für Sie Sinn ergibt, verbinde ihn mit dem WLAN, richte die Mediatheken ein und zeige Ihnen die Fernbedienung in Ruhe. Wenn Sie möchten, schreibe ich die wichtigsten Schritte auf einen Zettel.",
+  },
+  {
+    frage: "Ich komme mit drei Fernbedienungen nicht zurecht.",
+    antwort:
+      "Das muss auch niemand. In den meisten Wohnzimmern lässt sich das auf eine reduzieren – häufig steuert die Fernbedienung des Fernsehers auch Receiver und Lautstärke mit, das ist nur nicht eingerichtet. Ich richte es ein und beschrifte auf Wunsch die drei, vier Tasten, die Sie wirklich brauchen.",
+  },
+  {
+    frage: "Wie komme ich an die ARD- und ZDF-Mediathek?",
+    antwort:
+      "Die Mediatheken der öffentlich-rechtlichen Sender sind kostenlos und auf fast jedem Smart-TV vorhanden – man muss sie nur finden und einrichten. Ich lege sie Ihnen an eine gut erreichbare Stelle und zeige Ihnen, wie Sie eine verpasste Sendung nachträglich ansehen.",
+  },
+  {
+    frage: "Lohnt sich Netflix für mich?",
+    antwort:
+      "Das entscheiden Sie, nicht ich. Ich erkläre Ihnen nur ehrlich, was ein Abo monatlich kostet und was Sie dafür bekommen – und dass die Mediatheken der öffentlich-rechtlichen Sender bereits mit Ihrem Rundfunkbeitrag bezahlt sind. Wenn Sie ein Abo möchten, richte ich es ein. Wenn nicht, ist das auch völlig in Ordnung.",
+  },
+  {
+    frage: "Kann ich Fotos vom Handy auf dem Fernseher ansehen?",
+    antwort:
+      "Ja, und das ist eine der schönsten Möglichkeiten moderner Fernseher. Die Urlaubsbilder vom Handy erscheinen groß im Wohnzimmer, ohne Kabel. Ich richte das ein und übe es einmal mit Ihnen, damit Sie es beim Besuch der Familie selbst vorführen können.",
+  },
+  {
+    frage: "Mein Fernseher zeigt „kein Signal“. Ist er kaputt?",
+    antwort:
+      "Fast nie. Diese Meldung heißt meist nur, dass der Fernseher auf den falschen Eingang gestellt ist – etwa auf HDMI 2, während der Receiver an HDMI 1 hängt. Das ist mit zwei Tastendrücken behoben. Ich zeige Ihnen, woran Sie es erkennen, damit Sie beim nächsten Mal nicht anrufen müssen.",
   },
 ];
 
