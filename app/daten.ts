@@ -386,7 +386,7 @@ export const orte: Ort[] = [
   {
     slug: "schlachtensee",
     name: "Schlachtensee",
-    text: "Rund um den Schlachtensee helfe ich Ihnen direkt bei Ihnen zu Hause: geduldig, verständlich und ohne Fachchinesisch.",
+    text: "Rund um den Schlachtensee helfe ich Ihnen direkt bei Ihnen zu Hause: geduldig, verständlich und in Ruhe.",
     lokal:
       "Am Schlachtensee bin ich buchstäblich Ihr Nachbar: Ich wohne selbst in diesem Kiez, nur ein paar Straßen entfernt. Kurzfristige Termine sind hier deshalb am ehesten möglich, und wenn nach einem Besuch noch eine Frage offenbleibt, komme ich für ein paar Minuten unkompliziert noch einmal vorbei. Gefragt bin ich hier besonders oft bei Handy und Tablet: neues Gerät einrichten, Fotos vom alten Handy retten, WhatsApp und Videotelefonie mit den Enkeln zum Laufen bringen.",
     gebiete: [

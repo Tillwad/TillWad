@@ -71,7 +71,7 @@ const schritte = [
 
 const versprechen = [
   "Geduldig: Ich nehme mir Zeit und erkläre alles so oft Sie möchten",
-  "Verständlich: Ich spreche Deutsch, kein Fachchinesisch",
+  "Verständlich: Ich rede so, dass Sie mich verstehen",
   "Ehrlich: Ich empfehle nur, was Sie wirklich brauchen",
   "Aus der Nachbarschaft: kurze Wege, keine Anfahrtskosten",
 ];
@@ -169,8 +169,7 @@ export default function Home() {
                 Ich bin Till aus Ihrer Nachbarschaft und helfe Privatleuten bei
                 allem, was mit Computer, Handy, Internet, Drucker und Fernseher
                 zu tun hat. Ich komme zu Ihnen nach Hause, nehme mir Zeit und
-                erkläre alles in normalem Deutsch, ohne Fachchinesisch und ohne
-                Eile.
+                erkläre alles ohne Eile in normalem Deutsch.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
                 <TelefonLink
