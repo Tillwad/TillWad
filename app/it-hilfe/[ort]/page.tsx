@@ -17,7 +17,13 @@ import {
   orte,
   type Ort,
 } from "../../daten";
-import { KopfZeile, FussZeile, FragenAbschnitt } from "../../komponenten";
+import {
+  KopfZeile,
+  FussZeile,
+  FragenAbschnitt,
+  FotoHintergrundMobil,
+  FotoNebenText,
+} from "../../komponenten";
 import { FragenDaten } from "../../strukturierte-daten";
 import {
   TelefonLink,
@@ -96,17 +102,21 @@ export default async function OrtSeite({
           aria-labelledby="einstieg-titel"
           className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
         >
+          {/* Auf dem Handy liegt das Foto hinter dem Text, siehe
+              FotoHintergrundMobil. */}
+          <FotoHintergrundMobil />
+
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-blue-50"
+            className="pointer-events-none absolute -left-32 -top-32 hidden h-96 w-96 rounded-full bg-blue-50 lg:block"
           />
           <div
             aria-hidden="true"
-            className="dot-grid pointer-events-none absolute right-8 top-10 h-28 w-28"
+            className="dot-grid pointer-events-none absolute right-8 top-10 hidden h-28 w-28 lg:block"
           />
 
           <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
-            <figure className="relative w-full max-w-xs sm:max-w-sm lg:order-2 lg:shrink-0 lg:basis-2/5">
+            <FotoNebenText className="lg:order-2 lg:w-full lg:max-w-sm lg:shrink-0 lg:basis-2/5">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-6 -top-8 h-24 w-24 rounded-full bg-amber-200"
@@ -115,36 +125,26 @@ export default async function OrtSeite({
                 aria-hidden="true"
                 className="pointer-events-none absolute -bottom-8 -left-8 h-28 w-28 rounded-full border-8 border-blue-100"
               />
-              <Image
-                src="/images/till_wadehn_it_support.jpg"
-                alt="Till Wadehn sitzt mit einer Kundin am Tisch und erklärt ihr etwas am Laptop"
-                width={1400}
-                height={1867}
-                priority
-                sizes="(max-width: 640px) 20rem, 24rem"
-                className="blob-mask relative z-10 h-auto w-full border-4 border-white shadow-xl"
-              />
-              <figcaption className="relative z-10 mt-4 text-center text-lg text-slate-600">
-                Till Wadehn – Ihr IT-Helfer vor Ort
-              </figcaption>
-            </figure>
+            </FotoNebenText>
 
+            {/* Auf dem Handy steht der Text auf dem abgedunkelten Foto und ist
+                deshalb hell; ab lg steht er wieder auf weißem Grund. */}
             <div className="flex max-w-3xl flex-col items-center gap-6 text-center lg:order-1 lg:items-start lg:text-left">
-              <p className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-5 py-2 text-lg font-semibold text-blue-800">
+              <p className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-lg font-semibold text-blue-800 lg:bg-blue-100">
                 <MapPin size={22} aria-hidden="true" />
                 {ort.name}
               </p>
               <h1
                 id="einstieg-titel"
-                className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
+                className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-slate-900"
               >
-                Computerhilfe in {ort.name} – bei Ihnen zu Hause
+                Computerhilfe in {ort.name} bei Ihnen zu Hause
               </h1>
               <div
                 aria-hidden="true"
                 className="h-2 w-28 rounded-full bg-amber-400"
               />
-              <p className="max-w-2xl text-xl leading-relaxed text-slate-700 sm:text-2xl">
+              <p className="max-w-2xl text-xl leading-relaxed text-slate-100 sm:text-2xl lg:text-slate-700">
                 {ort.text}
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -207,7 +207,7 @@ export default async function OrtSeite({
               id="vor-ort-titel"
               className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
             >
-              Technik in {ort.name} – was mir hier oft begegnet
+              Technik in {ort.name}: was mir hier oft begegnet
             </h2>
             <div
               aria-hidden="true"
@@ -238,7 +238,7 @@ export default async function OrtSeite({
                   ))}
                 </ul>
                 <p className="mt-5 text-lg leading-relaxed text-slate-600">
-                  Ihre Straße ist nicht dabei? Rufen Sie trotzdem an – die
+                  Ihre Straße ist nicht dabei? Rufen Sie trotzdem an. Die
                   Aufzählung ist nur eine Auswahl.
                 </p>
               </div>
@@ -285,6 +285,13 @@ export default async function OrtSeite({
             <p className="mt-6 text-xl leading-relaxed text-slate-700">
               {ort.senioren}
             </p>
+            <Link
+              href="/computerhilfe-senioren"
+              className="mt-8 inline-flex items-center gap-3 rounded-xl border-2 border-slate-400 bg-white px-7 py-4 text-xl font-bold text-slate-900 hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+            >
+              <HeartHandshake size={26} aria-hidden="true" />
+              Mehr zur Computerhilfe für Senioren
+            </Link>
           </div>
         </section>
 
@@ -330,7 +337,7 @@ export default async function OrtSeite({
 
             <ul className="mx-auto mt-10 flex max-w-2xl list-none flex-col gap-4">
               {[
-                `Ich komme zu Ihnen nach Hause – überall in ${ort.name}`,
+                `Ich komme zu Ihnen nach Hause, überall in ${ort.name}`,
                 "Die Anfahrt ist für Sie kostenlos",
                 "Eine kurze Beratung vorab kostet Sie nichts",
               ].map((punkt) => (
@@ -364,7 +371,7 @@ export default async function OrtSeite({
         <FragenAbschnitt
           fragen={fragenFuerOrt(ort)}
           titel={`Häufige Fragen aus ${ort.name}`}
-          einleitung={`Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an – ich beantworte sie gern am Telefon.`}
+          einleitung={`Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an. Ich beantworte sie gern am Telefon.`}
         />
 
         {/* Wellen-Übergang zum Kontaktbereich */}
@@ -412,7 +419,7 @@ export default async function OrtSeite({
             </WennTelefonSichtbar>
             <WennTelefonNichtSichtbar>
               <p className="text-xl leading-relaxed sm:text-2xl">
-                Schreiben Sie mir, worum es in {ort.name} geht – ich melde mich
+                Schreiben Sie mir, worum es in {ort.name} geht. Ich melde mich
                 bei Ihnen.
               </p>
               <MailLink

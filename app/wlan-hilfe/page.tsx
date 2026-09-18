@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "WLAN einrichten & Router anschließen lassen in Berlin",
   description:
-    "WLAN einrichten, Router anschließen und Internet-Aussetzer beheben – bei Ihnen zu Hause im Berliner Südwesten. Meist ohne neuen Vertrag. Jetzt anrufen.",
+    "WLAN einrichten, Router anschließen und Internet-Aussetzer beheben, bei Ihnen zu Hause im Berliner Südwesten. Meist ohne neuen Vertrag. Jetzt anrufen.",
   alternates: {
     canonical: "/wlan-hilfe",
   },
@@ -38,7 +38,7 @@ const anliegen = [
     farbe: "bg-sky-100 text-sky-700",
     titel: "Neuen Router anschließen",
     beschreibung:
-      "Anschließen, einrichten und – wenn möglich – den alten WLAN-Namen samt Passwort übernehmen. Dann müssen Sie kein einziges Gerät neu verbinden.",
+      "Anschließen, einrichten und, wenn möglich, den alten WLAN-Namen samt Passwort übernehmen. Dann müssen Sie kein einziges Gerät neu verbinden.",
   },
   {
     icon: SignalHigh,
@@ -52,7 +52,7 @@ const anliegen = [
     farbe: "bg-amber-100 text-amber-700",
     titel: "Internet bricht ständig ab",
     beschreibung:
-      "Alte Telefondose, gequetschtes Kabel oder ein Router ohne Aktualisierung – ich finde die Ursache, bevor Sie einen teureren Vertrag abschließen.",
+      "Alte Telefondose, gequetschtes Kabel oder ein Router ohne Aktualisierung: Ich finde die Ursache, bevor Sie einen teureren Vertrag abschließen.",
   },
   {
     icon: KeyRound,
@@ -66,7 +66,7 @@ const anliegen = [
     farbe: "bg-green-100 text-green-700",
     titel: "Gäste-WLAN einrichten",
     beschreibung:
-      "Besuch kommt ins Internet, aber nicht an Ihre Geräte – und Sie müssen Ihr eigenes Passwort nicht herausgeben.",
+      "Besuch kommt ins Internet, aber nicht an Ihre Geräte, und Sie müssen Ihr eigenes Passwort nicht herausgeben.",
   },
   {
     icon: Wifi,
@@ -121,7 +121,7 @@ export default function WlanHilfe() {
               Wenn das Internet streikt oder das WLAN nur im halben Haus
               ankommt, muss selten ein neuer Vertrag her. Ich komme zu Ihnen,
               finde die Ursache und richte alles so ein, dass es überall
-              funktioniert – im Berliner Südwesten und in der direkten Umgebung.
+              funktioniert, im Berliner Südwesten und in der direkten Umgebung.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <TelefonLink
@@ -212,10 +212,10 @@ export default function WlanHilfe() {
             <p className="mt-8 text-xl leading-relaxed text-slate-700">
               WLAN ist Funk, und Funk hat es schwer mit Wänden. In den älteren,
               massiv gebauten Häusern hier im Südwesten kommt das Signal oft nur
-              ein, zwei Räume weit – besonders, wenn der Router im Flur steht,
-              wo der Anschluss nun einmal liegt. Über zwei Etagen wird es noch
-              schwieriger. Das ist kein Fehler Ihres Anschlusses, sondern eine
-              Frage der Verteilung.
+              ein, zwei Räume weit, besonders dann, wenn der Router im Flur
+              steht, wo der Anschluss nun einmal liegt. Über zwei Etagen wird es
+              noch schwieriger. Das ist kein Fehler Ihres Anschlusses, sondern
+              eine Frage der Verteilung.
             </p>
             <p className="mt-4 text-xl leading-relaxed text-slate-700">
               Genau deshalb hilft ein schnellerer Tarif in diesen Fällen nicht:
@@ -223,12 +223,12 @@ export default function WlanHilfe() {
               höhere Geschwindigkeit am Hausanschluss daran nichts. Was hilft,
               ist ein besserer Standort für den Router oder ein zusätzliches
               Gerät, das das Signal weiterreicht. Ich messe bei Ihnen nach und
-              sage Ihnen, was in Ihrer Wohnung nötig ist – und was nicht.
+              sage Ihnen, was in Ihrer Wohnung nötig ist und was nicht.
             </p>
 
             <ul className="mt-8 flex list-none flex-col gap-4">
               {[
-                "Erst messen, dann kaufen – oft genügt ein anderer Standort",
+                "Erst messen, dann kaufen: oft genügt ein anderer Standort",
                 "Ich empfehle nur Geräte, die Sie tatsächlich brauchen",
                 "Wenn es am Anschluss liegt, sage ich Ihnen das ehrlich",
               ].map((punkt) => (
@@ -251,7 +251,7 @@ export default function WlanHilfe() {
         <FragenAbschnitt
           fragen={wlanFragen}
           titel="Häufige Fragen zu Internet und WLAN"
-          einleitung="Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an – oft weiß ich schon am Telefon, woran es liegt."
+          einleitung="Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an. Oft weiß ich schon am Telefon, woran es liegt."
           hell={false}
         />
 
@@ -290,7 +290,7 @@ export default function WlanHilfe() {
             </h2>
             <WennTelefonSichtbar>
               <p className="text-xl leading-relaxed sm:text-2xl">
-                Schildern Sie mir kurz, was passiert – und ab wann es nicht mehr
+                Schildern Sie mir kurz, was passiert, und ab wann es nicht mehr
                 ging. Das grenzt die Ursache oft schon ein.
               </p>
             </WennTelefonSichtbar>
@@ -323,8 +323,8 @@ export default function WlanHilfe() {
               WLAN-Hilfe in Ihrer Nähe
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-xl leading-relaxed text-slate-700">
-              Ich komme zu Ihnen nach Hause – in diesen Orten ist die Anfahrt
-              für Sie kostenlos:
+              Ich komme zu Ihnen nach Hause. In diesen Orten ist die Anfahrt für
+              Sie kostenlos:
             </p>
             <ul className="mt-8 flex list-none flex-wrap items-center justify-center gap-4">
               {orte.map((ort) => (

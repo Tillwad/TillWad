@@ -11,7 +11,7 @@ import { Anmeldung, EinstellungenFormular } from "./formulare";
 import { istAngemeldet, passwortIstEingerichtet } from "./sitzung";
 
 export const metadata: Metadata = {
-  title: "Verwaltung – Computerhilfe mit Till",
+  title: "Verwaltung | Computerhilfe mit Till",
   robots: { index: false, follow: false },
 };
 
@@ -96,7 +96,7 @@ export default async function Admin() {
         {leisteSichtbar
           ? `Die Hinweisleiste wird angezeigt${
               einstellungen.bannerBis
-                ? ` – noch bis zum ${new Date(
+                ? `, noch bis zum ${new Date(
                     `${einstellungen.bannerBis}T12:00:00`,
                   ).toLocaleDateString("de-DE", {
                     day: "numeric",

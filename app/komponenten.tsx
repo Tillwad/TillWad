@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, HelpCircle, Mail } from "lucide-react";
 import { orte, leistungen, type Frage } from "./daten";
@@ -23,49 +25,134 @@ function WhatsAppIcon({ groesse }: { groesse: number }) {
   );
 }
 
+// Beschriftung der Schaltflächen in der Kopfzeile: Auf dem Handy ist neben
+// dem Namen kein Platz dafür, dort bleibt nur das Symbol stehen. Vorgelesen
+// wird die Beschriftung trotzdem – "sr-only" blendet sie nur für das Auge aus,
+// nicht für Screenreader.
+const KNOPF_BESCHRIFTUNG = "sr-only sm:not-sr-only";
+
+// Auf dem Handy quadratisch (nur Symbol), ab der Tablet-Breite mit Text.
+const KNOPF_FORM =
+  "inline-flex items-center gap-3 rounded-xl p-3 text-xl font-bold text-white shadow-md sm:px-6 sm:py-4";
+
 export function KopfZeile() {
   return (
     <header className="border-b-2 border-slate-200 bg-white">
-      <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 px-5 py-5 sm:flex-row sm:justify-between">
+      {/* Eine einzige Zeile, auch auf dem Handy: links der Name, rechts oben
+          in der Ecke die Kontakt-Schaltflächen als Symbole. */}
+      <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-5 py-4 sm:py-5">
         <Link
           href="/"
-          className="relative text-2xl font-bold text-slate-900 hover:text-blue-800"
+          className="relative text-xl leading-tight font-bold text-slate-900 hover:text-blue-800 sm:text-2xl"
         >
           <span
             aria-hidden="true"
-            className="absolute -left-5 -top-2 -z-10 h-10 w-10 rounded-full bg-amber-100"
+            className="absolute -left-4 -top-2 -z-10 h-9 w-9 rounded-full bg-amber-100 sm:-left-5 sm:h-10 sm:w-10"
           />
           Computerhilfe mit Till
         </Link>
-        <div className="flex flex-col items-center gap-3 sm:flex-row">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <WhatsAppLink
             bereich="kopfzeile"
-            className="inline-flex items-center gap-3 rounded-xl bg-green-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-green-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+            className={`${KNOPF_FORM} bg-green-700 hover:bg-green-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700`}
           >
             <WhatsAppIcon groesse={26} />
-            WhatsApp
+            <span className={KNOPF_BESCHRIFTUNG}>WhatsApp</span>
           </WhatsAppLink>
           <TelefonLink
             bereich="kopfzeile"
-            className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+            className={`${KNOPF_FORM} bg-blue-700 hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700`}
           >
             <Phone size={26} aria-hidden="true" />
-            <TelefonAnzeige />
+            {/* Auf dem Handy steht statt der Nummer nur das Hörer-Symbol; für
+                Screenreader bleibt eine feste Beschriftung, weil die Nummer
+                erst nachträglich im Browser eingesetzt wird. */}
+            <span className="sr-only">Anrufen</span>
+            <span className="hidden sm:inline">
+              <TelefonAnzeige />
+            </span>
           </TelefonLink>
           {/* Sind beide Wege aus, bliebe die Kopfzeile sonst ganz ohne
               Kontaktmöglichkeit. */}
           <WennKeinSofortkontakt>
             <MailLink
               bereich="kopfzeile"
-              className="inline-flex items-center gap-3 rounded-xl bg-blue-700 px-6 py-4 text-xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+              className={`${KNOPF_FORM} bg-blue-700 hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700`}
             >
               <Mail size={26} aria-hidden="true" />
-              E-Mail schreiben
+              <span className={KNOPF_BESCHRIFTUNG}>E-Mail schreiben</span>
             </MailLink>
           </WennKeinSofortkontakt>
         </div>
       </div>
     </header>
+  );
+}
+
+/**
+ * Größenangabe für das Foto von Till im Einstieg. Sie steht hier an einer
+ * Stelle und wird sowohl für den Hintergrund auf dem Handy als auch für das
+ * Bild neben dem Text auf großen Bildschirmen verwendet – und das ist der
+ * Zweck: Beide Fassungen stehen gleichzeitig im HTML, eine davon ist immer
+ * versteckt. Nur wenn beide dieselbe Angabe machen, einigt sich der Browser
+ * auf genau eine Bilddatei und lädt sie ein einziges Mal. Mit
+ * unterschiedlichen Angaben lud der Rechner die große Handy-Fassung mit.
+ */
+const FOTO_GROESSEN = "(min-width: 1024px) 28rem, 100vw";
+
+/**
+ * Das Foto von Till als bildschirmfüllender Hintergrund – aber nur auf
+ * schmalen Bildschirmen. Auf dem Handy stand das Foto bisher über dem Text,
+ * sodass man erst scrollen musste, um zu erfahren, worum es überhaupt geht.
+ * Als Hintergrund steht die Überschrift sofort im Bild. Ab der Breite lg
+ * steht das Foto wieder als eigenes Bild neben dem Text, deshalb endet der
+ * Hintergrund dort.
+ */
+export function FotoHintergrundMobil() {
+  return (
+    <div aria-hidden="true" className="absolute inset-0 lg:hidden">
+      <Image
+        src="/images/till_wadehn_it_support.jpg"
+        alt=""
+        fill
+        sizes={FOTO_GROESSEN}
+        className="object-cover object-[50%_30%]"
+      />
+      {/* Ohne diesen dunklen Schleier wäre die helle Schrift auf dem Foto
+          nicht zu lesen – besonders dort, wo im Bild das helle T-Shirt und
+          das Fenster liegen. */}
+      <div className="absolute inset-0 bg-slate-900/75" />
+    </div>
+  );
+}
+
+/**
+ * Dasselbe Foto als Bild neben dem Text – nur ab der Breite lg sichtbar.
+ * Darunter übernimmt FotoHintergrundMobil.
+ */
+export function FotoNebenText({
+  /** Zusätzliche Klassen für die Figur, etwa die Spaltenbreite. */
+  className,
+  children,
+}: {
+  className?: string;
+  children?: ReactNode;
+}) {
+  return (
+    <figure className={`hidden lg:relative lg:block ${className ?? ""}`}>
+      {children}
+      <Image
+        src="/images/till_wadehn_it_support.jpg"
+        alt="Till Wadehn sitzt mit einer Kundin am Tisch und erklärt ihr etwas am Laptop"
+        width={1400}
+        height={1867}
+        sizes={FOTO_GROESSEN}
+        className="blob-mask relative z-10 h-auto w-full border-4 border-white shadow-xl"
+      />
+      <figcaption className="relative z-10 mt-4 text-center text-lg text-slate-600">
+        Till Wadehn, Ihr IT-Helfer vor Ort
+      </figcaption>
+    </figure>
   );
 }
 
@@ -179,6 +266,17 @@ export function FussZeile() {
                   </Link>
                 </li>
               ))}
+            {/* Steht hier einzeln und nicht in der Liste der Leistungen: Die
+                Seite für Senioren beschreibt keine eigene Leistung, sondern
+                eine Zielgruppe. */}
+            <li>
+              <Link
+                href="/computerhilfe-senioren"
+                className="underline underline-offset-4 hover:text-blue-800"
+              >
+                Computerhilfe für Senioren
+              </Link>
+            </li>
           </ul>
         </nav>
         <nav aria-label="Rechtliches">

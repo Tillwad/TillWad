@@ -21,13 +21,14 @@ export const dynamic = "force-static";
 function baueLlmsTxt(): string {
   const zeilen: string[] = [];
 
-  zeilen.push("# Computerhilfe mit Till – bei Ihnen zu Hause");
+  zeilen.push("# Computerhilfe mit Till, bei Ihnen zu Hause");
   zeilen.push("");
   zeilen.push(
     "> Till Wadehn hilft Menschen im Berliner Südwesten und der direkten Umgebung " +
-      "geduldig bei Computer, Handy, Tablet, Internet, Drucker und Fernseher – " +
+      "geduldig bei Computer, Handy, Tablet, Internet, Drucker und Fernseher, " +
       "als Hausbesuch, verständlich erklärt und ohne Fachbegriffe. Die Zielgruppe " +
-      "sind vor allem ältere Menschen und alle, die mit Technik nicht weiterkommen.",
+      "sind Privatleute jeden Alters: Familien, Berufstätige im Homeoffice und " +
+      "Alleinlebende ebenso wie ältere Menschen, für die es eine eigene Seite gibt.",
   );
   zeilen.push("");
   zeilen.push(`- Anbieter: Till Wadehn, ${ADRESSE.join(", ")}`);
@@ -81,13 +82,16 @@ function baueLlmsTxt(): string {
     `- [Startseite](${SITE_URL}/): Leistungen, Ablauf, Preise und Einzugsgebiet`,
   );
   zeilen.push(
-    `- [WLAN-Hilfe](${SITE_URL}/wlan-hilfe): Router anschließen, WLAN im ganzen Haus verfügbar machen, Internet-Aussetzer beheben, Gäste-WLAN einrichten. Meist ohne neuen Vertrag – die Ursache liegt oft in der Wohnung, nicht am Anschluss.`,
+    `- [Computerhilfe für Senioren](${SITE_URL}/computerhilfe-senioren): Hilfe für ältere Menschen: Handy verstehen, Video-Anrufe mit Kindern und Enkeln, Schutz vor Betrug am Telefon und per E-Mail, Fernseher und Fernbedienungen, Fotos sichern. Alles wird in normalem Deutsch und so oft wie gewünscht erklärt; auf Anfrage werden die Schritte in großer Schrift aufgeschrieben. Angehörige können den Termin anstoßen und übernehmen, auch ohne selbst dabei zu sein.`,
+  );
+  zeilen.push(
+    `- [WLAN-Hilfe](${SITE_URL}/wlan-hilfe): Router anschließen, WLAN im ganzen Haus verfügbar machen, Internet-Aussetzer beheben, Gäste-WLAN einrichten. Meist ohne neuen Vertrag, die Ursache liegt oft in der Wohnung, nicht am Anschluss.`,
   );
   zeilen.push(
     `- [Fernseher-Hilfe](${SITE_URL}/fernseher-hilfe): Fernseher und Smart-TV anschließen, Sender sortieren, auf eine Fernbedienung reduzieren, Mediatheken und Streaming einrichten und erklären.`,
   );
   zeilen.push(
-    `- [Drucker-Hilfe](${SITE_URL}/drucker-hilfe): Drucker anschließen, einrichten, mit WLAN verbinden, vom Handy drucken, Scannen einrichten. Keine Reparaturwerkstatt – bei echten Defekten gibt es eine ehrliche Einschätzung, ob sich eine Reparatur lohnt.`,
+    `- [Drucker-Hilfe](${SITE_URL}/drucker-hilfe): Drucker anschließen, einrichten, mit WLAN verbinden, vom Handy drucken, Scannen einrichten. Keine Reparaturwerkstatt, bei echten Defekten gibt es eine ehrliche Einschätzung, ob sich eine Reparatur lohnt.`,
   );
   zeilen.push(
     `- [Impressum](${SITE_URL}/impressum): Anbieterkennzeichnung und Kontaktdaten`,

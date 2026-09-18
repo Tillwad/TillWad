@@ -10,9 +10,9 @@ import {
 } from "../schutz-links";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung – Computerhilfe mit Till",
+  title: "Datenschutzerklärung | Computerhilfe mit Till",
   description:
-    "Datenschutzerklärung von Computerhilfe mit Till – Till Wadehn, Berlin.",
+    "Datenschutzerklärung von Computerhilfe mit Till, Till Wadehn aus Berlin.",
   alternates: {
     canonical: "/datenschutz",
   },
@@ -73,7 +73,7 @@ export default function Datenschutz() {
             Diese Website dient ausschließlich der Information über mein
             Hilfsangebot. Es gibt keine Kontaktformulare, keine Benutzerkonten
             und keine Werbedienste. Zur Besuchsmessung setze ich Google
-            Analytics ein – aber nur, wenn Sie vorher zugestimmt haben (siehe
+            Analytics ein, aber nur, wenn Sie vorher zugestimmt haben (siehe
             Abschnitt 4). Ohne Ihre Zustimmung werden keine Cookies gesetzt und
             keine Daten an Dritte übertragen.
           </p>
@@ -113,7 +113,7 @@ export default function Datenschutz() {
           </p>
           <p className="mt-4 text-xl leading-relaxed text-slate-700">
             Dabei werden Cookies auf Ihrem Gerät gespeichert, und es können
-            Daten an Server von Google übertragen werden – auch in die USA. Für
+            Daten an Server von Google übertragen werden, auch in die USA. Für
             diese Übermittlung stützt sich Google auf die
             Standardvertragsklauseln der EU-Kommission. Ein den europäischen
             Standards entsprechendes Datenschutzniveau kann für die USA nicht in
@@ -124,7 +124,7 @@ export default function Datenschutz() {
             Rechtsgrundlage ist ausschließlich Ihre Einwilligung nach Art. 6
             Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Ohne Ihre Zustimmung wird
             Google Analytics gar nicht erst geladen. Sie können Ihre
-            Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen – die
+            Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Die
             Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt davon
             unberührt. Weitere Informationen finden Sie in der{" "}
             <a

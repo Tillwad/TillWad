@@ -102,12 +102,12 @@ export const fragen: Frage[] = [
   {
     frage: "Muss ich für den Termin etwas vorbereiten?",
     antwort:
-      "Nein. Sie müssen nichts aufräumen, nichts aufschreiben und nichts installieren. Es hilft mir aber, wenn Sie mir am Telefon kurz schildern, worum es geht – dann kann ich das Passende mitbringen.",
+      "Nein. Sie müssen nichts aufräumen, nichts aufschreiben und nichts installieren. Es hilft mir aber, wenn Sie mir am Telefon kurz schildern, worum es geht. Dann kann ich das Passende mitbringen.",
   },
   {
     frage: "Ich kenne mich mit Technik überhaupt nicht aus. Ist das schlimm?",
     antwort:
-      "Überhaupt nicht, im Gegenteil – genau dafür bin ich da. Ich erkläre alles in normalem Deutsch, ohne Fachbegriffe, und so oft Sie möchten. Es gibt bei mir keine dummen Fragen.",
+      "Überhaupt nicht, im Gegenteil: Genau dafür bin ich da. Ich erkläre alles in normalem Deutsch, ohne Fachbegriffe, und so oft Sie möchten. Es gibt bei mir keine dummen Fragen.",
   },
   {
     frage: "Helfen Sie auch bei Apple-Geräten?",
@@ -117,7 +117,7 @@ export const fragen: Frage[] = [
   {
     frage: "Wann muss ich bezahlen?",
     antwort:
-      "Erst nach dem Termin, und nur die tatsächlich benötigte Zeit. Was der Besuch ungefähr kosten wird, sage ich Ihnen vorher – Sie haben keine versteckten Kosten zu befürchten.",
+      "Erst nach dem Termin, und nur die tatsächlich benötigte Zeit. Was der Besuch ungefähr kosten wird, sage ich Ihnen vorher. Sie haben keine versteckten Kosten zu befürchten.",
   },
   {
     frage: "Wie erreiche ich Sie am besten?",
@@ -138,7 +138,7 @@ export const druckerFragen: Frage[] = [
   {
     frage: "Können Sie meinen Drucker reparieren?",
     antwort:
-      "Meistens muss gar nichts repariert werden. Wenn ein Drucker „kaputt“ wirkt, liegt es sehr oft daran, dass er die Verbindung zum Computer oder zum WLAN verloren hat, dass ein Treiber fehlt oder dass eine Einstellung verstellt wurde – das bekomme ich vor Ort in Ordnung. Ist tatsächlich etwas am Gerät defekt, öffne ich es nicht, sondern sage Ihnen ehrlich, ob sich eine Reparatur lohnt oder ein neues Gerät die vernünftigere Wahl ist.",
+      "Meistens muss gar nichts repariert werden. Wenn ein Drucker „kaputt“ wirkt, liegt es sehr oft daran, dass er die Verbindung zum Computer oder zum WLAN verloren hat, dass ein Treiber fehlt oder dass eine Einstellung verstellt wurde. Das bekomme ich vor Ort in Ordnung. Ist tatsächlich etwas am Gerät defekt, öffne ich es nicht, sondern sage Ihnen ehrlich, ob sich eine Reparatur lohnt oder ein neues Gerät die vernünftigere Wahl ist.",
   },
   {
     frage: "Mein Drucker wird vom Computer nicht mehr gefunden. Was tun?",
@@ -148,7 +148,7 @@ export const druckerFragen: Frage[] = [
   {
     frage: "Kann ich vom Handy oder Tablet aus drucken?",
     antwort:
-      "Ja, das können fast alle Drucker der letzten Jahre – es ist nur oft nicht eingerichtet. Ich richte das für iPhone, iPad und Android-Geräte ein und zeige Ihnen, wie Sie ein Foto oder einen Brief mit zwei, drei Tippern zu Papier bringen.",
+      "Ja, das können fast alle Drucker der letzten Jahre, es ist nur oft nicht eingerichtet. Ich richte das für iPhone, iPad und Android-Geräte ein und zeige Ihnen, wie Sie ein Foto oder einen Brief mit zwei, drei Tippern zu Papier bringen.",
   },
   {
     frage: "Ich habe einen neuen Drucker gekauft. Richten Sie ihn mir ein?",
@@ -158,7 +158,7 @@ export const druckerFragen: Frage[] = [
   {
     frage: "Welchen Drucker soll ich kaufen?",
     antwort:
-      "Das kommt darauf an, wie viel Sie drucken. Wer nur gelegentlich etwas ausdruckt, fährt mit einem Laserdrucker oft besser, weil dessen Toner nicht eintrocknet. Wer regelmäßig Fotos druckt, ist mit Tinte besser bedient. Rufen Sie mich vor dem Kauf gerne kurz an – diese Beratung kostet Sie nichts, und sie erspart Ihnen womöglich einen Fehlkauf.",
+      "Das kommt darauf an, wie viel Sie drucken. Wer nur gelegentlich etwas ausdruckt, fährt mit einem Laserdrucker oft besser, weil dessen Toner nicht eintrocknet. Wer regelmäßig Fotos druckt, ist mit Tinte besser bedient. Rufen Sie mich vor dem Kauf gerne kurz an. Diese Beratung kostet Sie nichts, und sie erspart Ihnen womöglich einen Fehlkauf.",
   },
   {
     frage: "Warum druckt mein Drucker plötzlich nicht mehr richtig?",
@@ -172,17 +172,17 @@ export const wlanFragen: Frage[] = [
   {
     frage: "In manchen Zimmern habe ich kein WLAN. Was kann man tun?",
     antwort:
-      "Meistens eine Menge – und fast nie braucht es dafür einen neuen Vertrag. Oft steht der Router ungünstig, etwa im Flur hinter einer dicken Wand oder direkt neben der Heizung. Manchmal hilft schon ein anderer Standort, manchmal ein zusätzlicher Zugangspunkt, der das Signal weiterreicht. Ich messe bei Ihnen nach, wo das Signal abreißt, und richte es so ein, dass es überall ankommt.",
+      "Meistens eine Menge, und fast nie braucht es dafür einen neuen Vertrag. Oft steht der Router ungünstig, etwa im Flur hinter einer dicken Wand oder direkt neben der Heizung. Manchmal hilft schon ein anderer Standort, manchmal ein zusätzlicher Zugangspunkt, der das Signal weiterreicht. Ich messe bei Ihnen nach, wo das Signal abreißt, und richte es so ein, dass es überall ankommt.",
   },
   {
     frage: "Mein Internet ist ständig weg. Muss ich den Anbieter wechseln?",
     antwort:
-      "Bitte noch nicht. Sehr oft liegt die Ursache in der Wohnung selbst: eine alte Telefondose, ein zu langes oder gequetschtes Kabel oder ein Router, der seit Jahren keine Aktualisierung mehr bekommen hat. Das prüfe ich zuerst. Wenn es tatsächlich an der Leitung liegt, sage ich Ihnen das ehrlich – dann können Sie mit dieser Information beim Anbieter anrufen.",
+      "Bitte noch nicht. Sehr oft liegt die Ursache in der Wohnung selbst: eine alte Telefondose, ein zu langes oder gequetschtes Kabel oder ein Router, der seit Jahren keine Aktualisierung mehr bekommen hat. Das prüfe ich zuerst. Wenn es tatsächlich an der Leitung liegt, sage ich Ihnen das ehrlich. Dann können Sie mit dieser Information beim Anbieter anrufen.",
   },
   {
     frage: "Ich habe einen neuen Router bekommen. Richten Sie ihn ein?",
     antwort:
-      "Sehr gerne. Ich schließe ihn an, übernehme wenn möglich Ihren bisherigen WLAN-Namen und das Passwort – dann müssen Sie nämlich kein einziges Gerät neu einrichten – und verbinde anschließend alles wieder: Computer, Handy, Tablet, Drucker und Fernseher. Am Ende bekommen Sie die Zugangsdaten aufgeschrieben.",
+      "Sehr gerne. Ich schließe ihn an und übernehme wenn möglich Ihren bisherigen WLAN-Namen und das Passwort. Dann müssen Sie nämlich kein einziges Gerät neu einrichten. Anschließend verbinde ich alles wieder: Computer, Handy, Tablet, Drucker und Fernseher. Am Ende bekommen Sie die Zugangsdaten aufgeschrieben.",
   },
   {
     frage: "Ich finde mein WLAN-Passwort nicht mehr.",
@@ -211,17 +211,17 @@ export const fernseherFragen: Frage[] = [
   {
     frage: "Ich komme mit drei Fernbedienungen nicht zurecht.",
     antwort:
-      "Das muss auch niemand. In den meisten Wohnzimmern lässt sich das auf eine reduzieren – häufig steuert die Fernbedienung des Fernsehers auch Receiver und Lautstärke mit, das ist nur nicht eingerichtet. Ich richte es ein und beschrifte auf Wunsch die drei, vier Tasten, die Sie wirklich brauchen.",
+      "Das muss auch niemand. In den meisten Wohnzimmern lässt sich das auf eine reduzieren. Häufig steuert die Fernbedienung des Fernsehers auch Receiver und Lautstärke mit, das ist nur nicht eingerichtet. Ich richte es ein und beschrifte auf Wunsch die drei, vier Tasten, die Sie wirklich brauchen.",
   },
   {
     frage: "Wie komme ich an die ARD- und ZDF-Mediathek?",
     antwort:
-      "Die Mediatheken der öffentlich-rechtlichen Sender sind kostenlos und auf fast jedem Smart-TV vorhanden – man muss sie nur finden und einrichten. Ich lege sie Ihnen an eine gut erreichbare Stelle und zeige Ihnen, wie Sie eine verpasste Sendung nachträglich ansehen.",
+      "Die Mediatheken der öffentlich-rechtlichen Sender sind kostenlos und auf fast jedem Smart-TV vorhanden, man muss sie nur finden und einrichten. Ich lege sie Ihnen an eine gut erreichbare Stelle und zeige Ihnen, wie Sie eine verpasste Sendung nachträglich ansehen.",
   },
   {
     frage: "Lohnt sich Netflix für mich?",
     antwort:
-      "Das entscheiden Sie, nicht ich. Ich erkläre Ihnen nur ehrlich, was ein Abo monatlich kostet und was Sie dafür bekommen – und dass die Mediatheken der öffentlich-rechtlichen Sender bereits mit Ihrem Rundfunkbeitrag bezahlt sind. Wenn Sie ein Abo möchten, richte ich es ein. Wenn nicht, ist das auch völlig in Ordnung.",
+      "Das entscheiden Sie, nicht ich. Ich erkläre Ihnen nur ehrlich, was ein Abo monatlich kostet und was Sie dafür bekommen und dass die Mediatheken der öffentlich-rechtlichen Sender bereits mit Ihrem Rundfunkbeitrag bezahlt sind. Wenn Sie ein Abo möchten, richte ich es ein. Wenn nicht, ist das auch völlig in Ordnung.",
   },
   {
     frage: "Kann ich Fotos vom Handy auf dem Fernseher ansehen?",
@@ -231,7 +231,46 @@ export const fernseherFragen: Frage[] = [
   {
     frage: "Mein Fernseher zeigt „kein Signal“. Ist er kaputt?",
     antwort:
-      "Fast nie. Diese Meldung heißt meist nur, dass der Fernseher auf den falschen Eingang gestellt ist – etwa auf HDMI 2, während der Receiver an HDMI 1 hängt. Das ist mit zwei Tastendrücken behoben. Ich zeige Ihnen, woran Sie es erkennen, damit Sie beim nächsten Mal nicht anrufen müssen.",
+      "Fast nie. Diese Meldung heißt meist nur, dass der Fernseher auf den falschen Eingang gestellt ist, etwa auf HDMI 2, während der Receiver an HDMI 1 hängt. Das ist mit zwei Tastendrücken behoben. Ich zeige Ihnen, woran Sie es erkennen, damit Sie beim nächsten Mal nicht anrufen müssen.",
+  },
+];
+
+// Häufige Fragen rund um die Hilfe für ältere Menschen, für
+// /computerhilfe-senioren. Bewusst andere Fragen als auf der Startseite: Die
+// Startseite richtet sich an Privatleute jeden Alters, diese Seite an
+// Seniorinnen und Senioren und an deren Angehörige.
+export const seniorenFragen: Frage[] = [
+  {
+    frage:
+      "Ich bin über 80 und kenne mich mit Technik gar nicht aus. Ist das zu spät?",
+    antwort:
+      "Nein, und das meine ich ernst. Die meisten Menschen, denen ich helfe, haben nie gelernt, mit diesen Geräten umzugehen. Das war zu ihrer Berufszeit schlicht kein Thema. Wir fangen genau dort an, wo Sie stehen, und gehen nur so weit, wie Sie möchten. Oft reichen schon drei, vier Handgriffe, damit der Alltag mit dem Gerät wieder leicht wird.",
+  },
+  {
+    frage:
+      "Ich vergesse das meiste gleich wieder. Darf ich Sie noch einmal rufen?",
+    antwort:
+      "Selbstverständlich, und Sie müssen sich dafür nicht entschuldigen. Etwas Neues bleibt selten beim ersten Mal hängen, das geht allen so. Ich erkläre dieselbe Sache gerne ein zweites und ein drittes Mal, und auf Wunsch schreibe ich Ihnen die wichtigsten Schritte in großer Schrift auf einen Zettel, den Sie neben das Gerät legen können.",
+  },
+  {
+    frage: "Können meine Kinder den Termin für mich ausmachen?",
+    antwort:
+      "Ja, sehr gerne. Viele Termine werden von Söhnen, Töchtern oder Enkeln angestoßen, die selbst weiter weg wohnen. Wir klären am Telefon, worum es geht, und ich melde mich danach direkt bei Ihnen, um den Termin abzustimmen. Angehörige dürfen beim Besuch dabei sein, sie müssen es aber nicht.",
+  },
+  {
+    frage: "Ich habe Angst, am Computer etwas kaputt zu machen.",
+    antwort:
+      "Diese Sorge höre ich fast bei jedem Besuch, und sie ist fast immer unbegründet. Durch Klicken und Ausprobieren geht ein Gerät nicht kaputt. Im schlimmsten Fall landet man an einer Stelle, von der man nicht weiß, wie man zurückkommt. Genau das zeige ich Ihnen: wie Sie jeden Schritt wieder rückgängig machen. Wenn Sie das einmal können, verliert der Computer seinen Schrecken.",
+  },
+  {
+    frage: "Woran erkenne ich Betrug am Telefon oder per E-Mail?",
+    antwort:
+      "Die Masche ist fast immer dieselbe: Es wird Druck gemacht, es geht angeblich um Ihr Konto oder Ihren Computer, und Sie sollen sofort etwas tun. Seriöse Unternehmen und Banken arbeiten nie so. Geben Sie am Telefon niemandem Zugriff auf Ihren Computer und nennen Sie keine Zugangsdaten. Wenn Sie unsicher sind, rufen Sie mich lieber einmal zu viel an. Diese Auskunft kostet Sie nichts.",
+  },
+  {
+    frage: "Kommen Sie auch, wenn ich nicht mehr gut zu Fuß bin?",
+    antwort:
+      "Ich komme grundsätzlich zu Ihnen nach Hause, das ist bei mir der Normalfall und kein Sonderwunsch. Sie müssen nirgendwohin fahren und nichts schleppen. Auch wenn Sie schlecht hören oder sehen, sagen Sie mir das bitte vorher. Dann spreche ich deutlicher, stelle die Schrift auf Ihren Geräten größer und plane mehr Zeit ein.",
   },
 ];
 
@@ -270,9 +309,9 @@ export const orte: Ort[] = [
   {
     slug: "kleinmachnow",
     name: "Kleinmachnow",
-    text: "Auch außerhalb der Berliner Stadtgrenze bin ich für Sie da: Nach Kleinmachnow komme ich regelmäßig – die Anfahrt kostet Sie selbstverständlich nichts.",
+    text: "Auch außerhalb der Berliner Stadtgrenze bin ich für Sie da: Nach Kleinmachnow komme ich regelmäßig. Die Anfahrt kostet Sie selbstverständlich nichts.",
     lokal:
-      "Kleinmachnow ist geprägt von Einfamilienhäusern mit großen Grundstücken – und genau das ist der häufigste Grund, warum man mich hier ruft: Der Router steht im Flur im Erdgeschoss, und im Schlafzimmer unterm Dach oder auf der Terrasse kommt vom WLAN kaum noch etwas an. Das lässt sich fast immer lösen, ohne dass Sie einen neuen Vertrag brauchen. Daneben helfe ich hier oft dabei, Fernseher, Handy und Computer so miteinander zu verbinden, dass zum Beispiel die Urlaubsfotos vom Handy auf dem großen Bildschirm im Wohnzimmer landen.",
+      "Kleinmachnow ist geprägt von Einfamilienhäusern mit großen Grundstücken, und genau das ist der häufigste Grund, warum man mich hier ruft: Der Router steht im Flur im Erdgeschoss, und im Schlafzimmer unterm Dach oder auf der Terrasse kommt vom WLAN kaum noch etwas an. Das lässt sich fast immer lösen, ohne dass Sie einen neuen Vertrag brauchen. Daneben helfe ich hier oft dabei, Fernseher, Handy und Computer so miteinander zu verbinden, dass zum Beispiel die Urlaubsfotos vom Handy auf dem großen Bildschirm im Wohnzimmer landen.",
     gebiete: [
       "Rund um den Rathausmarkt",
       "Am Weinberg und Seeberg",
@@ -285,7 +324,7 @@ export const orte: Ort[] = [
     fragen: [
       {
         frage:
-          "Kleinmachnow liegt in Brandenburg – berechnen Sie dafür Anfahrtskosten?",
+          "Kleinmachnow liegt in Brandenburg. Berechnen Sie dafür Anfahrtskosten?",
         antwort:
           "Nein. Kleinmachnow gehört fest zu meinem Einzugsgebiet, auch wenn es hinter der Berliner Stadtgrenze liegt. Sie zahlen genau denselben Stundensatz wie in Zehlendorf, und die Anfahrt ist kostenlos.",
       },
@@ -309,9 +348,9 @@ export const orte: Ort[] = [
   {
     slug: "wannsee",
     name: "Wannsee",
-    text: "Ob im Ortskern von Wannsee oder in den ruhigen Seitenstraßen Richtung Havel – ich komme zu Ihnen nach Hause und nehme mir Zeit für Ihr Anliegen.",
+    text: "Ob im Ortskern von Wannsee oder in den ruhigen Seitenstraßen Richtung Havel, ich komme zu Ihnen nach Hause und nehme mir Zeit für Ihr Anliegen.",
     lokal:
-      "Wannsee ist weitläufig, und die Wohnlagen liegen weit auseinander – vom Ortskern an der Königstraße über die Villenstraßen am Sandwerder bis nach Kohlhasenbrück und Steinstücken. Für mich heißt das vor allem: Ich plane für Wannsee bewusst mehr Zeit ein, damit ich nicht unter Druck bei Ihnen ankomme. Inhaltlich ist hier ein Thema besonders oft dabei: die alten, massiv gebauten Häuser. Dicke Wände schlucken Funk, deshalb ist das WLAN in einzelnen Zimmern schwach und der Handyempfang manchmal ebenfalls. Auch dafür gibt es Lösungen.",
+      "Wannsee ist weitläufig, und die Wohnlagen liegen weit auseinander, vom Ortskern an der Königstraße über die Villenstraßen am Sandwerder bis nach Kohlhasenbrück und Steinstücken. Für mich heißt das vor allem: Ich plane für Wannsee bewusst mehr Zeit ein, damit ich nicht unter Druck bei Ihnen ankomme. Inhaltlich ist hier ein Thema besonders oft dabei: die alten, massiv gebauten Häuser. Dicke Wände schlucken Funk, deshalb ist das WLAN in einzelnen Zimmern schwach und der Handyempfang manchmal ebenfalls. Auch dafür gibt es Lösungen.",
     gebiete: [
       "Ortskern an der Königstraße",
       "Am Großen Wannsee und Am Sandwerder",
@@ -320,7 +359,7 @@ export const orte: Ort[] = [
       "Steinstücken",
     ],
     anfahrt:
-      "Ich komme mit dem Auto über die Königstraße zu Ihnen. Auch wenn Wannsee der am weitesten entfernte Teil meines Gebiets ist, berechne ich Ihnen keine Anfahrt – wir stimmen nur den Termin etwas großzügiger ab.",
+      "Ich komme mit dem Auto über die Königstraße zu Ihnen. Auch wenn Wannsee der am weitesten entfernte Teil meines Gebiets ist, berechne ich Ihnen keine Anfahrt. Wir stimmen nur den Termin etwas großzügiger ab.",
     fragen: [
       {
         frage: "Kommen Sie auch nach Kohlhasenbrück oder Steinstücken?",
@@ -331,13 +370,13 @@ export const orte: Ort[] = [
         frage:
           "In unserem alten Haus in Wannsee ist das WLAN in manchen Zimmern sehr schwach. Woran liegt das?",
         antwort:
-          "Meistens an den Wänden. In den älteren, massiv gebauten Häusern hier kommt das Funksignal des Routers nur schwer durch, besonders über mehrere Etagen. Ein neuer Vertrag beim Anbieter hilft dagegen fast nie – nötig ist eine bessere Verteilung im Haus. Ich messe vor Ort nach und richte das entsprechend ein.",
+          "Meistens an den Wänden. In den älteren, massiv gebauten Häusern hier kommt das Funksignal des Routers nur schwer durch, besonders über mehrere Etagen. Ein neuer Vertrag beim Anbieter hilft dagegen fast nie. Nötig ist eine bessere Verteilung im Haus. Ich messe vor Ort nach und richte das entsprechend ein.",
       },
     ],
     senioren:
-      "Weil in Wannsee alles etwas weiter auseinanderliegt, plane ich für Besuche bei älteren Kundinnen und Kunden bewusst mehr Zeit ein. Kein Blick auf die Uhr, keine Eile: Wir klären Ihre Frage so lange, bis Sie sich damit wohlfühlen – und wenn beim nächsten Mal dasselbe noch einmal drankommt, ist das völlig in Ordnung.",
+      "Weil in Wannsee alles etwas weiter auseinanderliegt, plane ich für Besuche bei älteren Kundinnen und Kunden bewusst mehr Zeit ein. Kein Blick auf die Uhr, keine Eile: Wir klären Ihre Frage so lange, bis Sie sich damit wohlfühlen, und wenn beim nächsten Mal dasselbe noch einmal drankommt, ist das völlig in Ordnung.",
     metaBeschreibung:
-      "Computerhilfe in Wannsee bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und WLAN – auch in Kohlhasenbrück und Steinstücken.",
+      "Computerhilfe in Wannsee bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und WLAN, auch in Kohlhasenbrück und Steinstücken.",
     bild: "/images/orte/wannsee.jpg",
     bildAlt: "Blick über den Großen Wannsee",
     bildAutor: "Times",
@@ -347,9 +386,9 @@ export const orte: Ort[] = [
   {
     slug: "schlachtensee",
     name: "Schlachtensee",
-    text: "Rund um den Schlachtensee helfe ich Ihnen direkt bei Ihnen zu Hause – geduldig, verständlich und ohne Fachchinesisch.",
+    text: "Rund um den Schlachtensee helfe ich Ihnen direkt bei Ihnen zu Hause: geduldig, verständlich und ohne Fachchinesisch.",
     lokal:
-      "Am Schlachtensee bin ich buchstäblich Ihr Nachbar: Ich wohne selbst in diesem Kiez, nur ein paar Straßen entfernt. Kurzfristige Termine sind hier deshalb am ehesten möglich, und wenn nach einem Besuch noch eine Frage offenbleibt, komme ich für ein paar Minuten unkompliziert noch einmal vorbei. Gefragt bin ich hier besonders oft bei Handy und Tablet – neues Gerät einrichten, Fotos vom alten Handy retten, WhatsApp und Videotelefonie mit den Enkeln zum Laufen bringen.",
+      "Am Schlachtensee bin ich buchstäblich Ihr Nachbar: Ich wohne selbst in diesem Kiez, nur ein paar Straßen entfernt. Kurzfristige Termine sind hier deshalb am ehesten möglich, und wenn nach einem Besuch noch eine Frage offenbleibt, komme ich für ein paar Minuten unkompliziert noch einmal vorbei. Gefragt bin ich hier besonders oft bei Handy und Tablet: neues Gerät einrichten, Fotos vom alten Handy retten, WhatsApp und Videotelefonie mit den Enkeln zum Laufen bringen.",
     gebiete: [
       "Beerenstraße und Matterhornstraße",
       "Fischerhüttenstraße",
@@ -363,7 +402,7 @@ export const orte: Ort[] = [
       {
         frage: "Wie schnell können Sie am Schlachtensee da sein?",
         antwort:
-          "Am Schlachtensee bin ich zu Hause, deshalb sind kurzfristige Termine hier am ehesten machbar – manchmal sogar noch am selben Tag. Rufen Sie einfach an, dann sage ich Ihnen direkt, wann es passt.",
+          "Am Schlachtensee bin ich zu Hause, deshalb sind kurzfristige Termine hier am ehesten machbar, manchmal sogar noch am selben Tag. Rufen Sie einfach an, dann sage ich Ihnen direkt, wann es passt.",
       },
       {
         frage:
@@ -373,7 +412,7 @@ export const orte: Ort[] = [
       },
     ],
     senioren:
-      "Am Schlachtensee bin ich Ihr Nachbar, und das merken ältere Kundinnen und Kunden vor allem daran: Wenn nach meinem Besuch eine Frage offenbleibt, komme ich für ein paar Minuten noch einmal vorbei. Sie müssen sich also nicht alles auf einmal merken – gerade beim neuen Handy ist das eine große Erleichterung.",
+      "Am Schlachtensee bin ich Ihr Nachbar, und das merken ältere Kundinnen und Kunden vor allem daran: Wenn nach meinem Besuch eine Frage offenbleibt, komme ich für ein paar Minuten noch einmal vorbei. Sie müssen sich also nicht alles auf einmal merken. Gerade beim neuen Handy ist das eine große Erleichterung.",
     metaBeschreibung:
       "Computerhilfe am Schlachtensee bei Ihnen zu Hause. IT-Hilfe für Senioren, neues Handy einrichten, Fotos retten. Ich wohne selbst im Kiez.",
     bild: "/images/orte/schlachtensee.jpg",
@@ -387,7 +426,7 @@ export const orte: Ort[] = [
     name: "Nikolassee",
     text: "In Nikolassee bin ich schnell bei Ihnen: Ich helfe direkt vor Ort bei Computer, Handy und Internet und erkläre alles in Ruhe.",
     lokal:
-      "Nikolassee ist mein eigener Ortsteil – meine Adresse liegt in der Breisgauer Straße, mitten im Gebiet. Näher dran geht nicht, und entsprechend flexibel kann ich hier Termine legen. Typisch für Nikolassee sind Häuser mit mehreren Etagen und oft noch alter Telefonverkabelung. Wenn das Internet ständig abbricht, liegt es hier erfahrungsgemäß seltener am Anbieter als an der Leitung in der Wohnung oder an einem veralteten Router. Das schaue ich mir vor Ort an, bevor Sie unnötig einen neuen Vertrag abschließen.",
+      "Nikolassee ist mein eigener Ortsteil: Meine Adresse liegt in der Breisgauer Straße, mitten im Gebiet. Näher dran geht nicht, und entsprechend flexibel kann ich hier Termine legen. Typisch für Nikolassee sind Häuser mit mehreren Etagen und oft noch alter Telefonverkabelung. Wenn das Internet ständig abbricht, liegt es hier erfahrungsgemäß seltener am Anbieter als an der Leitung in der Wohnung oder an einem veralteten Router. Das schaue ich mir vor Ort an, bevor Sie unnötig einen neuen Vertrag abschließen.",
     gebiete: [
       "Rund um die Rehwiese",
       "Kirchweg und Borussenstraße",
@@ -396,12 +435,12 @@ export const orte: Ort[] = [
       "Rund um den S-Bahnhof Nikolassee",
     ],
     anfahrt:
-      "Ich wohne selbst in Nikolassee und bin daher meist in wenigen Minuten bei Ihnen – häufig sogar zu Fuß oder mit dem Rad.",
+      "Ich wohne selbst in Nikolassee und bin daher meist in wenigen Minuten bei Ihnen, häufig sogar zu Fuß oder mit dem Rad.",
     fragen: [
       {
         frage: "Wohnen Sie selbst in Nikolassee?",
         antwort:
-          "Ja. Meine Adresse liegt in der Breisgauer Straße in Nikolassee. Ich bin also tatsächlich Ihr Nachbar und nicht ein Dienstleister, der von weit her anreist – das merken Sie an den kurzen Wegen und daran, dass ich auch für eine kleine Nachfrage noch einmal vorbeikomme.",
+          "Ja. Meine Adresse liegt in der Breisgauer Straße in Nikolassee. Ich bin also tatsächlich Ihr Nachbar und nicht ein Dienstleister, der von weit her anreist. Das merken Sie an den kurzen Wegen und daran, dass ich auch für eine kleine Nachfrage noch einmal vorbeikomme.",
       },
       {
         frage:
@@ -411,9 +450,9 @@ export const orte: Ort[] = [
       },
     ],
     senioren:
-      "Für ältere Menschen in Nikolassee bin ich buchstäblich der Nachbar von nebenan – meine Adresse liegt hier im Ortsteil. Das heißt kurze Wege und die Ruhe, eine Sache auch zweimal zu erklären. Besonders oft geht es darum, Video-Anrufe mit Kindern und Enkeln so einzurichten, dass sie ohne Hilfe klappen.",
+      "Für ältere Menschen in Nikolassee bin ich buchstäblich der Nachbar von nebenan, meine Adresse liegt hier im Ortsteil. Das heißt kurze Wege und die Ruhe, eine Sache auch zweimal zu erklären. Besonders oft geht es darum, Video-Anrufe mit Kindern und Enkeln so einzurichten, dass sie ohne Hilfe klappen.",
     metaBeschreibung:
-      "Computerhilfe in Nikolassee bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und Internet. Ich wohne selbst hier – kurze Wege.",
+      "Computerhilfe in Nikolassee bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und Internet. Ich wohne selbst hier, kurze Wege.",
     bild: "/images/orte/nikolassee.jpg",
     bildAlt: "Der S-Bahnhof Nikolassee",
     bildAutor: "A.Savin",
@@ -425,7 +464,7 @@ export const orte: Ort[] = [
     name: "Grunewald",
     text: "Auch im Grunewald bin ich für Sie unterwegs und helfe bei allen Fragen rund um Computer, Fernseher, WLAN und Drucker.",
     lokal:
-      "Im Grunewald stehen viele große Altbauvillen – schön zu wohnen, aber für Funk eine Herausforderung: Über drei Etagen und durch massive Wände schafft es ein einzelner Router selten. Entsprechend oft geht es hier darum, das WLAN sauber im ganzen Haus zu verteilen, gern auch bis ins Gartenhaus oder ins Souterrain. Das zweite häufige Thema ist der Fernseher: Smart-TV einrichten, Mediatheken und Streamingdienste so sortieren, dass Sie mit einer Fernbedienung zurechtkommen statt mit dreien.",
+      "Im Grunewald stehen viele große Altbauvillen. Schön zu wohnen, aber für Funk eine Herausforderung: Über drei Etagen und durch massive Wände schafft es ein einzelner Router selten. Entsprechend oft geht es hier darum, das WLAN sauber im ganzen Haus zu verteilen, gern auch bis ins Gartenhaus oder ins Souterrain. Das zweite häufige Thema ist der Fernseher: Smart-TV einrichten, Mediatheken und Streamingdienste so sortieren, dass Sie mit einer Fernbedienung zurechtkommen statt mit dreien.",
     gebiete: [
       "Hagenstraße und Herthastraße",
       "Koenigsallee",
@@ -440,13 +479,13 @@ export const orte: Ort[] = [
         frage:
           "Wir haben ein großes Haus im Grunewald. Bekommen Sie WLAN in alle Etagen?",
         antwort:
-          "In aller Regel ja. Bei den großen Häusern hier reicht ein einzelner Router fast nie aus. Ich schaue mir an, wo das Signal abreißt, und richte die Verteilung so ein, dass Sie in jeder Etage – oft auch im Garten – stabiles WLAN haben. Welche Geräte dafür wirklich nötig sind, bespreche ich vorher mit Ihnen.",
+          "In aller Regel ja. Bei den großen Häusern hier reicht ein einzelner Router fast nie aus. Ich schaue mir an, wo das Signal abreißt, und richte die Verteilung so ein, dass Sie in jeder Etage, oft auch im Garten, stabiles WLAN haben. Welche Geräte dafür wirklich nötig sind, bespreche ich vorher mit Ihnen.",
       },
       {
         frage:
           "Können Sie unseren Fernseher einrichten und uns die Mediatheken erklären?",
         antwort:
-          "Sehr gerne, das ist eines meiner häufigsten Themen im Grunewald. Ich richte den Smart-TV ein, verbinde ihn mit dem Internet, sortiere die Mediatheken und Streamingdienste übersichtlich und zeige Ihnen in Ruhe, wie Sie damit umgehen – so oft Sie möchten.",
+          "Sehr gerne, das ist eines meiner häufigsten Themen im Grunewald. Ich richte den Smart-TV ein, verbinde ihn mit dem Internet, sortiere die Mediatheken und Streamingdienste übersichtlich und zeige Ihnen in Ruhe, wie Sie damit umgehen, so oft Sie möchten.",
       },
     ],
     senioren:
@@ -462,7 +501,7 @@ export const orte: Ort[] = [
   {
     slug: "dahlem",
     name: "Dahlem",
-    text: "In Dahlem komme ich direkt zu Ihnen nach Hause – vom Dorfkern bis zu den Straßen rund um die Freie Universität.",
+    text: "In Dahlem komme ich direkt zu Ihnen nach Hause, vom Dorfkern bis zu den Straßen rund um die Freie Universität.",
     lokal:
       "Dahlem ist bunt gemischt: der alte Dorfkern rund um die Domäne, die ruhigen Villenstraßen im Dol und das lebhafte Viertel rund um die Freie Universität. Entsprechend unterschiedlich sind die Anliegen. Häufig geht es hier ums Sichere: E-Mails, die angeblich von der Bank kommen, Anrufe von angeblichen Microsoft-Mitarbeitern, Warnmeldungen, die plötzlich auf dem Bildschirm aufpoppen. Ich zeige Ihnen in Ruhe, woran Sie solche Maschen erkennen, und richte Ihre Geräte so ein, dass möglichst wenig davon überhaupt bei Ihnen ankommt.",
     gebiete: [
@@ -473,13 +512,13 @@ export const orte: Ort[] = [
       "Rund um den Botanischen Garten",
     ],
     anfahrt:
-      "Von Zehlendorf aus bin ich über die Clayallee oder die Königin-Luise-Straße schnell in Dahlem – ohne Anfahrtskosten für Sie.",
+      "Von Zehlendorf aus bin ich über die Clayallee oder die Königin-Luise-Straße schnell in Dahlem, ohne Anfahrtskosten für Sie.",
     fragen: [
       {
         frage:
           "Ich habe eine merkwürdige E-Mail bekommen. Können Sie sich das in Dahlem ansehen?",
         antwort:
-          "Ja, und bitte zögern Sie damit nicht. Löschen Sie die Nachricht nicht sofort und klicken Sie nichts an – rufen Sie mich lieber kurz an. Oft kann ich Ihnen schon am Telefon sagen, ob es Betrug ist. Wenn nötig, komme ich vorbei, prüfe Ihr Gerät und zeige Ihnen, woran Sie solche Nachrichten künftig selbst erkennen.",
+          "Ja, und bitte zögern Sie damit nicht. Löschen Sie die Nachricht nicht sofort und klicken Sie nichts an. Rufen Sie mich lieber kurz an. Oft kann ich Ihnen schon am Telefon sagen, ob es Betrug ist. Wenn nötig, komme ich vorbei, prüfe Ihr Gerät und zeige Ihnen, woran Sie solche Nachrichten künftig selbst erkennen.",
       },
       {
         frage:
@@ -489,7 +528,7 @@ export const orte: Ort[] = [
       },
     ],
     senioren:
-      "Ältere Menschen sind das bevorzugte Ziel von Betrugsmaschen im Internet, und in Dahlem werde ich deshalb oft genau dafür gerufen. Ich zeige Ihnen ohne erhobenen Zeigefinger, woran Sie falsche E-Mails und Anrufe erkennen. Fragen kostet nichts – lieber einmal zu viel angerufen als einmal zu wenig.",
+      "Ältere Menschen sind das bevorzugte Ziel von Betrugsmaschen im Internet, und in Dahlem werde ich deshalb oft genau dafür gerufen. Ich zeige Ihnen ohne erhobenen Zeigefinger, woran Sie falsche E-Mails und Anrufe erkennen. Fragen kostet nichts: lieber einmal zu viel angerufen als einmal zu wenig.",
     metaBeschreibung:
       "Computerhilfe in Dahlem bei Ihnen zu Hause. IT-Hilfe für Senioren, Schutz vor Betrug per E-Mail und Telefon. Verständlich erklärt.",
     bild: "/images/orte/dahlem.jpg",
@@ -501,9 +540,9 @@ export const orte: Ort[] = [
   {
     slug: "zehlendorf",
     name: "Zehlendorf",
-    text: "Zehlendorf ist das Herz meines Einzugsgebiets – hier bin ich besonders schnell bei Ihnen und helfe bei allem, was Technik heißt.",
+    text: "Zehlendorf ist das Herz meines Einzugsgebiets. Hier bin ich besonders schnell bei Ihnen und helfe bei allem, was Technik heißt.",
     lokal:
-      "Zehlendorf liegt mitten in meinem Gebiet, deshalb bin ich hier am häufigsten unterwegs – vom Teltower Damm über Onkel Toms Hütte bis zum Mexikoplatz. Die Wohnformen sind gemischt: Etagenwohnungen an der Clayallee, Reihenhäuser in der Waldsiedlung, Altbauten rund um den Mexikoplatz. Entsprechend breit sind die Anliegen, und weil die Wege kurz sind, kann ich hier auch mal für eine halbe Stunde vorbeikommen, wenn nur eine Kleinigkeit klemmt. Genau dafür rechne ich nach Zeit ab und nicht in Pauschalen.",
+      "Zehlendorf liegt mitten in meinem Gebiet, deshalb bin ich hier am häufigsten unterwegs, vom Teltower Damm über Onkel Toms Hütte bis zum Mexikoplatz. Die Wohnformen sind gemischt: Etagenwohnungen an der Clayallee, Reihenhäuser in der Waldsiedlung, Altbauten rund um den Mexikoplatz. Entsprechend breit sind die Anliegen, und weil die Wege kurz sind, kann ich hier auch mal für eine halbe Stunde vorbeikommen, wenn nur eine Kleinigkeit klemmt. Genau dafür rechne ich nach Zeit ab und nicht in Pauschalen.",
     gebiete: [
       "Teltower Damm und Rathaus Zehlendorf",
       "Clayallee",
@@ -512,22 +551,22 @@ export const orte: Ort[] = [
       "Richtung Krumme Lanke",
     ],
     anfahrt:
-      "Zehlendorf ist mein Heimatgebiet – ich bin hier praktisch täglich unterwegs und daher besonders schnell bei Ihnen.",
+      "Zehlendorf ist mein Heimatgebiet. Ich bin hier praktisch täglich unterwegs und daher besonders schnell bei Ihnen.",
     fragen: [
       {
         frage: "Kommen Sie auch, wenn es nur eine Kleinigkeit ist?",
         antwort:
-          "Ja, gerade in Zehlendorf. Die Wege sind für mich kurz, deshalb lohnt sich auch ein kurzer Besuch. Ich rechne nach der tatsächlich benötigten Zeit ab – für eine halbe Stunde zahlen Sie also auch nur eine halbe Stunde und keine Pauschale.",
+          "Ja, gerade in Zehlendorf. Die Wege sind für mich kurz, deshalb lohnt sich auch ein kurzer Besuch. Ich rechne nach der tatsächlich benötigten Zeit ab. Für eine halbe Stunde zahlen Sie also auch nur eine halbe Stunde und keine Pauschale.",
       },
       {
         frage:
           "Helfen Sie in Zehlendorf auch in Mietwohnungen und nicht nur in Häusern?",
         antwort:
-          "Selbstverständlich. Ob Etagenwohnung an der Clayallee, Reihenhaus in der Waldsiedlung oder Altbau am Mexikoplatz – ich komme überall dorthin, wo Ihre Geräte stehen. Für die Arbeit an Computer, Handy oder Router brauche ich nichts weiter als einen Platz am Tisch.",
+          "Selbstverständlich. Ob Etagenwohnung an der Clayallee, Reihenhaus in der Waldsiedlung oder Altbau am Mexikoplatz, ich komme überall dorthin, wo Ihre Geräte stehen. Für die Arbeit an Computer, Handy oder Router brauche ich nichts weiter als einen Platz am Tisch.",
       },
     ],
     senioren:
-      "In Zehlendorf bin ich fast täglich unterwegs, deshalb lohnt sich hier auch der kurze Besuch. Gerade ältere Kundinnen und Kunden zögern oft, wegen einer Kleinigkeit anzurufen – das müssen Sie nicht. Ich rechne nach Zeit ab, eine halbe Stunde kostet auch nur eine halbe Stunde.",
+      "In Zehlendorf bin ich fast täglich unterwegs, deshalb lohnt sich hier auch der kurze Besuch. Gerade ältere Kundinnen und Kunden zögern oft, wegen einer Kleinigkeit anzurufen. Das müssen Sie nicht. Ich rechne nach Zeit ab, eine halbe Stunde kostet auch nur eine halbe Stunde.",
     metaBeschreibung:
       "Computerhilfe in Zehlendorf bei Ihnen zu Hause. IT-Hilfe für Senioren bei Computer, Handy und Drucker. Auch kurze Besuche, Abrechnung nach Zeit.",
     bild: "/images/orte/zehlendorf.jpg",
@@ -539,9 +578,9 @@ export const orte: Ort[] = [
   {
     slug: "teltow",
     name: "Teltow",
-    text: "Auch nach Teltow komme ich gerne zu Ihnen nach Hause – die Anfahrt ist für Sie kostenlos, versprochen.",
+    text: "Auch nach Teltow komme ich gerne zu Ihnen nach Hause. Die Anfahrt ist für Sie kostenlos, versprochen.",
     lokal:
-      "Teltow ist zweigeteilt: die gewachsene Altstadt rund um die St.-Andreas-Kirche auf der einen Seite, die neueren Wohngebiete in Seehof und Richtung Sigridshorst auf der anderen. In den Neubaugebieten geht es oft um Geräte, die miteinander sprechen sollen – Fernseher, Lautsprecher, Handy, Türklingel – und die sich untereinander ins Gehege kommen. In der Altstadt ist es häufiger die klassische Frage: Der Computer ist über die Jahre langsam geworden, und niemand weiß mehr, welche Programme darauf eigentlich noch gebraucht werden. Beides lässt sich in einem ruhigen Termin klären.",
+      "Teltow ist zweigeteilt: die gewachsene Altstadt rund um die St.-Andreas-Kirche auf der einen Seite, die neueren Wohngebiete in Seehof und Richtung Sigridshorst auf der anderen. In den Neubaugebieten geht es oft um Geräte, die miteinander sprechen sollen: Fernseher, Lautsprecher, Handy, Türklingel. Oft kommen sie sich dabei gegenseitig ins Gehege. In der Altstadt ist es häufiger die klassische Frage: Der Computer ist über die Jahre langsam geworden, und niemand weiß mehr, welche Programme darauf eigentlich noch gebraucht werden. Beides lässt sich in einem ruhigen Termin klären.",
     gebiete: [
       "Altstadt rund um die St.-Andreas-Kirche",
       "Teltow-Seehof",
@@ -550,10 +589,10 @@ export const orte: Ort[] = [
       "Entlang des Teltowkanals",
     ],
     anfahrt:
-      "Ich komme über den Teltower Damm und den Teltowkanal zu Ihnen. Teltow liegt in Brandenburg, gehört aber ganz normal zu meinem Einzugsgebiet – ohne Aufschlag und ohne Anfahrtskosten.",
+      "Ich komme über den Teltower Damm und den Teltowkanal zu Ihnen. Teltow liegt in Brandenburg, gehört aber ganz normal zu meinem Einzugsgebiet, ohne Aufschlag und ohne Anfahrtskosten.",
     fragen: [
       {
-        frage: "Fahren Sie wirklich bis nach Teltow – auch nach Seehof?",
+        frage: "Fahren Sie wirklich bis nach Teltow, auch nach Seehof?",
         antwort:
           "Ja. Teltow gehört komplett zu meinem Einzugsgebiet, die Altstadt ebenso wie Seehof und Sigridshorst. Für die Fahrt über die Landesgrenze berechne ich Ihnen nichts extra; es gilt derselbe Stundensatz wie in Berlin.",
       },
@@ -561,7 +600,7 @@ export const orte: Ort[] = [
         frage:
           "Mein Computer ist über die Jahre sehr langsam geworden. Muss ich einen neuen kaufen?",
         antwort:
-          "Meistens nicht. Sehr oft liegt es an Programmen, die beim Start unbemerkt mitlaufen, an einer vollen Festplatte oder an fehlenden Aktualisierungen – das lässt sich in einem Termin beheben. Nur wenn das Gerät wirklich zu alt ist, sage ich Ihnen das ehrlich und berate Sie, was Sie brauchen und was nicht.",
+          "Meistens nicht. Sehr oft liegt es an Programmen, die beim Start unbemerkt mitlaufen, an einer vollen Festplatte oder an fehlenden Aktualisierungen. Das lässt sich in einem Termin beheben. Nur wenn das Gerät wirklich zu alt ist, sage ich Ihnen das ehrlich und berate Sie, was Sie brauchen und was nicht.",
       },
     ],
     senioren:

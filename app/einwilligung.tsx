@@ -198,7 +198,7 @@ function Einwilligungsbanner() {
           <strong className="font-bold">Darf ich mitzählen?</strong> Ich würde
           gerne anonym erfassen, welche Seiten besucht werden, um mein Angebot
           zu verbessern. Dafür nutze ich Google Analytics, das Cookies setzt und
-          Daten an Google überträgt. Das ist freiwillig – die Website
+          Daten an Google überträgt. Das ist freiwillig, die Website
           funktioniert ohne Zustimmung genauso. Mehr dazu in der{" "}
           <Link
             href="/datenschutz"

@@ -46,7 +46,7 @@ export function UnternehmensDaten() {
         "@id": `${SITE_URL}/#unternehmen`,
         name: "Computerhilfe mit Till",
         description:
-          "Geduldige Hilfe bei Computer, Handy, Tablet, Internet, Drucker und Fernseher – als Hausbesuch im Berliner Südwesten, verständlich erklärt und ohne Fachbegriffe.",
+          "Geduldige Hilfe bei Computer, Handy, Tablet, Internet, Drucker und Fernseher, als Hausbesuch im Berliner Südwesten, verständlich erklärt und ohne Fachbegriffe.",
         url: SITE_URL,
         image: `${SITE_URL}/images/till_wadehn_it_support.jpg`,
         founder: { "@type": "Person", name: "Till Wadehn" },

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   Phone,
@@ -13,7 +12,13 @@ import {
   Home as HomeIcon,
 } from "lucide-react";
 import { PREIS_STUNDE, SITE_URL, fragen, leistungen, orte } from "./daten";
-import { KopfZeile, FussZeile, FragenAbschnitt } from "./komponenten";
+import {
+  KopfZeile,
+  FussZeile,
+  FragenAbschnitt,
+  FotoHintergrundMobil,
+  FotoNebenText,
+} from "./komponenten";
 import { FragenDaten, UnternehmensDaten } from "./strukturierte-daten";
 import {
   TelefonLink,
@@ -35,9 +40,9 @@ export const metadata: Metadata = {
   // Auf die Länge gekürzt, die Google tatsächlich anzeigt: rund 60 Zeichen
   // beim Titel, rund 155 in der Beschreibung. Die wichtigen Begriffe stehen
   // vorne, damit sie auch bei einem Abschnitt sichtbar bleiben.
-  title: "Computerhilfe zu Hause für Senioren in Berlin | Till Wadehn",
+  title: "Computerhilfe bei Ihnen zu Hause in Berlin | Till Wadehn",
   description:
-    "Geduldige Computerhilfe bei Ihnen zu Hause im Berliner Südwesten. IT-Hilfe für Senioren bei Computer, Handy, Internet und Drucker. Jetzt anrufen.",
+    "Geduldige Computerhilfe bei Ihnen zu Hause im Berliner Südwesten, für alle Privatleute. Hilfe bei Computer, Handy, Internet, Drucker und Fernseher.",
   alternates: {
     canonical: "/",
   },
@@ -60,15 +65,15 @@ const schritte = [
     icon: HomeIcon,
     titel: "3. Ich komme zu Ihnen",
     beschreibung:
-      "Ich komme zu Ihnen nach Hause, löse das Problem und erkläre Ihnen alles in Ruhe – so oft Sie möchten.",
+      "Ich komme zu Ihnen nach Hause, löse das Problem und erkläre Ihnen alles in Ruhe, so oft Sie möchten.",
   },
 ];
 
 const versprechen = [
-  "Geduldig – ich nehme mir Zeit und erkläre alles so oft Sie möchten",
-  "Verständlich – ich spreche Deutsch, kein Fachchinesisch",
-  "Ehrlich – ich empfehle nur, was Sie wirklich brauchen",
-  "Aus der Nachbarschaft – kurze Wege, keine Anfahrtskosten",
+  "Geduldig: Ich nehme mir Zeit und erkläre alles so oft Sie möchten",
+  "Verständlich: Ich spreche Deutsch, kein Fachchinesisch",
+  "Ehrlich: Ich empfehle nur, was Sie wirklich brauchen",
+  "Aus der Nachbarschaft: kurze Wege, keine Anfahrtskosten",
 ];
 
 const preise = [
@@ -78,7 +83,7 @@ const preise = [
     titel: "Beratung am Telefon",
     preis: "Kostenlos",
     beschreibung:
-      "Kurze Fragen beantworte ich gerne direkt am Telefon – das kostet Sie nichts.",
+      "Kurze Fragen beantworte ich gerne direkt am Telefon. Das kostet Sie nichts.",
   },
   {
     icon: HomeIcon,
@@ -116,18 +121,23 @@ export default function Home() {
           aria-labelledby="einstieg-titel"
           className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
         >
-          {/* Dekorative Hintergrund-Kreise */}
+          {/* Auf dem Handy liegt das Foto hinter dem Text, siehe
+              FotoHintergrundMobil. */}
+          <FotoHintergrundMobil />
+
+          {/* Dekorative Hintergrund-Kreise. Auf dem Handy würden sie über dem
+              Foto liegen und es nur unruhig machen. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-blue-50"
+            className="pointer-events-none absolute -left-32 -top-32 hidden h-96 w-96 rounded-full bg-blue-50 lg:block"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-24 right-1/3 h-64 w-64 rounded-full bg-amber-50"
+            className="pointer-events-none absolute -bottom-24 right-1/3 hidden h-64 w-64 rounded-full bg-amber-50 lg:block"
           />
 
           <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
-            <figure className="relative w-full max-w-xs sm:max-w-sm lg:order-2 lg:max-w-md lg:shrink-0 lg:basis-2/5">
+            <FotoNebenText className="lg:order-2 lg:w-full lg:max-w-md lg:shrink-0 lg:basis-2/5">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-6 -top-8 h-28 w-28 rounded-full bg-amber-200"
@@ -140,38 +150,27 @@ export default function Home() {
                 aria-hidden="true"
                 className="dot-grid pointer-events-none absolute -left-14 top-8 h-32 w-32"
               />
-              <Image
-                src="/images/till_wadehn_it_support.jpg"
-                alt="Till Wadehn sitzt mit einer Kundin am Tisch und erklärt ihr etwas am Laptop"
-                width={1400}
-                height={1867}
-                priority
-                sizes="(max-width: 640px) 20rem, (max-width: 1024px) 24rem, 28rem"
-                className="blob-mask relative z-10 h-auto w-full border-4 border-white shadow-xl"
-              />
-              <figcaption className="relative z-10 mt-4 text-center text-lg text-slate-600">
-                Till Wadehn – Ihr IT-Helfer vor Ort
-              </figcaption>
-            </figure>
+            </FotoNebenText>
 
+            {/* Auf dem Handy steht der Text auf dem abgedunkelten Foto und ist
+                deshalb hell; ab lg steht er wieder auf weißem Grund. */}
             <div className="flex max-w-3xl flex-col gap-6 text-center lg:order-1 lg:text-left">
               <h1
                 id="einstieg-titel"
-                className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
+                className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-slate-900"
               >
-                Computerhilfe bei Ihnen zu Hause – für Handy, Internet und
-                Drucker
+                Computerhilfe bei Ihnen zu Hause für Handy, Internet und Drucker
               </h1>
               <div
                 aria-hidden="true"
                 className="mx-auto h-2 w-28 rounded-full bg-amber-400 lg:mx-0"
               />
-              <p className="text-xl leading-relaxed text-slate-700 sm:text-2xl">
-                Ich bin Till aus Ihrer Nachbarschaft und biete geduldige
-                Computerhilfe bei Ihnen zu Hause. Besonders älteren Menschen und
-                Senioren helfe ich dabei, mit Computer, Handy und Internet
-                sicher zurechtzukommen – verständlich erklärt und ohne
-                Fachchinesisch.
+              <p className="text-xl leading-relaxed text-slate-100 sm:text-2xl lg:text-slate-700">
+                Ich bin Till aus Ihrer Nachbarschaft und helfe Privatleuten bei
+                allem, was mit Computer, Handy, Internet, Drucker und Fernseher
+                zu tun hat. Ich komme zu Ihnen nach Hause, nehme mir Zeit und
+                erkläre alles in normalem Deutsch, ohne Fachchinesisch und ohne
+                Eile.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
                 <TelefonLink
@@ -190,15 +189,15 @@ export default function Home() {
                 </MailLink>
               </div>
               <WennTelefonSichtbar>
-                <p className="text-lg text-slate-600">
+                <p className="text-lg text-slate-200 lg:text-slate-600">
                   Sie erreichen mich unter{" "}
                   <TelefonLink
                     bereich="hero"
-                    className="font-bold text-blue-800 underline underline-offset-4"
+                    className="font-bold text-white underline underline-offset-4 lg:text-blue-800"
                   >
                     <TelefonAnzeige />
-                  </TelefonLink>{" "}
-                  – gerne auch auf den Anrufbeantworter sprechen, ich rufe
+                  </TelefonLink>
+                  . Gerne auch auf den Anrufbeantworter sprechen, ich rufe
                   zurück.
                 </p>
               </WennTelefonSichtbar>
@@ -232,7 +231,7 @@ export default function Home() {
               className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
             />
             <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
-              Egal ob großes oder kleines Problem – fragen Sie einfach. Es gibt
+              Egal ob großes oder kleines Problem, fragen Sie einfach. Es gibt
               keine dummen Fragen.
             </p>
 
@@ -348,10 +347,11 @@ export default function Home() {
               />
               <p className="text-xl leading-relaxed text-slate-700">
                 Mein Name ist Till Wadehn. Beruflich entwickle ich Software und
-                Websites – Technik ist mein tägliches Handwerk. In meiner
+                Websites. Technik ist mein tägliches Handwerk. In meiner
                 Freizeit biete ich Computerhilfe für Menschen aus der
-                Nachbarschaft, vor allem für Seniorinnen und Senioren, die mit
-                Computer, Handy oder Internet nicht weiterkommen.
+                Nachbarschaft: für Familien, für Berufstätige im Homeoffice, für
+                Alleinlebende und für ältere Menschen. Wer bei Computer, Handy
+                oder Internet nicht weiterkommt, ist bei mir richtig.
               </p>
               <p className="text-xl leading-relaxed text-slate-700">
                 Mir ist wichtig, dass Sie sich gut aufgehoben fühlen: Ich nehme
@@ -407,12 +407,19 @@ export default function Home() {
             />
             <p className="mt-6 text-xl leading-relaxed text-slate-700">
               Viele meiner Kundinnen und Kunden sind ältere Menschen, die sich
-              mehr Zeit und Ruhe bei Technikfragen wünschen. Genau dafür bin ich
-              da. Ich erkläre alles in normalem Deutsch, wiederhole so oft Sie
-              möchten und dränge Sie zu nichts. Ob neues Handy, Video-Anrufe mit
-              den Enkeln oder der Schutz vor Betrug im Internet – ich helfe
-              Ihnen in Ruhe weiter.
+              bei Technikfragen mehr Zeit und Ruhe wünschen. Genau dafür bin ich
+              da: Ich erkläre alles in normalem Deutsch, wiederhole so oft Sie
+              möchten und dränge Sie zu nichts. Auf einer eigenen Seite habe ich
+              aufgeschrieben, wie ein Besuch abläuft und was Angehörige wissen
+              sollten.
             </p>
+            <Link
+              href="/computerhilfe-senioren"
+              className="mt-8 inline-flex items-center gap-3 rounded-xl border-2 border-slate-400 bg-white px-7 py-4 text-xl font-bold text-slate-900 hover:border-blue-700 hover:text-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+            >
+              <HeartHandshake size={26} aria-hidden="true" />
+              Mehr zur Computerhilfe für Senioren
+            </Link>
           </div>
         </section>
 
@@ -438,7 +445,7 @@ export default function Home() {
               className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
             />
             <p className="mx-auto mt-5 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
-              Keine versteckten Kosten, keine Überraschungen – Sie wissen immer
+              Keine versteckten Kosten, keine Überraschungen. Sie wissen immer
               vorher, was die Hilfe kostet.
             </p>
 

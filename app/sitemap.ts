@@ -8,7 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 1,
     },
-    ...["/wlan-hilfe", "/drucker-hilfe", "/fernseher-hilfe"].map((pfad) => ({
+    ...[
+      "/computerhilfe-senioren",
+      "/wlan-hilfe",
+      "/drucker-hilfe",
+      "/fernseher-hilfe",
+    ].map((pfad) => ({
       url: `${SITE_URL}${pfad}`,
       lastModified: new Date(),
       priority: 0.8,

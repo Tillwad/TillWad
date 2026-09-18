@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   // Marke tragen – die steht auf der Startseite.
   title: "Drucker anschließen & einrichten lassen in Berlin",
   description:
-    "Drucker anschließen, einrichten und wieder zum Laufen bringen – bei Ihnen zu Hause im Berliner Südwesten. Auch Drucken vom Handy. Jetzt anrufen.",
+    "Drucker anschließen, einrichten und wieder zum Laufen bringen, bei Ihnen zu Hause im Berliner Südwesten. Auch Drucken vom Handy. Jetzt anrufen.",
   alternates: {
     canonical: "/drucker-hilfe",
   },
@@ -55,7 +55,7 @@ const anliegen = [
     farbe: "bg-amber-100 text-amber-700",
     titel: "Vom Handy und Tablet drucken",
     beschreibung:
-      "Ein Foto oder ein Brief direkt vom iPhone, iPad oder Android-Gerät aufs Papier – eingerichtet und in Ruhe erklärt, bis es sitzt.",
+      "Ein Foto oder ein Brief direkt vom iPhone, iPad oder Android-Gerät aufs Papier, eingerichtet und in Ruhe erklärt, bis es sitzt.",
   },
   {
     icon: ScanLine,
@@ -126,7 +126,7 @@ export default function DruckerHilfe() {
             <p className="mt-6 text-xl leading-relaxed text-slate-700 sm:text-2xl">
               Kaum ein Gerät im Haushalt ärgert so zuverlässig wie der Drucker.
               Ich komme zu Ihnen nach Hause, schließe ihn an, verbinde ihn mit
-              Computer, Handy und WLAN und bringe ihn wieder zum Laufen – im
+              Computer, Handy und WLAN und bringe ihn wieder zum Laufen, im
               Berliner Südwesten und in der direkten Umgebung.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -224,8 +224,8 @@ export default function DruckerHilfe() {
             </p>
             <p className="mt-4 text-xl leading-relaxed text-slate-700">
               Ich bin allerdings keine Reparaturwerkstatt und öffne keine
-              Geräte. Wenn wirklich etwas defekt ist – ein Papiereinzug, der
-              nicht mehr greift, oder ein Druckwerk, das den Dienst quittiert –
+              Geräte. Wenn wirklich etwas defekt ist, etwa ein Papiereinzug, der
+              nicht mehr greift, oder ein Druckwerk, das den Dienst quittiert,
               dann sage ich Ihnen das ehrlich. Bei einem älteren Tintendrucker
               kostet eine Reparatur oft mehr als ein neues Gerät. Dann ist es
               vernünftiger, den Drucker zu ersetzen, und ich helfe Ihnen bei der
@@ -258,7 +258,7 @@ export default function DruckerHilfe() {
         <FragenAbschnitt
           fragen={druckerFragen}
           titel="Häufige Fragen zum Drucker"
-          einleitung="Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an – kurze Fragen kläre ich gerne gleich am Telefon."
+          einleitung="Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an. Kurze Fragen kläre ich gerne gleich am Telefon."
           hell={false}
         />
 
@@ -297,7 +297,7 @@ export default function DruckerHilfe() {
             </h2>
             <WennTelefonSichtbar>
               <p className="text-xl leading-relaxed sm:text-2xl">
-                Schildern Sie mir kurz, was der Drucker macht – oft weiß ich
+                Schildern Sie mir kurz, was der Drucker macht. Oft weiß ich
                 schon am Telefon, woran es liegt.
               </p>
             </WennTelefonSichtbar>
@@ -330,8 +330,8 @@ export default function DruckerHilfe() {
               Drucker-Hilfe in Ihrer Nähe
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-xl leading-relaxed text-slate-700">
-              Ich komme zu Ihnen nach Hause – in diesen Orten ist die Anfahrt
-              für Sie kostenlos:
+              Ich komme zu Ihnen nach Hause. In diesen Orten ist die Anfahrt für
+              Sie kostenlos:
             </p>
             <ul className="mt-8 flex list-none flex-wrap items-center justify-center gap-4">
               {orte.map((ort) => (
