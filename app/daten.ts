@@ -213,10 +213,20 @@ export const fernseherFragen: Frage[] = [
     antwort:
       "Das muss auch niemand. In den meisten Wohnzimmern lässt sich das auf eine reduzieren. Häufig steuert die Fernbedienung des Fernsehers auch Receiver und Lautstärke mit, das ist nur nicht eingerichtet. Ich richte es ein und beschrifte auf Wunsch die drei, vier Tasten, die Sie wirklich brauchen.",
   },
+  // Wortlaut bewusst so, wie danach tatsächlich gesucht wird. Die Antwort
+  // erklärt die Schritte wirklich, statt nur den Hausbesuch anzubieten:
+  // Auf eine Wissensfrage gehört eine Antwort, sonst steht die Seite zu Recht
+  // weit hinten.
   {
-    frage: "Wie komme ich an die ARD- und ZDF-Mediathek?",
+    frage: "Wie kann ich auf meinem Fernseher die Mediathek einrichten?",
     antwort:
-      "Die Mediatheken der öffentlich-rechtlichen Sender sind kostenlos und auf fast jedem Smart-TV vorhanden, man muss sie nur finden und einrichten. Ich lege sie Ihnen an eine gut erreichbare Stelle und zeige Ihnen, wie Sie eine verpasste Sendung nachträglich ansehen.",
+      "In vier Schritten. Erstens den Fernseher über Einstellungen und Netzwerk mit dem WLAN verbinden, ohne Internet geht es nicht. Zweitens den App-Bereich öffnen, der je nach Marke Smart Hub, Content Store, Google TV oder schlicht Apps heißt und meist eine eigene Taste auf der Fernbedienung hat. Drittens dort nach ARD Mediathek und ZDFmediathek suchen und beide installieren, kostenlos und ohne Konto. Viertens die beiden Apps auf dem Startbildschirm nach vorne schieben, damit sie nicht hinter den bunten Streaming-Knöpfen verschwinden. Wenn gerade ARD oder ZDF läuft, kommen Sie übrigens oft schon über die rote Taste in die Mediathek, ganz ohne App.",
+  },
+  {
+    frage:
+      "Mein Fernseher ist älter und hat keine Apps. Geht die Mediathek trotzdem?",
+    antwort:
+      "Ja, auf zwei Wegen. Hat das Gerät einen Internetanschluss, funktioniert oft die rote Taste während einer laufenden Sendung. Fehlt beides, macht ein Streaming-Stick für etwa 40 bis 60 Euro aus jedem Fernseher mit HDMI-Anschluss ein modernes Gerät, inklusive Mediatheken. Ein neuer Fernseher ist dafür fast nie nötig. Ich sage Ihnen ehrlich, was in Ihrem Fall reicht.",
   },
   {
     frage: "Lohnt sich Netflix für mich?",

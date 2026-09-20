@@ -24,9 +24,12 @@ import {
 } from "../schutz-links";
 
 export const metadata: Metadata = {
-  title: "Fernseher & Smart-TV einrichten lassen in Berlin",
+  // "smart tv einrichten lassen" und "mediathek am fernseher einrichten"
+  // sind die beiden Anfragen, über die diese Seite gefunden wird. Beide
+  // stehen jetzt im Titel.
+  title: "Smart-TV & Mediathek einrichten lassen in Berlin",
   description:
-    "Fernseher anschließen, Sender sortieren, Mediatheken und Streaming einrichten, bei Ihnen zu Hause im Berliner Südwesten. In Ruhe erklärt. Jetzt anrufen.",
+    "Mediathek auf dem Fernseher einrichten, Smart-TV anschließen und Sender sortieren. Anleitung Schritt für Schritt, und auf Wunsch bei Ihnen zu Hause.",
   alternates: {
     canonical: "/fernseher-hilfe",
   },
@@ -190,10 +193,108 @@ export default function FernseherHilfe() {
           </div>
         </section>
 
+        {/* Anleitung zur Mediathek.
+
+            Diese Frage wird wörtlich so gesucht, die Seite stand dafür aber
+            nur auf Position 35, weil sie den Hausbesuch angeboten statt die
+            Frage beantwortet hat. Auf eine Wissensfrage gehört eine Antwort.
+            Wer damit selbst zurechtkommt, ist ohnehin kein Kunde; wer nach
+            Schritt zwei aussteigt, ruft eher an, weil er sieht, dass hier
+            jemand die Sache erklären kann. */}
+        <section
+          aria-labelledby="mediathek-titel"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-green-50"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-3xl">
+            <h2
+              id="mediathek-titel"
+              className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              Wie kann ich auf meinem Fernseher die Mediathek einrichten?
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+            <p className="mt-8 text-xl leading-relaxed text-slate-700">
+              Wenn Sie es selbst versuchen möchten, geht es so. Bei den meisten
+              Geräten dauert es keine zehn Minuten.
+            </p>
+
+            <ol className="mt-8 flex list-none flex-col gap-6">
+              {[
+                {
+                  titel: "Den Fernseher mit dem WLAN verbinden",
+                  text: "Über Einstellungen und dann Netzwerk. Ohne Internet gibt es keine Mediathek. Sie brauchen dafür Ihr WLAN-Passwort, das meist auf einem Aufkleber an der Unterseite des Routers steht.",
+                },
+                {
+                  titel: "Den App-Bereich öffnen",
+                  text: "Wie der heißt, hängt von der Marke ab: bei Samsung Smart Hub, bei LG Content Store, bei Sony und Philips meist Google TV, bei Panasonic schlicht Apps. Auf der Fernbedienung gibt es dafür oft eine eigene Taste, manchmal mit einem bunten Symbol.",
+                },
+                {
+                  titel: "Nach den Mediatheken suchen und installieren",
+                  text: "Die beiden wichtigsten heißen ARD Mediathek und ZDFmediathek, dazu kommen die dritten Programme wie rbb oder NDR. Alle sind kostenlos und mit Ihrem Rundfunkbeitrag längst bezahlt. Ein Konto brauchen Sie nicht.",
+                },
+                {
+                  titel: "Die Apps nach vorne schieben",
+                  text: "Damit sie auf dem Startbildschirm an erster Stelle stehen und nicht hinter den bunten Streaming-Knöpfen verschwinden. Das geht meist über Verschieben oder Zu Favoriten hinzufügen.",
+                },
+              ].map((schritt, i) => (
+                <li key={schritt.titel} className="flex items-start gap-5">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-700 text-xl font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      {schritt.titel}
+                    </h3>
+                    <p className="mt-2 text-lg leading-relaxed text-slate-700">
+                      {schritt.text}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-10 rounded-2xl border-2 border-slate-200 bg-slate-50 p-7">
+              <h3 className="text-2xl font-bold text-slate-900">
+                Der schnellste Weg: die rote Taste
+              </h3>
+              <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                Läuft gerade ARD oder ZDF, kommen Sie oft schon über die rote
+                Taste auf der Fernbedienung in die Mediathek, ganz ohne App. Das
+                klappt auch auf vielen älteren Geräten, sofern der Fernseher mit
+                dem Internet verbunden ist.
+              </p>
+              <h3 className="mt-6 text-2xl font-bold text-slate-900">
+                Wenn der Fernseher zu alt für Apps ist
+              </h3>
+              <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                Dann braucht es keinen neuen Fernseher. Ein Streaming-Stick für
+                etwa 40 bis 60 Euro macht aus jedem Gerät mit HDMI-Anschluss
+                einen modernen Fernseher, Mediatheken inbegriffen. Rufen Sie
+                vorher an, dann sage ich Ihnen, was in Ihrem Fall reicht.
+              </p>
+            </div>
+
+            <p className="mt-8 text-xl leading-relaxed text-slate-700">
+              Sie kommen an einer Stelle nicht weiter oder möchten es gar nicht
+              erst selbst versuchen? Dann übernehme ich das bei Ihnen zu Hause,
+              richte alles ein und zeige Ihnen in Ruhe, wie Sie eine verpasste
+              Sendung nachträglich ansehen.
+            </p>
+          </div>
+        </section>
+
         {/* Was Streaming wirklich kostet */}
         <section
           aria-labelledby="streaming-titel"
-          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
         >
           <div
             aria-hidden="true"
