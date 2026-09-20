@@ -362,6 +362,13 @@ export default async function OrtSeite({
               >
                 Startseite
               </Link>
+              , einen Überblick über das ganze Angebot unter{" "}
+              <Link
+                href="/it-hilfe"
+                className="font-bold text-blue-800 underline underline-offset-4"
+              >
+                IT-Hilfe
+              </Link>
               .
             </p>
           </div>

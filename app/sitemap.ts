@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...[
+      "/it-hilfe",
       "/computerhilfe-senioren",
       "/wlan-hilfe",
       "/drucker-hilfe",

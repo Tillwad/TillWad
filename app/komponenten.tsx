@@ -271,6 +271,14 @@ export function FussZeile() {
                 eine Zielgruppe. */}
             <li>
               <Link
+                href="/it-hilfe"
+                className="underline underline-offset-4 hover:text-blue-800"
+              >
+                IT-Hilfe
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/computerhilfe-senioren"
                 className="underline underline-offset-4 hover:text-blue-800"
               >

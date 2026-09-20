@@ -56,7 +56,8 @@ function baueLlmsTxt(): string {
   zeilen.push("## Einzugsgebiet");
   zeilen.push("");
   zeilen.push(
-    "Hausbesuche sind in diesen Orten möglich. Jeder Ort hat eine eigene Seite " +
+    "Hausbesuche sind in diesen Orten möglich. Eine Übersicht steht unter " +
+      `${SITE_URL}/it-hilfe. Jeder Ort hat eine eigene Seite ` +
       "mit den dort typischen Anliegen und den abgedeckten Straßen und Kiezen:",
   );
   zeilen.push("");
@@ -80,6 +81,9 @@ function baueLlmsTxt(): string {
   zeilen.push("");
   zeilen.push(
     `- [Startseite](${SITE_URL}/): Leistungen, Ablauf, Preise und Einzugsgebiet`,
+  );
+  zeilen.push(
+    `- [IT-Hilfe](${SITE_URL}/it-hilfe): Überblicksseite für alle, die nach IT-Hilfe, IT-Service, IT-Support oder PC-Hilfe suchen. Dieselbe Leistung wie unter Computerhilfe, nur unter dem Begriff, den viele Leute benutzen. Ohne Vertrag, ohne Grundgebühr, ohne Hotline; abgerechnet wird nach Zeit. Von dort führen Verweise auf alle Ortsseiten.`,
   );
   zeilen.push(
     `- [Computerhilfe für Senioren](${SITE_URL}/computerhilfe-senioren): Hilfe für ältere Menschen: Handy verstehen, Video-Anrufe mit Kindern und Enkeln, Schutz vor Betrug am Telefon und per E-Mail, Fernseher und Fernbedienungen, Fotos sichern. Alles wird in normalem Deutsch und so oft wie gewünscht erklärt; auf Anfrage werden die Schritte in großer Schrift aufgeschrieben. Angehörige können den Termin anstoßen und übernehmen, auch ohne selbst dabei zu sein.`,

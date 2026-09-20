@@ -274,6 +274,37 @@ export const seniorenFragen: Frage[] = [
   },
 ];
 
+// Häufige Fragen rund um den Begriff "IT-Hilfe", für /it-hilfe. Die Fragen
+// greifen auf, wonach in der Search Console tatsächlich gesucht wird: ob es
+// um Firmen geht, ob es schnell gehen kann und ob ein Vertrag nötig ist.
+export const itFragen: Frage[] = [
+  {
+    frage: "Was ist der Unterschied zwischen IT-Hilfe und Computerhilfe?",
+    antwort:
+      "Bei mir keiner. IT ist die Abkürzung für Informationstechnik und klingt nach Firma, Serverraum und Technikerteam. Gemeint ist aber dasselbe: Ihr Computer, Ihr Handy, Ihr Internet, Ihr Drucker, Ihr Fernseher. Suchen Sie nach IT-Hilfe, IT-Service oder PC-Hilfe, landen Sie bei mir genau richtig.",
+  },
+  {
+    frage: "Ich brauche schnell Hilfe. Wie schnell können Sie da sein?",
+    antwort:
+      "Das hängt davon ab, wo Sie wohnen. In Zehlendorf, Nikolassee und am Schlachtensee bin ich oft noch am selben oder am nächsten Tag da, weil ich selbst hier wohne. In den übrigen Orten meines Gebiets dauert es meist ein bis zwei Tage. Rufen Sie einfach an, dann sage ich Ihnen sofort, wann es bei mir passt, statt Sie auf eine Warteliste zu setzen.",
+  },
+  {
+    frage: "Brauche ich einen Vertrag oder eine Mitgliedschaft?",
+    antwort:
+      "Nein. Es gibt bei mir keinen Vertrag, keine Grundgebühr, keine Hotline-Nummer mit Warteschleife und kein Abonnement. Sie rufen an, wenn Sie etwas brauchen, und bezahlen die Zeit, die ich bei Ihnen war. Danach sind wir quitt, bis Sie sich wieder melden.",
+  },
+  {
+    frage: "Beraten Sie auch, bevor ich ein neues Gerät kaufe?",
+    antwort:
+      "Sehr gerne, und genau dann ist die Beratung am meisten wert. Sagen Sie mir, wofür Sie das Gerät brauchen, dann sage ich Ihnen, worauf Sie achten müssen und was Sie sich sparen können. Am Telefon kostet Sie das nichts. Ich verkaufe selbst keine Geräte und verdiene an keiner Empfehlung etwas, deshalb kann ich Ihnen auch von einem Kauf abraten.",
+  },
+  {
+    frage: "Arbeiten Sie für Privatleute oder für Firmen?",
+    antwort:
+      "Für Privatleute. Ich komme zu Ihnen in die Wohnung oder ins Haus und helfe dort an Ihren eigenen Geräten. Firmen mit Servern, Netzwerken und Wartungsverträgen brauchen jemanden, der dauerhaft erreichbar ist, und das bin ich in meiner Freizeit nicht. Da sage ich Ihnen lieber ehrlich, dass ich der Falsche bin.",
+  },
+];
+
 export type Ort = {
   slug: string;
   name: string;
