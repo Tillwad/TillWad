@@ -40,9 +40,20 @@ export const metadata: Metadata = {
   // Auf die Länge gekürzt, die Google tatsächlich anzeigt: rund 60 Zeichen
   // beim Titel, rund 155 in der Beschreibung. Die wichtigen Begriffe stehen
   // vorne, damit sie auch bei einem Abschnitt sichtbar bleiben.
-  title: "Computerhilfe bei Ihnen zu Hause in Berlin | Till Wadehn",
+  //
+  // Laut Search Console steht die Seite bei "computerhilfe zu hause", "...in
+  // der nähe" und "...vor ort" auf Platz 1 bis 3, bekommt dort aber so gut wie
+  // keine Klicks. Das Ranking ist also nicht das Problem, der Eintrag in der
+  // Trefferliste ist es: "in Berlin" ist für jemanden, der "in der Nähe" sucht,
+  // zu weit weg. Deshalb steht jetzt der Ortsteil im Titel statt der Stadt.
+  // Dass die Marke aus dem Titel fällt, ist verschmerzbar – nach dem Namen
+  // sucht kaum jemand, und wer es tut, findet weiterhin das Impressum.
+  title: "Computerhilfe zu Hause in Zehlendorf und Umgebung",
+  // Die Beschreibung nennt bewusst Preis und kostenlose Anfahrt. Das ist genau
+  // das, was die Konkurrenz in der Trefferliste verschweigt, und es ist der
+  // Grund, warum jemand ausgerechnet hier klickt.
   description:
-    "Geduldige Computerhilfe bei Ihnen zu Hause im Berliner Südwesten, für alle Privatleute. Hilfe bei Computer, Handy, Internet, Drucker und Fernseher.",
+    `Geduldige Computerhilfe bei Ihnen zu Hause: Zehlendorf, Nikolassee, Wannsee, Dahlem, Kleinmachnow, Teltow. ${PREIS_STUNDE}, Anfahrt kostenlos.`,
   alternates: {
     canonical: "/",
   },
@@ -159,7 +170,7 @@ export default function Home() {
                 id="einstieg-titel"
                 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-slate-900"
               >
-                Computerhilfe bei Ihnen zu Hause für Handy, Internet und Drucker
+                Computerhilfe bei Ihnen zu Hause in Zehlendorf und Umgebung
               </h1>
               <div
                 aria-hidden="true"

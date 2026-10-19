@@ -24,12 +24,17 @@ import {
 } from "../schutz-links";
 
 export const metadata: Metadata = {
-  // Ohne "| Till Wadehn": Mit Namen wären es 63 Zeichen, und Google zeigt nur
-  // rund 60. Diese Seite soll eine konkrete Suchanfrage einfangen, nicht die
-  // Marke tragen – die steht auf der Startseite.
-  title: "Drucker anschließen & einrichten lassen in Berlin",
+  // Ohne "| Till Wadehn": Mit Namen wären es über 60 Zeichen, und Google zeigt
+  // nur rund 60. Diese Seite soll eine konkrete Suchanfrage einfangen, nicht
+  // die Marke tragen – die steht auf der Startseite.
+  //
+  // Gesucht wird laut Search Console nicht "Drucker anschließen lassen",
+  // sondern "drucker hilfe", "drucker wird nicht gefunden" und "drucker
+  // reparieren". Also steht jetzt das Problem im Titel und nicht die
+  // Dienstleistung.
+  title: "Drucker wird nicht gefunden? Drucker-Hilfe in Berlin",
   description:
-    "Drucker anschließen, einrichten und wieder zum Laufen bringen, bei Ihnen zu Hause im Berliner Südwesten. Auch Drucken vom Handy. Jetzt anrufen.",
+    "Drucker wird nicht gefunden, druckt nicht mehr oder soll neu eingerichtet werden? Ich komme zu Ihnen nach Hause in den Berliner Südwesten, Anfahrt frei.",
   alternates: {
     canonical: "/drucker-hilfe",
   },
@@ -117,7 +122,7 @@ export default function DruckerHilfe() {
               id="einstieg-titel"
               className="mt-6 text-4xl font-bold leading-tight text-slate-900 sm:text-5xl"
             >
-              Drucker anschließen und einrichten lassen
+              Drucker-Hilfe bei Ihnen zu Hause
             </h1>
             <div
               aria-hidden="true"
@@ -193,10 +198,110 @@ export default function DruckerHilfe() {
           </div>
         </section>
 
+        {/* Anleitung: Drucker wird nicht gefunden.
+            Dieselbe Überlegung wie bei der Mediathek auf /fernseher-hilfe:
+            "drucker hilfe" ist eine Problemfrage, und auf eine Frage gehört
+            eine Antwort. Eine Seite, die nur den Hausbesuch anbietet, steht
+            bei Google zu Recht weit hinten – vor dieser Ergänzung war es
+            Position 43. */}
+        <section
+          aria-labelledby="nicht-gefunden-titel"
+          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-violet-50"
+          />
+
+          <div className="relative z-10 mx-auto w-full max-w-3xl">
+            <h2
+              id="nicht-gefunden-titel"
+              className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+            >
+              Der Drucker wird nicht mehr gefunden. Was tun?
+            </h2>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+            />
+            <p className="mt-8 text-xl leading-relaxed text-slate-700">
+              Das ist die mit Abstand häufigste Drucker-Frage, und sie klingt
+              schlimmer, als sie ist. Der Drucker ist dabei fast nie kaputt. Er
+              hat nur die Verbindung verloren. Wenn Sie es selbst versuchen
+              möchten, gehen Sie der Reihe nach vor.
+            </p>
+
+            <ol className="mt-8 flex list-none flex-col gap-6">
+              {[
+                {
+                  titel: "Beide Geräte einmal aus und wieder an",
+                  text: "Erst den Drucker ausschalten, dann den Router vom Strom nehmen, eine halbe Minute warten und beides wieder einschalten. Das klingt nach einem Witz, behebt aber einen guten Teil aller Fälle, weil sich die Geräte dabei neu im Netzwerk anmelden.",
+                },
+                {
+                  titel: "Prüfen, ob der Drucker im richtigen WLAN ist",
+                  text: "Am Drucker selbst steht das im Menü unter Netzwerk oder WLAN-Einstellungen. Dort muss derselbe Name stehen wie bei Ihrem Computer. Nach einem neuen Router heißt das WLAN oft anders als vorher, und genau dann findet der Computer den Drucker nicht mehr.",
+                },
+                {
+                  titel: "Den Drucker am Computer neu hinzufügen",
+                  text: "Bei Windows unter Einstellungen, Bluetooth und Geräte, Drucker und Scanner, dort Gerät hinzufügen. Beim Mac unter Systemeinstellungen und Drucker & Scanner. Wichtig: den alten, nicht mehr funktionierenden Eintrag vorher entfernen, sonst schickt der Computer die Aufträge weiterhin ins Leere.",
+                },
+                {
+                  titel: "Nachsehen, ob Aufträge in der Warteschlange hängen",
+                  text: "Ein einziger fehlerhafter Auftrag blockiert alle weiteren, auch wenn die Verbindung längst wieder steht. Doppelklick auf den Drucker, alle Aufträge abbrechen, dann eine Testseite drucken.",
+                },
+              ].map((schritt, i) => (
+                <li key={schritt.titel} className="flex items-start gap-5">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-700 text-xl font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      {schritt.titel}
+                    </h3>
+                    <p className="mt-2 text-lg leading-relaxed text-slate-700">
+                      {schritt.text}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-10 rounded-2xl border-2 border-slate-200 bg-slate-50 p-7">
+              <h3 className="text-2xl font-bold text-slate-900">
+                Wenn es nach einem Windows-Update angefangen hat
+              </h3>
+              <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                Dann fehlt dem Drucker meist nur der passende Treiber, also das
+                kleine Programm, über das der Computer mit ihm spricht. Den gibt
+                es kostenlos beim Hersteller. Bitte laden Sie ihn nur dort
+                herunter und nicht über eine Anzeige in der Suchmaschine: Hinter
+                solchen Treiber-Seiten steckt oft unerwünschte Software.
+              </p>
+              <h3 className="mt-6 text-2xl font-bold text-slate-900">
+                Wenn der Drucker streifig oder blass druckt
+              </h3>
+              <p className="mt-3 text-lg leading-relaxed text-slate-700">
+                Dann ist fast immer ein Druckkopf eingetrocknet. Nahezu jeder
+                Drucker hat dafür im Menü eine eigene Funktion, meist
+                Druckkopfreinigung oder Düsentest genannt. Zwei Durchgänge
+                reichen in der Regel. Danach hilft nur, häufiger zu drucken,
+                denn Tinte trocknet beim Stillstand ein.
+              </p>
+            </div>
+
+            <p className="mt-8 text-xl leading-relaxed text-slate-700">
+              Sie kommen an einer Stelle nicht weiter oder möchten es gar nicht
+              erst selbst versuchen? Dann übernehme ich das bei Ihnen zu Hause.
+              Ich verbinde den Drucker neu, richte ihn sauber ein und sorge
+              dafür, dass er auch nach dem nächsten Neustart noch gefunden wird.
+            </p>
+          </div>
+        </section>
+
         {/* Reparieren oder neu kaufen */}
         <section
           aria-labelledby="reparatur-titel"
-          className="relative overflow-hidden bg-white px-5 py-14 sm:py-20"
+          className="relative overflow-hidden px-5 py-14 sm:py-20"
         >
           <div
             aria-hidden="true"

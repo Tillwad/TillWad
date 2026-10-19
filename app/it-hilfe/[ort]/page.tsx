@@ -59,8 +59,13 @@ export async function generateMetadata({
 
   return {
     // Der Titel bleibt unter rund 60 Zeichen, damit Google ihn ungekürzt
-    // anzeigt – auch beim längsten Ortsnamen.
-    title: `Computerhilfe in ${ort.name} für Senioren | Till Wadehn`,
+    // anzeigt – auch beim längsten Ortsnamen ("Schlachtensee").
+    //
+    // Hinten steht die kostenlose Anfahrt und nicht mehr der Name: Diese
+    // Seiten werden laut Search Console gut gefunden (Wannsee auf Platz 6,5),
+    // aber kaum angeklickt. Ein Versprechen holt den Klick, eine Marke, die
+    // niemand kennt, nicht. "Senioren" steht weiterhin in der Beschreibung.
+    title: `Computerhilfe in ${ort.name} zu Hause | Anfahrt kostenlos`,
     // Je Ort eigens geschrieben statt aus einer Schablone gebildet:
     // identische Beschreibungen sind ein Signal für doppelte Inhalte.
     description: ort.metaBeschreibung,

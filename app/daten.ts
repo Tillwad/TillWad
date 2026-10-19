@@ -379,7 +379,7 @@ export const orte: Ort[] = [
     senioren:
       "In Kleinmachnow helfe ich vielen älteren Menschen, die in ihrem Haus seit Jahrzehnten zu Hause sind und einfach möchten, dass die Technik darin funktioniert. Wir gehen das in Ruhe an: Ich erkläre jeden Schritt in normalem Deutsch und wiederhole ihn, so oft Sie mögen. Niemand muss sich hier für eine Frage schämen.",
     metaBeschreibung:
-      "Computerhilfe in Kleinmachnow bei Ihnen zu Hause. IT-Hilfe für Senioren, dazu WLAN, das im ganzen Haus ankommt. Anfahrt kostenlos. Jetzt anrufen.",
+      "Computerhilfe in Kleinmachnow bei Ihnen zu Hause. IT-Hilfe für Senioren, dazu WLAN, das im ganzen Haus und im Garten ankommt. Jetzt anrufen.",
     bild: "/images/orte/kleinmachnow.jpg",
     bildAlt: "Die Schleuse Kleinmachnow",
     bildAutor: "A.Savin",
@@ -647,7 +647,7 @@ export const orte: Ort[] = [
     senioren:
       "Viele ältere Menschen in Teltow fürchten, ihr langsam gewordener Computer sei nun ein Fall für den Sperrmüll. Das stimmt selten. Ich schaue mir das Gerät an, sage Ihnen ehrlich, ob sich eine Auffrischung lohnt, und rede Ihnen ganz sicher nichts Neues auf, das Sie nicht brauchen.",
     metaBeschreibung:
-      "Computerhilfe in Teltow bei Ihnen zu Hause. IT-Hilfe für Senioren: langsamer Computer, Handy, Drucker. Altstadt und Seehof, Anfahrt kostenlos.",
+      "Computerhilfe in Teltow bei Ihnen zu Hause. IT-Hilfe für Senioren: langsamer Computer, Handy, Drucker. Auch in Seehof und Sigridshorst.",
     bild: "/images/orte/teltow.jpg",
     bildAlt: "Die St.-Andreas-Kirche in Teltow",
     bildAutor: "Bautsch",
