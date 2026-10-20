@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/wlan-hilfe",
       "/drucker-hilfe",
       "/fernseher-hilfe",
+      "/termin",
     ].map((pfad) => ({
       url: `${SITE_URL}${pfad}`,
       lastModified: new Date(),

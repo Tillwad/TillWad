@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, HelpCircle, Mail } from "lucide-react";
+import { Phone, HelpCircle, Mail, CalendarCheck } from "lucide-react";
 import { orte, leistungen, type Frage } from "./daten";
 import {
   TelefonLink,
@@ -52,6 +52,13 @@ export function KopfZeile() {
           Computerhilfe mit Till
         </Link>
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <Link
+            href="/termin"
+            className={`${KNOPF_FORM} bg-amber-600 hover:bg-amber-700 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-amber-600`}
+          >
+            <CalendarCheck size={26} aria-hidden="true" />
+            <span className={KNOPF_BESCHRIFTUNG}>Termin buchen</span>
+          </Link>
           <WhatsAppLink
             bereich="kopfzeile"
             className={`${KNOPF_FORM} bg-green-700 hover:bg-green-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-green-700`}
@@ -275,6 +282,14 @@ export function FussZeile() {
                 className="underline underline-offset-4 hover:text-blue-800"
               >
                 IT-Hilfe
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/termin"
+                className="underline underline-offset-4 hover:text-blue-800"
+              >
+                Termin online buchen
               </Link>
             </li>
             <li>

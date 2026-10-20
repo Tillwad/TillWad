@@ -3,6 +3,11 @@
 import { revalidatePath } from "next/cache";
 import { einstellungenSpeichern } from "../einstellungen";
 import {
+  buchungLoeschen,
+  buchungsStatusSetzen,
+  type BuchungsStatus,
+} from "../termin/buchungen";
+import {
   abmelden,
   anmeldungSetzen,
   istAngemeldet,
@@ -94,4 +99,32 @@ export async function speichern(
     art: "erfolg",
     text: "Gespeichert. Die Änderung ist sofort sichtbar.",
   };
+}
+
+/**
+ * Setzt den Status einer Terminanfrage um. Eine abgesagte Anfrage gibt ihr
+ * Zeitfenster sofort wieder frei, eine bestätigte blockiert es weiterhin.
+ */
+export async function anfrageStatusSetzen(formular: FormData): Promise<void> {
+  if (!(await istAngemeldet())) {
+    return;
+  }
+  const id = String(formular.get("id") ?? "");
+  const status = String(formular.get("status") ?? "");
+  const erlaubt: BuchungsStatus[] = ["offen", "bestaetigt", "abgesagt"];
+  if (id && erlaubt.includes(status as BuchungsStatus)) {
+    await buchungsStatusSetzen(id, status as BuchungsStatus);
+  }
+  revalidatePath("/admin");
+}
+
+export async function anfrageLoeschen(formular: FormData): Promise<void> {
+  if (!(await istAngemeldet())) {
+    return;
+  }
+  const id = String(formular.get("id") ?? "");
+  if (id) {
+    await buchungLoeschen(id);
+  }
+  revalidatePath("/admin");
 }

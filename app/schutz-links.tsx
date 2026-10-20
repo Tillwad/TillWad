@@ -99,7 +99,12 @@ function whatsappHref() {
  * Definitionen). Ohne diesen Schritt kommen die Ereignisse trotzdem an, nur
  * lässt sich nicht nach Bereich aufschlüsseln.
  */
-export type Bereich = "kopfzeile" | "hero" | "kontakt" | "rechtliches";
+export type Bereich =
+  | "kopfzeile"
+  | "hero"
+  | "kontakt"
+  | "rechtliches"
+  | "termin";
 
 type SchutzLinkProps = {
   /** Pflichtangabe, damit keine Schaltfläche ohne Herkunft gemessen wird. */

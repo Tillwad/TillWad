@@ -7,6 +7,7 @@ import {
   type Einstellungen,
 } from "../einstellungen";
 import { abmeldenAktion } from "./aktionen";
+import { Terminanfragen } from "./anfragen";
 import { Anmeldung, EinstellungenFormular } from "./formulare";
 import { istAngemeldet, passwortIstEingerichtet } from "./sitzung";
 
@@ -109,7 +110,9 @@ export default async function Admin() {
         {beschreibeErreichbarkeit(einstellungen)}
       </p>
 
-      <div className="mt-8">
+      <Terminanfragen />
+
+      <div className="mt-10">
         <EinstellungenFormular einstellungen={einstellungen} />
       </div>
 

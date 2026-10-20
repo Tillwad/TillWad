@@ -198,6 +198,16 @@ export default function Home() {
                   E-Mail schreiben
                 </MailLink>
               </div>
+              <p className="text-lg text-slate-200 lg:text-slate-600">
+                Lieber ohne Telefon?{" "}
+                <Link
+                  href="/termin"
+                  className="font-bold text-white underline underline-offset-4 lg:text-blue-800"
+                >
+                  Buchen Sie Ihren Termin online
+                </Link>
+                .
+              </p>
               <WennTelefonSichtbar>
                 <p className="text-lg text-slate-200 lg:text-slate-600">
                   Sie erreichen mich unter{" "}
