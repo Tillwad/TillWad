@@ -151,7 +151,7 @@ export async function Terminanfragen() {
             KALENDER_ICS_URL
           </code>{" "}
           mit den geheimen iCal-Adressen Ihrer Kalender an (mehrere durch
-          Komma getrennt) – erst dann werden Ihre eigenen Kalendereinträge aus
+          Komma getrennt). Erst dann werden Ihre eigenen Kalendereinträge aus
           den buchbaren Terminen herausgerechnet.
         </p>
       ) : null}

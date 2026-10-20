@@ -55,7 +55,7 @@ export default async function Termin() {
             className="mt-4 h-2 w-28 rounded-full bg-amber-400"
           />
           <p className="mt-5 text-xl leading-relaxed text-slate-700">
-            Hier machen Sie in wenigen Schritten einen Hausbesuch aus – ganz
+            Hier machen Sie in wenigen Schritten einen Hausbesuch aus, ganz
             ohne Hin und Her. Und so geht es weiter:
           </p>
 

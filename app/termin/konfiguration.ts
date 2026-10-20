@@ -65,11 +65,11 @@ export const geraeteAuswahl = [
  * bleibt frei von Terminen.
  */
 export const ARBEITSZEITEN: Record<number, { von: string; bis: string }[]> = {
-  1: [{ von: "09:00", bis: "19:00" }],
-  2: [{ von: "09:00", bis: "19:00" }],
-  3: [{ von: "09:00", bis: "19:00" }],
-  4: [{ von: "09:00", bis: "19:00" }],
-  5: [{ von: "09:00", bis: "19:00" }],
+  1: [{ von: "09:00", bis: "17:00" }],
+  2: [{ von: "09:00", bis: "17:00" }],
+  3: [{ von: "09:00", bis: "17:00" }],
+  4: [{ von: "09:00", bis: "17:00" }],
+  5: [{ von: "09:00", bis: "17:00" }],
   6: [{ von: "10:00", bis: "16:00" }],
 };
 

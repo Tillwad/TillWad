@@ -339,8 +339,8 @@ export function TerminFormular({
         ) : null}
         <p className="mt-5 text-base leading-relaxed text-slate-600">
           Die Anfrage ist unverbindlich und kostet nichts. Ihre Angaben
-          verwende ich nur, um den Termin mit Ihnen abzustimmen – mehr dazu in
-          der Datenschutzerklärung.
+          verwende ich nur, um den Termin mit Ihnen abzustimmen. Mehr dazu
+          steht in der Datenschutzerklärung.
         </p>
       </div>
     </form>

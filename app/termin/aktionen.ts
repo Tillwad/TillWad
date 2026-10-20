@@ -178,7 +178,7 @@ export async function terminAnfragen(
     console.error("Buchung speichern fehlgeschlagen:", fehler);
     return {
       art: "fehler",
-      text: "Das Speichern hat leider nicht geklappt. Bitte rufen Sie mich einfach an – dann machen wir den Termin am Telefon aus.",
+      text: "Das Speichern hat leider nicht geklappt. Bitte rufen Sie mich einfach an, dann machen wir den Termin am Telefon aus.",
     };
   }
 
