@@ -150,9 +150,9 @@ export async function Terminanfragen() {
           <code className="rounded bg-amber-100 px-2 py-1 font-mono">
             KALENDER_ICS_URL
           </code>{" "}
-          mit der geheimen iCal-Adresse Ihres Kalenders an – erst dann werden
-          Ihre eigenen Kalendereinträge aus den buchbaren Terminen
-          herausgerechnet.
+          mit den geheimen iCal-Adressen Ihrer Kalender an (mehrere durch
+          Komma getrennt) – erst dann werden Ihre eigenen Kalendereinträge aus
+          den buchbaren Terminen herausgerechnet.
         </p>
       ) : null}
       {buchungen.length === 0 ? (

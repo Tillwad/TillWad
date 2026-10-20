@@ -401,35 +401,49 @@ export function belegteZeitraeume(
 // ---------------------------------------------------------------------------
 
 /**
- * Holt die belegten Zeiten aus Tills Kalender. Ohne eingerichtete
- * KALENDER_ICS_URL (oder wenn der Abruf scheitert) blockiert der Kalender
- * nichts – dann zählen nur die Buchungen über die Website. Lieber ein
- * Doppelbucher, den Till beim Bestätigen bemerkt, als gar keine Buchung.
+ * Holt die belegten Zeiten aus Tills Kalendern. KALENDER_ICS_URL darf mehrere
+ * iCal-Adressen enthalten, durch Komma oder Zeilenumbruch getrennt – alle
+ * zusammen beanspruchen seine Zeit. Ohne eingerichtete Adressen (oder wenn
+ * ein Abruf scheitert) blockiert der betroffene Kalender nichts – dann zählt
+ * der Rest. Lieber ein Doppelbucher, den Till beim Bestätigen bemerkt, als
+ * gar keine Buchung.
  */
 async function kalenderZeitraeume(
   fensterVon: number,
   fensterBis: number,
 ): Promise<Zeitraum[]> {
-  const url = process.env.KALENDER_ICS_URL;
-  if (!url) {
+  const urls = (process.env.KALENDER_ICS_URL ?? "")
+    .split(/[,\s]+/)
+    .map((url) => url.trim())
+    .filter(Boolean);
+  if (urls.length === 0) {
     return [];
   }
-  try {
-    // 5 Minuten zwischengespeichert: schnell genug für die Seite, frisch
-    // genug, damit neue Kalendereinträge zeitnah blocken.
-    const antwort = await fetch(url, { next: { revalidate: 300 } });
-    if (!antwort.ok) {
-      return [];
-    }
-    return belegteZeitraeume(
-      icsEreignisseLesen(await antwort.text()),
-      fensterVon,
-      fensterBis,
-    );
-  } catch (fehler) {
-    console.error("Kalender (ICS) konnte nicht gelesen werden:", fehler);
-    return [];
-  }
+
+  const ergebnisse = await Promise.all(
+    urls.map(async (url): Promise<Zeitraum[]> => {
+      try {
+        // 5 Minuten zwischengespeichert: schnell genug für die Seite, frisch
+        // genug, damit neue Kalendereinträge zeitnah blocken.
+        const antwort = await fetch(url, { next: { revalidate: 300 } });
+        if (!antwort.ok) {
+          console.error(
+            `Kalender (ICS) antwortete mit ${antwort.status}: ${url.slice(0, 60)}…`,
+          );
+          return [];
+        }
+        return belegteZeitraeume(
+          icsEreignisseLesen(await antwort.text()),
+          fensterVon,
+          fensterBis,
+        );
+      } catch (fehler) {
+        console.error("Kalender (ICS) konnte nicht gelesen werden:", fehler);
+        return [];
+      }
+    }),
+  );
+  return ergebnisse.flat();
 }
 
 /** Ein buchbarer Beginn-Zeitpunkt, fertig beschriftet fürs Formular. */
