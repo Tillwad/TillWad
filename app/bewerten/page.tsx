@@ -42,14 +42,21 @@ export default function Bewerten() {
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4">
+            {/* Neuer Tab, damit tillwadehn.de offen bleibt; nofollow, weil
+                Suchmaschinen den Bewertungsportalen hierüber kein Gewicht
+                weiterreichen sollen. */}
             <a
               href={BEWERTUNG_GOOGLE}
+              target="_blank"
+              rel="nofollow noopener"
               className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-700 px-8 py-5 text-2xl font-bold text-white shadow-md hover:bg-blue-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto"
             >
               Bei Google bewerten
             </a>
             <a
               href={BEWERTUNG_NEBENAN}
+              target="_blank"
+              rel="nofollow noopener"
               className="inline-flex w-full items-center justify-center gap-3 rounded-xl border-2 border-blue-700 px-8 py-4 text-xl font-bold text-blue-800 hover:bg-blue-50 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto"
             >
               Bei nebenan.de bewerten
