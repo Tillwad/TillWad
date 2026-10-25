@@ -15,6 +15,12 @@ export const SITE_URL = "https://www.tillwadehn.de";
 
 export const ADRESSE = ["Breisgauer Str. 27", "14129 Berlin"];
 
+// Wo Kunden eine Bewertung hinterlassen können. Auf der Visitenkarte
+// (werbung/visitenkarte.html) steht www.tillwadehn.de/bewerten, die Seite
+// dahinter verweist auf diese beiden Ziele.
+export const BEWERTUNG_GOOGLE = "https://g.page/r/CYM4NQnxjkTeEBM/review";
+export const BEWERTUNG_NEBENAN = "https://nebenan.de/places/businesses/1018447";
+
 /** Stundensatz als Zahl – Grundlage für Anzeige und strukturierte Daten. */
 export const PREIS_ZAHL = 46;
 
