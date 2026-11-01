@@ -285,6 +285,18 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+
+            <p className="mx-auto mt-8 max-w-2xl text-center text-xl leading-relaxed text-slate-700">
+              Sie überlegen, ein neues Gerät zu kaufen? In meiner{" "}
+              <Link
+                href="/shop"
+                className="font-bold text-blue-800 underline underline-offset-4 hover:text-blue-900"
+              >
+                Kaufberatung
+              </Link>{" "}
+              empfehle ich Ihnen ehrlich das Passende, auf Wunsch mit
+              Einrichtung bei Ihnen zu Hause.
+            </p>
           </div>
         </section>
 

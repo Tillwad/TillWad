@@ -104,7 +104,8 @@ export type Bereich =
   | "hero"
   | "kontakt"
   | "rechtliches"
-  | "termin";
+  | "termin"
+  | "shop";
 
 type SchutzLinkProps = {
   /** Pflichtangabe, damit keine Schaltfläche ohne Herkunft gemessen wird. */

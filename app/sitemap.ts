@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { orte, SITE_URL } from "./daten";
+import { produkte } from "./shop/produkte";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -24,6 +25,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/it-hilfe/${ort.slug}`,
       lastModified: new Date(),
       priority: 0.8,
+    })),
+    {
+      url: `${SITE_URL}/shop`,
+      lastModified: new Date(),
+      priority: 0.8,
+    },
+    ...produkte.map((produkt) => ({
+      url: `${SITE_URL}/shop/${produkt.slug}`,
+      lastModified: new Date(),
+      priority: 0.6,
     })),
   ];
 }

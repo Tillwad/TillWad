@@ -8,6 +8,7 @@ import {
 } from "../einstellungen";
 import { abmeldenAktion } from "./aktionen";
 import { Terminanfragen } from "./anfragen";
+import { Bestellungen } from "./bestellungen";
 import { Anmeldung, EinstellungenFormular } from "./formulare";
 import { istAngemeldet, passwortIstEingerichtet } from "./sitzung";
 
@@ -109,6 +110,8 @@ export default async function Admin() {
           : "Es wird keine Hinweisleiste angezeigt."}{" "}
         {beschreibeErreichbarkeit(einstellungen)}
       </p>
+
+      <Bestellungen />
 
       <Terminanfragen />
 

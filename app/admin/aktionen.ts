@@ -8,6 +8,11 @@ import {
   type BuchungsStatus,
 } from "../termin/buchungen";
 import {
+  bestellungLoeschen,
+  bestellStatusSetzen,
+  type BestellStatus,
+} from "../shop/bestellungen";
+import {
   abmelden,
   anmeldungSetzen,
   istAngemeldet,
@@ -125,6 +130,40 @@ export async function anfrageLoeschen(formular: FormData): Promise<void> {
   const id = String(formular.get("id") ?? "");
   if (id) {
     await buchungLoeschen(id);
+  }
+  revalidatePath("/admin");
+}
+
+/** Setzt den Status einer Shop-Bestellung um, siehe app/admin/bestellungen.tsx. */
+export async function bestellungStatusAktion(
+  formular: FormData,
+): Promise<void> {
+  if (!(await istAngemeldet())) {
+    return;
+  }
+  const id = String(formular.get("id") ?? "");
+  const status = String(formular.get("status") ?? "");
+  const erlaubt: BestellStatus[] = [
+    "neu",
+    "bestaetigt",
+    "versendet",
+    "storniert",
+  ];
+  if (id && erlaubt.includes(status as BestellStatus)) {
+    await bestellStatusSetzen(id, status as BestellStatus);
+  }
+  revalidatePath("/admin");
+}
+
+export async function bestellungLoeschenAktion(
+  formular: FormData,
+): Promise<void> {
+  if (!(await istAngemeldet())) {
+    return;
+  }
+  const id = String(formular.get("id") ?? "");
+  if (id) {
+    await bestellungLoeschen(id);
   }
   revalidatePath("/admin");
 }

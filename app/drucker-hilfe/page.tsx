@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { SITE_URL, druckerFragen, orte } from "../daten";
 import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
+import { ProduktEmpfehlungen } from "../shop/empfehlungen";
 import { FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
@@ -358,6 +359,13 @@ export default function DruckerHilfe() {
             </ul>
           </div>
         </section>
+
+        {/* Passende Drucker aus der Kaufberatung */}
+        <ProduktEmpfehlungen
+          titel="Meine Drucker-Empfehlungen"
+          einleitung="Zwei ehrliche Empfehlungen statt dreißig Modellen: Tintentank für alle, die öfter drucken, Laser für alle, die selten drucken. Auf Wunsch schließe ich das neue Gerät bei Ihnen an."
+          slugs={["epson-ecotank-et-2870", "brother-laser-multifunktion"]}
+        />
 
         {/* Fragen zum Drucker */}
         <FragenAbschnitt

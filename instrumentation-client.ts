@@ -6,11 +6,16 @@ import { initBotId } from "botid/client/core";
 // prüft das Ergebnis mit checkBotId(), siehe app/termin/aktionen.ts.
 //
 // Geschützt wird der POST auf /termin – dorthin schickt der Browser die
-// Server-Action des Buchungsformulars.
+// Server-Action des Buchungsformulars – sowie die Produktseiten unter /shop,
+// von denen aus das Bestellformular abgeschickt wird.
 initBotId({
   protect: [
     {
       path: "/termin",
+      method: "POST",
+    },
+    {
+      path: "/shop/*",
       method: "POST",
     },
   ],

@@ -70,12 +70,14 @@ export default function Datenschutz() {
             2. Allgemeines zur Datenverarbeitung
           </h2>
           <p className="mt-4 text-xl leading-relaxed text-slate-700">
-            Diese Website dient ausschließlich der Information über mein
-            Hilfsangebot. Es gibt keine Kontaktformulare, keine Benutzerkonten
-            und keine Werbedienste. Zur Besuchsmessung setze ich Google
-            Analytics ein, aber nur, wenn Sie vorher zugestimmt haben (siehe
-            Abschnitt 4). Ohne Ihre Zustimmung werden keine Cookies gesetzt und
-            keine Daten an Dritte übertragen.
+            Diese Website informiert über mein Hilfsangebot und bietet eine
+            Online-Terminbuchung sowie einen kleinen Shop an. Es gibt keine
+            Benutzerkonten und keine Werbedienste. Personenbezogene Daten
+            verarbeite ich nur, wenn Sie sie mir selbst mitteilen, etwa bei
+            einer Terminanfrage oder Bestellung (siehe Abschnitt 6). Zur
+            Besuchsmessung setze ich Google Analytics ein, aber nur, wenn Sie
+            vorher zugestimmt haben (siehe Abschnitt 4). Ohne Ihre Zustimmung
+            werden keine Cookies gesetzt und keine Daten an Dritte übertragen.
           </p>
 
           <h2 className="mt-10 text-2xl font-bold text-slate-900">
@@ -155,7 +157,46 @@ export default function Datenschutz() {
           </p>
 
           <h2 className="mt-10 text-2xl font-bold text-slate-900">
-            6. Ihre Rechte
+            6. Terminbuchung und Bestellungen
+          </h2>
+          <p className="mt-4 text-xl leading-relaxed text-slate-700">
+            Wenn Sie über die Website einen Termin anfragen oder im Shop
+            bestellen, verarbeite ich die dort abgefragten Angaben (Name,
+            Telefonnummer, E-Mail-Adresse, Anschrift sowie Ihr Anliegen
+            beziehungsweise die bestellten Artikel) zur Abwicklung des Termins
+            oder der Bestellung. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b
+            DSGVO (Anbahnung und Durchführung eines Vertrags). Die Daten
+            werden verschlüsselt und zugriffsgeschützt bei meinem Hoster
+            Vercel gespeichert (siehe Abschnitt 3).
+          </p>
+          <p className="mt-4 text-xl leading-relaxed text-slate-700">
+            Bei Bestellungen gebe ich Ihren Namen und Ihre Lieferanschrift an
+            meinen Lieferanten und das von ihm beauftragte Versandunternehmen
+            weiter, soweit das für die Zustellung erforderlich ist. Termindaten
+            übernehme ich zur Organisation in meine Kundenverwaltung und
+            meinen Kalender. Die Daten werden gelöscht, sobald sie für diese
+            Zwecke nicht mehr benötigt werden und keine gesetzlichen
+            Aufbewahrungspflichten (etwa für Rechnungen) mehr bestehen.
+          </p>
+
+          <h2 className="mt-10 text-2xl font-bold text-slate-900">
+            7. Partnerlinks (Amazon)
+          </h2>
+          <p className="mt-4 text-xl leading-relaxed text-slate-700">
+            Auf den Empfehlungsseiten unter /shop verweisen mit * markierte
+            Verweise auf Amazon (Amazon-Partnerprogramm; Anbieter: Amazon EU
+            S.à r.l., Luxemburg). Als Amazon-Partner verdiene ich an
+            qualifizierten Käufen; für Sie ändert sich der Preis dadurch
+            nicht. Beim Anklicken eines solchen Verweises verlassen Sie meine
+            Website. Erst auf der Amazon-Website verarbeitet Amazon Daten
+            (etwa über Cookies, um Käufe meinem Partnerkonto zuzuordnen); es
+            gilt dann die Datenschutzerklärung von Amazon. Solange Sie nicht
+            klicken, werden durch diese Verweise keine Daten an Amazon
+            übertragen, denn meine Website bindet keine Amazon-Inhalte ein.
+          </p>
+
+          <h2 className="mt-10 text-2xl font-bold text-slate-900">
+            8. Ihre Rechte
           </h2>
           <p className="mt-4 text-xl leading-relaxed text-slate-700">
             Sie haben das Recht auf Auskunft über die von Ihnen gespeicherten

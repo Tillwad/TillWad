@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { SITE_URL, seniorenFragen, orte } from "../daten";
 import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
+import { ProduktEmpfehlungen } from "../shop/empfehlungen";
 import { FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
@@ -294,6 +295,13 @@ export default function SeniorenHilfe() {
             </p>
           </div>
         </section>
+
+        {/* Passende Geräte aus der Kaufberatung */}
+        <ProduktEmpfehlungen
+          titel="Geräte, die ich für Senioren empfehle"
+          einleitung="Unverbindliche Empfehlungen aus meiner Kaufberatung. Zu jedem Gerät können Sie die Einrichtung bei Ihnen zu Hause dazubuchen. Ich erkläre alles so oft Sie möchten."
+          slugs={["hp-all-in-one-27", "apple-ipad", "samsung-galaxy-tab-a9"]}
+        />
 
         {/* Fragen von älteren Menschen */}
         <FragenAbschnitt

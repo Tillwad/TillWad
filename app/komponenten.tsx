@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, HelpCircle, Mail, CalendarCheck } from "lucide-react";
 import { orte, leistungen, type Frage } from "./daten";
+import { VERKAUFSMODUS } from "./shop/konfiguration";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -300,6 +301,14 @@ export function FussZeile() {
                 Computerhilfe für Senioren
               </Link>
             </li>
+            <li>
+              <Link
+                href="/shop"
+                className="underline underline-offset-4 hover:text-blue-800"
+              >
+                Kaufberatung
+              </Link>
+            </li>
           </ul>
         </nav>
         <nav aria-label="Rechtliches">
@@ -320,6 +329,28 @@ export function FussZeile() {
                 Datenschutz
               </Link>
             </li>
+            {/* AGB und Widerruf braucht nur der Direktverkauf – im
+                Affiliate-Modus verkauft die Seite selbst nichts. */}
+            {VERKAUFSMODUS === "shop" ? (
+              <>
+                <li>
+                  <Link
+                    href="/agb"
+                    className="underline underline-offset-4 hover:text-blue-800"
+                  >
+                    AGB
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/widerruf"
+                    className="underline underline-offset-4 hover:text-blue-800"
+                  >
+                    Widerruf
+                  </Link>
+                </li>
+              </>
+            ) : null}
           </ul>
         </nav>
       </div>

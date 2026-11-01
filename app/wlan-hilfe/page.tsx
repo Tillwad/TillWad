@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { SITE_URL, wlanFragen, orte } from "../daten";
 import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
+import { ProduktEmpfehlungen } from "../shop/empfehlungen";
 import { FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
@@ -246,6 +247,19 @@ export default function WlanHilfe() {
             </ul>
           </div>
         </section>
+
+        {/* Passende Geräte aus der Kaufberatung */}
+        <ProduktEmpfehlungen
+          titel="Meine Empfehlungen für gutes WLAN"
+          einleitung="Diese Geräte setze ich bei meinen Kunden selbst ein. Zu jedem können Sie die Einrichtung bei Ihnen zu Hause dazubuchen, dann kümmere ich mich um alles."
+          slugs={[
+            "fritzbox-7530-ax",
+            "fritz-repeater-1200-ax",
+            "tp-link-deco-mesh",
+            "fritz-powerline-1220e",
+            "fritzbox-7690",
+          ]}
+        />
 
         {/* Fragen */}
         <FragenAbschnitt
