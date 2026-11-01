@@ -19,7 +19,7 @@ import {
 import { kategorien, produkte, type Produkt } from "./produkte";
 
 export const metadata: Metadata = {
-  title: "Shop: Geräte mit ehrlicher Beratung | Computerhilfe mit Till",
+  title: "Kaufberatung: Welches Gerät passt zu mir? | Computerhilfe mit Till",
   description:
     "Von mir ausgesuchte Laptops, Router, Drucker und mehr, mit persönlicher Empfehlung und auf Wunsch fertig eingerichtet bei Ihnen zu Hause.",
   alternates: {

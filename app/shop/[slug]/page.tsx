@@ -73,7 +73,7 @@ export default async function Produktseite({
             className="inline-flex items-center gap-2 text-lg font-semibold text-blue-800 underline underline-offset-4 hover:text-blue-900"
           >
             <ArrowLeft size={20} aria-hidden="true" />
-            Zurück zum Shop
+            Zurück zur Kaufberatung
           </Link>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
