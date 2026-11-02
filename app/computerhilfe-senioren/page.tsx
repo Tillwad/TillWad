@@ -15,7 +15,12 @@ import {
   Users,
 } from "lucide-react";
 import { SITE_URL, seniorenFragen, orte } from "../daten";
-import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
+import {
+  KopfZeile,
+  FussZeile,
+  FragenAbschnitt,
+  VerwandteThemen,
+} from "../komponenten";
 import { ProduktEmpfehlungen } from "../shop/empfehlungen";
 import { FragenDaten } from "../strukturierte-daten";
 import {
@@ -310,6 +315,8 @@ export default function SeniorenHilfe() {
           einleitung="Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an. Kurze Fragen beantworte ich gerne gleich am Telefon, und das kostet Sie nichts."
           hell={true}
         />
+
+        <VerwandteThemen aktuelleSeite="/computerhilfe-senioren" />
 
         {/* Wellen-Übergang zum Kontaktbereich */}
         <div aria-hidden="true" className="bg-white">

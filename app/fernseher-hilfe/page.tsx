@@ -13,7 +13,12 @@ import {
   MapPin,
 } from "lucide-react";
 import { SITE_URL, fernseherFragen, orte } from "../daten";
-import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
+import {
+  KopfZeile,
+  FussZeile,
+  FragenAbschnitt,
+  VerwandteThemen,
+} from "../komponenten";
 import { FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
@@ -357,6 +362,8 @@ export default function FernseherHilfe() {
           einleitung="Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an. Vieles lässt sich schon am Telefon klären."
           hell={false}
         />
+
+        <VerwandteThemen aktuelleSeite="/fernseher-hilfe" />
 
         {/* Wellen-Übergang zum Kontaktbereich */}
         <div aria-hidden="true" className="bg-slate-50">

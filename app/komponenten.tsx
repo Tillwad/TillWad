@@ -1,7 +1,13 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, HelpCircle, Mail, CalendarCheck } from "lucide-react";
+import {
+  Phone,
+  HelpCircle,
+  Mail,
+  CalendarCheck,
+  HeartHandshake,
+} from "lucide-react";
 import { orte, leistungen, type Frage } from "./daten";
 import { VERKAUFSMODUS } from "./shop/konfiguration";
 import {
@@ -236,6 +242,86 @@ export function FragenAbschnitt({
             </div>
           ))}
         </dl>
+      </div>
+    </section>
+  );
+}
+
+/**
+ * Verweise auf die übrigen Themenseiten, zum Einbau am Ende einer
+ * Themenseite. Bis dahin hingen diese Seiten fast nur an der Startseite und
+ * der Fußzeile; untereinander waren sie gar nicht verbunden, obwohl die
+ * Themen zusammengehören – ein Smart-TV braucht WLAN, ein Drucker auch.
+ */
+export function VerwandteThemen({
+  /** Pfad der Seite, auf der der Abschnitt steht. Sie verlinkt sich nicht selbst. */
+  aktuelleSeite,
+  hell = true,
+}: {
+  aktuelleSeite: string;
+  hell?: boolean;
+}) {
+  const themen = [
+    ...leistungen
+      .filter((leistung) => leistung.seite)
+      .map((leistung) => ({
+        seite: leistung.seite!,
+        titel: leistung.titel,
+        icon: leistung.icon,
+        farbe: leistung.farbe,
+        text: leistung.beschreibung,
+      })),
+    {
+      seite: "/computerhilfe-senioren",
+      titel: "Computerhilfe für Senioren",
+      icon: HeartHandshake,
+      farbe: "bg-amber-100 text-amber-700",
+      text: "Wie ein Besuch bei älteren Menschen abläuft, was Angehörige wissen sollten und warum es keine dummen Fragen gibt.",
+    },
+  ].filter((thema) => thema.seite !== aktuelleSeite);
+
+  return (
+    <section
+      aria-labelledby="verwandt-titel"
+      className={`px-5 py-14 sm:py-16 ${hell ? "bg-white" : ""}`}
+    >
+      <div className="mx-auto w-full max-w-5xl">
+        <h2
+          id="verwandt-titel"
+          className="text-center text-3xl font-bold text-slate-900 sm:text-4xl"
+        >
+          Das könnte Ihnen auch helfen
+        </h2>
+        <div
+          aria-hidden="true"
+          className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
+        />
+
+        <ul className="mt-10 grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {themen.map((thema) => (
+            <li key={thema.seite}>
+              <Link
+                href={thema.seite}
+                className="flex h-full flex-col rounded-2xl border-2 border-slate-200 bg-white p-7 shadow-sm hover:border-blue-700 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+              >
+                <span
+                  className={`inline-flex h-16 w-16 items-center justify-center rounded-full ${thema.farbe}`}
+                >
+                  <thema.icon size={32} aria-hidden="true" />
+                </span>
+                <h3 className="mt-5 text-2xl font-bold text-slate-900">
+                  {thema.titel}
+                </h3>
+                <p className="mt-3 grow text-lg leading-relaxed text-slate-700">
+                  {thema.text}
+                </p>
+                <span className="mt-4 text-lg font-bold text-blue-800 underline underline-offset-4">
+                  Mehr dazu
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

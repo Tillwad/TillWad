@@ -13,7 +13,12 @@ import {
   MapPin,
 } from "lucide-react";
 import { SITE_URL, druckerFragen, orte } from "../daten";
-import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
+import {
+  KopfZeile,
+  FussZeile,
+  FragenAbschnitt,
+  VerwandteThemen,
+} from "../komponenten";
 import { ProduktEmpfehlungen } from "../shop/empfehlungen";
 import { FragenDaten } from "../strukturierte-daten";
 import {
@@ -374,6 +379,8 @@ export default function DruckerHilfe() {
           einleitung="Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an. Kurze Fragen kläre ich gerne gleich am Telefon."
           hell={false}
         />
+
+        <VerwandteThemen aktuelleSeite="/drucker-hilfe" />
 
         {/* Wellen-Übergang zum Kontaktbereich */}
         <div aria-hidden="true" className="bg-slate-50">

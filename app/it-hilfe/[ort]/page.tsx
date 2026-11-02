@@ -322,22 +322,46 @@ export default async function OrtSeite({
               className="mx-auto mt-4 h-2 w-28 rounded-full bg-amber-400"
             />
 
+            {/* Gibt es zum Thema eine eigene Seite, führt die Karte dorthin.
+                Ohne diese Verweise hingen die Themenseiten nur an der
+                Startseite und der Fußzeile, was ihnen bei Google spürbar
+                Gewicht genommen hat. */}
             <ul className="mt-10 grid list-none gap-4 sm:grid-cols-2">
-              {leistungen.map((leistung) => (
-                <li
-                  key={leistung.titel}
-                  className="flex items-center gap-4 rounded-2xl border-2 border-slate-200 bg-white px-6 py-5 shadow-sm"
-                >
-                  <span
-                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${leistung.farbe}`}
-                  >
-                    <leistung.icon size={28} aria-hidden="true" />
-                  </span>
-                  <span className="text-xl font-semibold text-slate-900">
-                    {leistung.titel}
-                  </span>
-                </li>
-              ))}
+              {leistungen.map((leistung) => {
+                const inhalt = (
+                  <>
+                    <span
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${leistung.farbe}`}
+                    >
+                      <leistung.icon size={28} aria-hidden="true" />
+                    </span>
+                    <span className="text-xl font-semibold text-slate-900">
+                      {leistung.titel}
+                      {leistung.seite ? (
+                        <span className="mt-1 block text-base font-normal text-blue-800 underline underline-offset-4">
+                          {leistung.seiteText}
+                        </span>
+                      ) : null}
+                    </span>
+                  </>
+                );
+                return (
+                  <li key={leistung.titel}>
+                    {leistung.seite ? (
+                      <Link
+                        href={leistung.seite}
+                        className="flex h-full items-center gap-4 rounded-2xl border-2 border-slate-200 bg-white px-6 py-5 shadow-sm hover:border-blue-700 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+                      >
+                        {inhalt}
+                      </Link>
+                    ) : (
+                      <div className="flex h-full items-center gap-4 rounded-2xl border-2 border-slate-200 bg-white px-6 py-5 shadow-sm">
+                        {inhalt}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
 
             <ul className="mx-auto mt-10 flex max-w-2xl list-none flex-col gap-4">

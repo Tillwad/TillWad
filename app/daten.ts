@@ -167,6 +167,10 @@ export const druckerFragen: Frage[] = [
       "Das kommt darauf an, wie viel Sie drucken. Wer nur gelegentlich etwas ausdruckt, fährt mit einem Laserdrucker oft besser, weil dessen Toner nicht eintrocknet. Wer regelmäßig Fotos druckt, ist mit Tinte besser bedient. Rufen Sie mich vor dem Kauf gerne kurz an. Diese Beratung kostet Sie nichts, und sie erspart Ihnen womöglich einen Fehlkauf.",
   },
   {
+    frage: "Was kostet es, einen Drucker einrichten zu lassen?",
+    antwort: `Sie zahlen ${PREIS_STUNDE}, abgerechnet nach der tatsächlich benötigten Zeit, und die Anfahrt ist für Sie kostenlos. Einen neuen Drucker auspacken, anschließen, ins WLAN bringen und mit Computer, Handy und Tablet verbinden dauert in der Regel eine knappe Stunde, kostet also meist um die ${PREIS_ZAHL} Euro. Soll zusätzlich das Scannen eingerichtet werden oder hängen mehrere Computer daran, wird es etwas mehr. Den ungefähren Preis nenne ich Ihnen vorher am Telefon.`,
+  },
+  {
     frage: "Warum druckt mein Drucker plötzlich nicht mehr richtig?",
     antwort:
       "Streifen im Ausdruck, blasse Farben oder leere Seiten deuten meist auf eingetrocknete Druckköpfe oder auf eine Patrone hin, die das Gerät nicht annimmt. Ich reinige die Düsen über die richtige Funktion des Geräts, prüfe die Patronen und zeige Ihnen, wie Sie das künftig selbst machen können.",
@@ -199,6 +203,10 @@ export const wlanFragen: Frage[] = [
     frage: "Wie bekomme ich Gäste ins WLAN, ohne mein Passwort zu verraten?",
     antwort:
       "Fast jeder neuere Router kann ein getrenntes Gäste-WLAN. Ihre Gäste kommen damit ins Internet, aber nicht an Ihre eigenen Geräte, und Sie müssen Ihr Hauptpasswort nicht herausgeben. Ich richte das ein und zeige Ihnen, wie Sie den Zugang bei Bedarf wieder abschalten.",
+  },
+  {
+    frage: "Was kostet es, das WLAN einrichten zu lassen?",
+    antwort: `Sie zahlen ${PREIS_STUNDE} und nur die Zeit, die ich wirklich bei Ihnen bin. Die Anfahrt ist kostenlos. Einen neuen Router anschließen, das WLAN einrichten und alle Geräte wieder verbinden dauert meist anderthalb Stunden, kostet also ungefähr 70 Euro. Geht es nur darum, das Passwort wiederzufinden oder ein einzelnes Gerät ins Netz zu holen, sind wir oft in einer halben Stunde fertig, und dann zahlen Sie auch nur eine halbe Stunde. Was Sie ungefähr erwartet, sage ich Ihnen vorher am Telefon.`,
   },
   {
     frage: "Brauche ich schnelleres Internet?",
@@ -243,6 +251,19 @@ export const fernseherFragen: Frage[] = [
     frage: "Kann ich Fotos vom Handy auf dem Fernseher ansehen?",
     antwort:
       "Ja, und das ist eine der schönsten Möglichkeiten moderner Fernseher. Die Urlaubsbilder vom Handy erscheinen groß im Wohnzimmer, ohne Kabel. Ich richte das ein und übe es einmal mit Ihnen, damit Sie es beim Besuch der Familie selbst vorführen können.",
+  },
+  // Beide Fragen stehen wortwörtlich so in der Search Console: nach "ard
+  // mediathek funktioniert nicht smart tv" und nach "fernseher einrichten
+  // lassen" wird tatsächlich gesucht.
+  {
+    frage:
+      "Die ARD-Mediathek funktioniert auf meinem Smart-TV nicht mehr. Woran liegt das?",
+    antwort:
+      "Meistens an einer von drei Kleinigkeiten, und keine davon heißt, dass Ihr Fernseher kaputt ist. Erstens kann die App eine Aktualisierung brauchen: Im App-Bereich Ihres Fernsehers lässt sie sich löschen und neu installieren, Ihre Einstellungen gehen dabei nicht verloren. Zweitens kann die Internetverbindung hängen; dann hilft es, den Fernseher und den Router einmal für eine Minute vom Strom zu nehmen. Drittens stellen ARD und ZDF ihre Apps von Zeit zu Zeit um, und ältere Geräte bekommen die neue Fassung nicht mehr. In dem Fall kommen Sie oft noch über die rote Taste während einer laufenden Sendung in die Mediathek, und wenn das auch nicht geht, macht ein Streaming-Stick für etwa 40 bis 60 Euro das Gerät wieder zeitgemäß. Ich schaue mir an, welcher der drei Fälle bei Ihnen vorliegt.",
+  },
+  {
+    frage: "Was kostet es, den Fernseher einrichten zu lassen?",
+    antwort: `Sie zahlen ${PREIS_STUNDE}, abgerechnet nach der tatsächlich benötigten Zeit und ohne Anfahrtskosten. Einen neuen Fernseher anschließen, mit dem WLAN verbinden, die Sender sortieren und die Mediatheken einrichten dauert erfahrungsgemäß etwa eine Stunde, kostet also meist um die ${PREIS_ZAHL} Euro. Kommen noch Receiver, Soundbar oder mehrere Fernbedienungen dazu, wird es etwas mehr. Was es bei Ihnen ungefähr wird, sage ich Ihnen vorher am Telefon, damit Sie keine Überraschung erleben.`,
   },
   {
     frage: "Mein Fernseher zeigt „kein Signal“. Ist er kaputt?",
