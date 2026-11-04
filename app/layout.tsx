@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   title: "Computerhilfe mit Till, bei Ihnen zu Hause",
   description:
     "Geduldige Hilfe bei Computer, Handy, Tablet, Internet und Drucker, bei Ihnen zu Hause. Alles verständlich erklärt. Rufen Sie einfach an.",
+  // Weist der Google Search Console nach, dass die Domain uns gehört. Der
+  // Eintrag muss dauerhaft stehen bleiben, sonst verfällt die Bestätigung
+  // und die Zugriffszahlen brechen ab.
+  verification: {
+    google: "-bDqE2FsVsE0StfbOGTExI55VdwHGRh6OdCgudFaIBU",
+  },
 };
 
 export const viewport: Viewport = {

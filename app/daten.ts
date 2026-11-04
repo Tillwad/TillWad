@@ -11,7 +11,11 @@ import {
 // Telefonnummer und E-Mail-Adresse stehen bewusst nicht hier, sondern zerlegt
 // in app/schutz-links.tsx, damit sie nicht im Klartext im HTML landen.
 
-export const SITE_URL = "https://www.tillwadehn.de";
+// Die Hauptadresse der Website. Von hier hängen Canonicals, Sitemap,
+// robots.txt und die strukturierten Daten ab. Seit dem Umzug im November 2026
+// ist das computerhilfe-till.de; die alte Adresse tillwadehn.de leitet
+// pfadgenau hierher weiter, siehe next.config.ts.
+export const SITE_URL = "https://www.computerhilfe-till.de";
 
 export const ADRESSE = ["Breisgauer Str. 27", "14129 Berlin"];
 
