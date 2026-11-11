@@ -20,7 +20,7 @@ import {
   VerwandteThemen,
 } from "../komponenten";
 import { ProduktEmpfehlungen } from "../shop/empfehlungen";
-import { FragenDaten } from "../strukturierte-daten";
+import { BrotkrumenDaten, FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -97,6 +97,9 @@ export default function DruckerHilfe() {
       <FragenDaten
         fragen={druckerFragen}
         seitenUrl={`${SITE_URL}/drucker-hilfe`}
+      />
+      <BrotkrumenDaten
+        stufen={[{ name: "Drucker-Hilfe", pfad: "/drucker-hilfe" }]}
       />
 
       <a href="#inhalt" className="skip-link">

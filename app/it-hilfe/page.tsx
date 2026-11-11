@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { SITE_URL, itFragen, leistungen, orte } from "../daten";
 import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
-import { FragenDaten } from "../strukturierte-daten";
+import { BrotkrumenDaten, FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -74,6 +74,7 @@ export default function ItHilfe() {
   return (
     <>
       <FragenDaten fragen={itFragen} seitenUrl={`${SITE_URL}/it-hilfe`} />
+      <BrotkrumenDaten stufen={[{ name: "IT-Hilfe", pfad: "/it-hilfe" }]} />
 
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen

@@ -1,12 +1,17 @@
 import {
   ADRESSE,
+  BEWERTUNG_GOOGLE,
+  BEWERTUNG_NEBENAN,
+  GEO,
   PREIS_STUNDE,
   PREIS_ZAHL,
   SITE_URL,
   leistungen,
   orte,
   type Frage,
+  type Ort,
 } from "./daten";
+import { zeitenSchema } from "./oeffnungszeiten";
 
 // Strukturierte Daten (JSON-LD) für Suchmaschinen und KI-Assistenten.
 //
@@ -49,6 +54,7 @@ export function UnternehmensDaten() {
           "Geduldige Hilfe bei Computer, Handy, Tablet, Internet, Drucker und Fernseher, als Hausbesuch im Berliner Südwesten, verständlich erklärt und ohne Fachbegriffe.",
         url: SITE_URL,
         image: `${SITE_URL}/images/till_wadehn_it_support.jpg`,
+        logo: `${SITE_URL}/icon.png`,
         founder: { "@type": "Person", name: "Till Wadehn" },
         address: {
           "@type": "PostalAddress",
@@ -58,6 +64,25 @@ export function UnternehmensDaten() {
           addressRegion: "Berlin",
           addressCountry: "DE",
         },
+        // Die Koordinaten nehmen Google die Deutung der Adresse ab. Bei
+        // Suchen wie "computerhilfe in der nähe" entscheidet die Entfernung
+        // mit darüber, wer überhaupt angezeigt wird.
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: GEO.breite,
+          longitude: GEO.laenge,
+        },
+        // Öffnungszeiten aus derselben Quelle wie die buchbaren Termine,
+        // siehe app/oeffnungszeiten.ts. Sie stehen zusätzlich sichtbar in
+        // der Fußzeile, wie Google es für strukturierte Daten verlangt.
+        openingHoursSpecification: zeitenSchema(),
+        // Verweise auf die Profile, die dasselbe Unternehmen beschreiben.
+        // Damit kann Google Website, Unternehmensprofil und nebenan.de als
+        // einen Anbieter zusammenführen statt als drei.
+        //
+        // Beim Google-Verweis fällt das "/review" weg: Gemeint ist hier das
+        // Profil selbst und nicht das Formular zum Bewerten.
+        sameAs: [BEWERTUNG_GOOGLE.replace(/\/review$/, ""), BEWERTUNG_NEBENAN],
         // Der Preis wird zusätzlich als Zahl ausgezeichnet, damit er
         // maschinell lesbar ist und nicht nur als Text dasteht.
         priceRange: PREIS_STUNDE,
@@ -88,6 +113,88 @@ export function UnternehmensDaten() {
               description: leistung.beschreibung,
             },
           })),
+        },
+      }}
+    />
+  );
+}
+
+/**
+ * Brotkrumenpfad: zeigt Google, wo eine Seite im Aufbau der Website steht.
+ * In den Suchergebnissen erscheint dadurch statt der nackten Adresse ein
+ * lesbarer Pfad wie "Computerhilfe mit Till > IT-Hilfe > Zehlendorf", und
+ * Google versteht, dass die acht Ortsseiten zusammengehören.
+ *
+ * Die Startseite wird automatisch vorangestellt; übergeben werden nur die
+ * Stufen darunter.
+ */
+export function BrotkrumenDaten({
+  stufen,
+}: {
+  stufen: { name: string; pfad: string }[];
+}) {
+  const alle = [{ name: "Startseite", pfad: "/" }, ...stufen];
+
+  return (
+    <JsonLd
+      daten={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: alle.map((stufe, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: stufe.name,
+          item: `${SITE_URL}${stufe.pfad === "/" ? "" : stufe.pfad}`,
+        })),
+      }}
+    />
+  );
+}
+
+/**
+ * Auszeichnung einer Ortsseite als angebotene Leistung mit Einsatzgebiet.
+ *
+ * Bewusst KEIN zweiter LocalBusiness je Ort: Acht Unternehmenseinträge mit
+ * derselben Adresse liest Google als Versuch, mehrere Standorte
+ * vorzutäuschen, und das schadet mehr, als es nützt. Richtig ist ein
+ * Service, der über provider auf das eine Unternehmen verweist und über
+ * areaServed sagt, wo diese Leistung erbracht wird.
+ */
+export function OrtsDaten({ ort }: { ort: Ort }) {
+  const seitenUrl = `${SITE_URL}/it-hilfe/${ort.slug}`;
+
+  return (
+    <JsonLd
+      daten={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${seitenUrl}#leistung`,
+        name: `Computerhilfe und IT-Hilfe in ${ort.name}`,
+        description: ort.metaBeschreibung,
+        serviceType: "Computerhilfe, IT-Hilfe und Technikhilfe als Hausbesuch",
+        url: seitenUrl,
+        provider: { "@id": `${SITE_URL}/#unternehmen` },
+        areaServed: {
+          "@type": "Place",
+          name: ort.name,
+          // Die genannten Kieze und Straßen stehen auch sichtbar auf der
+          // Seite. Sie sind der eigentliche Grund, warum eine Ortsseite
+          // mehr ist als die Startseite mit ausgetauschtem Ortsnamen.
+          description: ort.gebiete.join(", "),
+        },
+        availableChannel: {
+          "@type": "ServiceChannel",
+          serviceLocation: { "@type": "Place", name: ort.name },
+          serviceUrl: `${SITE_URL}/termin`,
+        },
+        offers: {
+          "@type": "Offer",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: PREIS_ZAHL,
+            priceCurrency: "EUR",
+            unitCode: "HUR",
+          },
         },
       }}
     />

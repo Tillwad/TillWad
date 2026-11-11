@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2, Sparkles, Truck } from "lucide-react";
 import { KopfZeile, FussZeile } from "../../komponenten";
+import { BrotkrumenDaten } from "../../strukturierte-daten";
 import { zeitstempelErzeugen } from "../../termin/schutz";
 import {
   LIEFERZEIT,
@@ -60,6 +61,13 @@ export default async function Produktseite({
 
   return (
     <>
+      <BrotkrumenDaten
+        stufen={[
+          { name: "Kaufberatung", pfad: "/shop" },
+          { name: produkt.name, pfad: `/shop/${produkt.slug}` },
+        ]}
+      />
+
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen
       </a>
@@ -123,8 +131,8 @@ export default async function Produktseite({
           </p>
           {VERKAUFSMODUS === "affiliate" ? (
             <p className="mt-2 text-base text-slate-600">
-              Ungefährer Marktpreis zur Orientierung. Den tagesaktuellen
-              Preis sehen Sie beim Händler.
+              Ungefährer Marktpreis zur Orientierung. Den tagesaktuellen Preis
+              sehen Sie beim Händler.
             </p>
           ) : (
             <p className="mt-2 text-base text-slate-600">
@@ -170,14 +178,10 @@ export default async function Produktseite({
           ) : (
             <>
               <p className="mt-6 flex items-start gap-3 text-lg leading-relaxed text-slate-700">
-                <Truck
-                  size={24}
-                  aria-hidden="true"
-                  className="mt-1 shrink-0"
-                />
+                <Truck size={24} aria-hidden="true" className="mt-1 shrink-0" />
                 <span>
-                  Lieferzeit: {lieferzeit}. Geliefert wird bequem zu Ihnen
-                  nach Hause.
+                  Lieferzeit: {lieferzeit}. Geliefert wird bequem zu Ihnen nach
+                  Hause.
                 </span>
               </p>
 

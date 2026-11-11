@@ -15,7 +15,11 @@ import {
 import { SITE_URL } from "../../daten";
 import { KopfZeile, FussZeile, FragenAbschnitt } from "../../komponenten";
 import { ProduktEmpfehlungen } from "../../shop/empfehlungen";
-import { BeitragsDaten, FragenDaten } from "../../strukturierte-daten";
+import {
+  BeitragsDaten,
+  BrotkrumenDaten,
+  FragenDaten,
+} from "../../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -87,6 +91,12 @@ export default async function RatgeberBeitrag({
         aktualisiert={beitrag.aktualisiert}
       />
       <FragenDaten fragen={beitrag.fragen} seitenUrl={seitenUrl} />
+      <BrotkrumenDaten
+        stufen={[
+          { name: "Ratgeber", pfad: "/ratgeber" },
+          { name: beitrag.titel, pfad: `/ratgeber/${beitrag.slug}` },
+        ]}
+      />
 
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen
@@ -179,10 +189,7 @@ export default async function RatgeberBeitrag({
 
         {/* Hilfe anbieten, direkt im Anschluss an den Text. Wer bis hierhin
             gelesen hat, hat das Problem gerade und nicht irgendwann. */}
-        <section
-          aria-labelledby="hilfe-titel"
-          className="px-5 py-14 sm:py-16"
-        >
+        <section aria-labelledby="hilfe-titel" className="px-5 py-14 sm:py-16">
           <div className="mx-auto w-full max-w-3xl rounded-2xl border-2 border-blue-200 bg-blue-50 p-8 sm:p-10">
             <h2
               id="hilfe-titel"

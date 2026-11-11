@@ -24,7 +24,11 @@ import {
   FotoHintergrundMobil,
   FotoNebenText,
 } from "../../komponenten";
-import { FragenDaten } from "../../strukturierte-daten";
+import {
+  BrotkrumenDaten,
+  FragenDaten,
+  OrtsDaten,
+} from "../../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -93,6 +97,13 @@ export default async function OrtSeite({
       <FragenDaten
         fragen={fragenFuerOrt(ort)}
         seitenUrl={`${SITE_URL}/it-hilfe/${ort.slug}`}
+      />
+      <OrtsDaten ort={ort} />
+      <BrotkrumenDaten
+        stufen={[
+          { name: "IT-Hilfe", pfad: "/it-hilfe" },
+          { name: ort.name, pfad: `/it-hilfe/${ort.slug}` },
+        ]}
       />
 
       <a href="#inhalt" className="skip-link">

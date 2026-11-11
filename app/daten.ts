@@ -19,6 +19,18 @@ export const SITE_URL = "https://www.computerhilfe-till.de";
 
 export const ADRESSE = ["Breisgauer Str. 27", "14129 Berlin"];
 
+/**
+ * Koordinaten der Adresse, für die Auszeichnung als LocalBusiness. Google
+ * ordnet den Eintrag damit sicher dem richtigen Punkt zu, statt die Adresse
+ * selbst deuten zu müssen; bei der lokalen Suche hängt daran, wie nah man
+ * aus Sicht der Suchmaschine an den Leuten dran ist.
+ *
+ * Ermittelt am 2026-11-12 über Nominatim (OpenStreetMap), Treffer:
+ * "27, Breisgauer Straße, Siedlung Schlachtensee II, Schlachtensee,
+ * Steglitz-Zehlendorf, Berlin, 14129".
+ */
+export const GEO = { breite: 52.4356974, laenge: 13.2172797 };
+
 // Wo Kunden eine Bewertung hinterlassen können. Auf der Visitenkarte
 // (werbung/visitenkarte.html) steht www.tillwadehn.de/bewerten, die Seite
 // dahinter verweist auf diese beiden Ziele.

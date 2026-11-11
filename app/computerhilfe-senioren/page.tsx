@@ -23,7 +23,7 @@ import {
 } from "../komponenten";
 import { ProduktEmpfehlungen } from "../shop/empfehlungen";
 import { NeuesteBeitraege } from "../ratgeber/teaser";
-import { FragenDaten } from "../strukturierte-daten";
+import { BrotkrumenDaten, FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -106,6 +106,14 @@ export default function SeniorenHilfe() {
       <FragenDaten
         fragen={seniorenFragen}
         seitenUrl={`${SITE_URL}/computerhilfe-senioren`}
+      />
+      <BrotkrumenDaten
+        stufen={[
+          {
+            name: "Computerhilfe für Senioren",
+            pfad: "/computerhilfe-senioren",
+          },
+        ]}
       />
 
       <a href="#inhalt" className="skip-link">

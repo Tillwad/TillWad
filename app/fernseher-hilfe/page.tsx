@@ -19,7 +19,7 @@ import {
   FragenAbschnitt,
   VerwandteThemen,
 } from "../komponenten";
-import { FragenDaten } from "../strukturierte-daten";
+import { BrotkrumenDaten, FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -91,6 +91,9 @@ export default function FernseherHilfe() {
       <FragenDaten
         fragen={fernseherFragen}
         seitenUrl={`${SITE_URL}/fernseher-hilfe`}
+      />
+      <BrotkrumenDaten
+        stufen={[{ name: "Fernseher-Hilfe", pfad: "/fernseher-hilfe" }]}
       />
 
       <a href="#inhalt" className="skip-link">

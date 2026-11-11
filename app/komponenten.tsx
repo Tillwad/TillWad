@@ -9,7 +9,8 @@ import {
   HeartHandshake,
   BookOpen,
 } from "lucide-react";
-import { orte, leistungen, type Frage } from "./daten";
+import { ADRESSE, orte, leistungen, type Frage } from "./daten";
+import { zeitenLesbar } from "./oeffnungszeiten";
 import { VERKAUFSMODUS } from "./shop/konfiguration";
 import {
   TelefonLink,
@@ -339,6 +340,35 @@ export function FussZeile() {
   return (
     <footer className="bg-white px-5 py-10">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 text-center text-lg text-slate-600">
+        {/* Name, Adresse und Erreichbarkeit auf jeder Seite.
+            Für die örtliche Suche ist das einer der wenigen Hebel, die man
+            selbst in der Hand hat: Google gleicht diese Angaben mit dem
+            Unternehmensprofil und den Branchenverzeichnissen ab, und je
+            öfter sie identisch auftauchen, desto sicherer ordnet es die
+            Website dem Betrieb zu.
+
+            Die Telefonnummer steht hier bewusst NICHT im Klartext, sondern
+            nur über die geschützten Verweise, siehe app/schutz-links.tsx. */}
+        <div className="flex flex-col items-center gap-1">
+          <p className="text-xl font-bold text-slate-900">
+            Computerhilfe mit Till
+          </p>
+          <p>
+            Till Wadehn, {ADRESSE[0]}, {ADRESSE[1]}
+          </p>
+        </div>
+
+        <div className="flex flex-col items-center gap-1">
+          <p className="font-bold text-slate-800">Wann Sie mich erreichen</p>
+          {zeitenLesbar().map((zeile) => (
+            <p key={zeile}>{zeile}</p>
+          ))}
+          <p className="max-w-xl">
+            Außerhalb dieser Zeiten sprechen Sie mir bitte auf den
+            Anrufbeantworter, ich rufe zuverlässig zurück.
+          </p>
+        </div>
+
         <p>© {new Date().getFullYear()} Computerhilfe mit Till</p>
         <nav aria-label="Einzugsgebiet">
           <ul className="flex list-none flex-wrap items-center justify-center gap-x-5 gap-y-2">

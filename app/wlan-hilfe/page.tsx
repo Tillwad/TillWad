@@ -20,7 +20,7 @@ import {
   VerwandteThemen,
 } from "../komponenten";
 import { ProduktEmpfehlungen } from "../shop/empfehlungen";
-import { FragenDaten } from "../strukturierte-daten";
+import { BrotkrumenDaten, FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -87,6 +87,7 @@ export default function WlanHilfe() {
   return (
     <>
       <FragenDaten fragen={wlanFragen} seitenUrl={`${SITE_URL}/wlan-hilfe`} />
+      <BrotkrumenDaten stufen={[{ name: "WLAN-Hilfe", pfad: "/wlan-hilfe" }]} />
 
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen
