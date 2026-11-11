@@ -26,22 +26,37 @@ body {
   background-size: 18px 18px;
 }
 
-/* Sprung-Link für Tastatur- und Screenreader-Nutzung */
+/* Sprung-Link für Tastatur- und Screenreader-Nutzung.
+ *
+ * Zwei Dinge sind hier bewusst so gelöst:
+ *
+ * Erstens :focus-visible statt :focus. Mit :focus sprang der Verweis auch
+ * dann ins Bild, wenn jemand nur mit der Maus klickte oder der Browser den
+ * Fokus nach einem Seitenwechsel selbst setzte. Gedacht ist er aber allein
+ * für die Tabulatortaste, und genau das trifft :focus-visible.
+ *
+ * Zweitens liegt er nicht mehr über der Kopfzeile, sondern schiebt sie beim
+ * Fokus nach unten. Vorher lag er genau auf dem Namen "Computerhilfe mit
+ * Till" und verdeckte ihn. Versteckt wird er jetzt über eine Höhe von null
+ * statt über eine Position weit außerhalb des Bildes: Er nimmt damit keinen
+ * Platz ein, bleibt aber mit der Tabulatortaste erreichbar, was bei
+ * display:none oder visibility:hidden nicht der Fall wäre.
+ */
 .skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  z-index: 100;
-  padding: 1rem 1.5rem;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
   background: #1d4ed8;
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 700;
-  border-radius: 0 0 0.75rem 0;
+  text-align: center;
 }
 
-.skip-link:focus {
-  left: 0;
+.skip-link:focus-visible {
+  height: auto;
+  padding: 1rem 1.5rem;
 }
 
 /* Deutlich sichtbarer Tastatur-Fokus überall */
