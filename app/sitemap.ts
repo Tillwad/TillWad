@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { orte, SITE_URL } from "./daten";
 import { produkte } from "./shop/produkte";
+import { beitraege } from "./ratgeber/beitraege";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/drucker-hilfe",
       "/fernseher-hilfe",
       "/termin",
+      "/ratgeber",
     ].map((pfad) => ({
       url: `${SITE_URL}${pfad}`,
       lastModified: new Date(),
@@ -35,6 +37,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/shop/${produkt.slug}`,
       lastModified: new Date(),
       priority: 0.6,
+    })),
+    // Bei den Ratgeber-Beiträgen steht als lastModified bewusst das echte
+    // Datum des Beitrags und nicht der heutige Tag. Ein Datum, das sich bei
+    // jedem Aufruf ändert, ohne dass sich der Text geändert hat, nimmt
+    // Google irgendwann nicht mehr ernst.
+    ...beitraege.map((beitrag) => ({
+      url: `${SITE_URL}/ratgeber/${beitrag.slug}`,
+      lastModified: new Date(beitrag.aktualisiert ?? beitrag.veroeffentlicht),
+      priority: 0.7,
     })),
   ];
 }

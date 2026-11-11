@@ -95,6 +95,57 @@ export function UnternehmensDaten() {
 }
 
 /**
+ * Auszeichnung eines Ratgeber-Beitrags als BlogPosting. Damit weiß Google, dass
+ * es ein datierter Beitrag ist und wer ihn geschrieben hat, und kann das Datum
+ * in der Suche anzeigen. Bei einem Beitrag über eine aktuelle Änderung ist
+ * gerade das Datum das, worauf die Leute schauen.
+ *
+ * Die FAQPage-Auszeichnung desselben Beitrags kommt zusätzlich aus
+ * FragenDaten weiter unten; zwei getrennte Blöcke sind erlaubt und üblich.
+ */
+export function BeitragsDaten({
+  titel,
+  beschreibung,
+  seitenUrl,
+  veroeffentlicht,
+  aktualisiert,
+}: {
+  titel: string;
+  beschreibung: string;
+  seitenUrl: string;
+  veroeffentlicht: string;
+  aktualisiert?: string;
+}) {
+  return (
+    <JsonLd
+      daten={{
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": `${seitenUrl}#beitrag`,
+        headline: titel,
+        description: beschreibung,
+        url: seitenUrl,
+        mainEntityOfPage: { "@type": "WebPage", "@id": seitenUrl },
+        inLanguage: "de",
+        datePublished: veroeffentlicht,
+        dateModified: aktualisiert ?? veroeffentlicht,
+        author: { "@type": "Person", name: "Till Wadehn" },
+        publisher: {
+          "@type": "LocalBusiness",
+          "@id": `${SITE_URL}/#unternehmen`,
+          name: "Computerhilfe mit Till",
+        },
+        isPartOf: {
+          "@type": "Blog",
+          "@id": `${SITE_URL}/ratgeber#blog`,
+          name: "Ratgeber von Computerhilfe mit Till",
+        },
+      }}
+    />
+  );
+}
+
+/**
  * FAQPage-Auszeichnung. Die Fragen und Antworten müssen identisch auch sichtbar
  * auf der Seite stehen – sonst verstößt die Auszeichnung gegen Googles
  * Richtlinien. Deshalb kommt beides aus derselben Liste in app/daten.ts.

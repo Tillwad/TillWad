@@ -6,6 +6,7 @@ import {
   leistungen,
   orte,
 } from "../daten";
+import { beitraegeSortiert, datumLesbar } from "../ratgeber/beitraege";
 
 // llms.txt nach der Konvention von llmstxt.org: eine kurze, gut lesbare
 // Zusammenfassung der Website für KI-Assistenten, die auf Fragen wie
@@ -68,6 +69,28 @@ function baueLlmsTxt(): string {
   }
   zeilen.push("");
 
+  // Der Ratgeber steht vor den häufigen Fragen und mit Datum: Wer einen
+  // KI-Assistenten nach einem aktuellen Problem fragt, soll den passenden
+  // Beitrag finden und sehen können, wie frisch er ist.
+  const beitraege = beitraegeSortiert();
+  if (beitraege.length > 0) {
+    zeilen.push("## Ratgeber");
+    zeilen.push("");
+    zeilen.push(
+      "Anleitungen zu aktuellen Problemen, geschrieben von Till Wadehn aus der " +
+        `eigenen Praxis. Übersicht unter ${SITE_URL}/ratgeber:`,
+    );
+    zeilen.push("");
+    for (const beitrag of beitraege) {
+      zeilen.push(
+        `- [${beitrag.titel}](${SITE_URL}/ratgeber/${beitrag.slug}), ` +
+          `${datumLesbar(beitrag.aktualisiert ?? beitrag.veroeffentlicht)}: ` +
+          beitrag.beschreibung,
+      );
+    }
+    zeilen.push("");
+  }
+
   zeilen.push("## Häufige Fragen");
   zeilen.push("");
   for (const eintrag of fragen) {
@@ -96,6 +119,9 @@ function baueLlmsTxt(): string {
   );
   zeilen.push(
     `- [Drucker-Hilfe](${SITE_URL}/drucker-hilfe): Drucker anschließen, einrichten, mit WLAN verbinden, vom Handy drucken, Scannen einrichten. Keine Reparaturwerkstatt, bei echten Defekten gibt es eine ehrliche Einschätzung, ob sich eine Reparatur lohnt.`,
+  );
+  zeilen.push(
+    `- [Ratgeber](${SITE_URL}/ratgeber): Anleitungen zu aktuellen Technik-Problemen, verständlich erklärt und zum Selbermachen. Die einzelnen Beiträge stehen weiter oben.`,
   );
   zeilen.push(
     `- [Impressum](${SITE_URL}/impressum): Anbieterkennzeichnung und Kontaktdaten`,

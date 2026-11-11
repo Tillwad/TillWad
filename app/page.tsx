@@ -19,6 +19,7 @@ import {
   FotoHintergrundMobil,
   FotoNebenText,
 } from "./komponenten";
+import { NeuesteBeitraege } from "./ratgeber/teaser";
 import { FragenDaten, UnternehmensDaten } from "./strukturierte-daten";
 import {
   TelefonLink,
@@ -553,10 +554,14 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Neu im Ratgeber. Steht hier und nicht weiter unten, damit ein
+            neuer Beitrag von der Startseite aus verlinkt ist: Nur so findet
+            Google ihn schnell. */}
+        <NeuesteBeitraege hell={false} />
+
         {/* Häufige Fragen */}
         <FragenAbschnitt
           fragen={fragen}
-          hell={false}
           einleitung="Hier finden Sie Antworten auf die Fragen, die mir am häufigsten gestellt werden. Ist Ihre Frage nicht dabei? Rufen Sie mich einfach an."
         />
 

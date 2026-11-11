@@ -22,6 +22,7 @@ import {
   VerwandteThemen,
 } from "../komponenten";
 import { ProduktEmpfehlungen } from "../shop/empfehlungen";
+import { NeuesteBeitraege } from "../ratgeber/teaser";
 import { FragenDaten } from "../strukturierte-daten";
 import {
   TelefonLink,
@@ -306,6 +307,15 @@ export default function SeniorenHilfe() {
           titel="Geräte, die ich für Senioren empfehle"
           einleitung="Unverbindliche Empfehlungen aus meiner Kaufberatung. Zu jedem Gerät können Sie die Einrichtung bei Ihnen zu Hause dazubuchen. Ich erkläre alles so oft Sie möchten."
           slugs={["hp-all-in-one-27", "apple-ipad", "samsung-galaxy-tab-a9"]}
+        />
+
+        {/* Neu im Ratgeber. Passt hierher, weil die Beiträge genau die
+            Probleme behandeln, die ältere Menschen am häufigsten treffen:
+            etwas ändert sich ohne Vorwarnung, und dann sind Fotos weg. */}
+        <NeuesteBeitraege
+          titel="Zum Nachlesen: Ratgeber"
+          einleitung="Was gerade bei vielen schiefgeht, in Ruhe erklärt und zum Selbermachen. Zum Ausdrucken geeignet, falls Sie es lieber auf Papier vor sich haben."
+          hell={false}
         />
 
         {/* Fragen von älteren Menschen */}

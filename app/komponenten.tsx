@@ -7,6 +7,7 @@ import {
   Mail,
   CalendarCheck,
   HeartHandshake,
+  BookOpen,
 } from "lucide-react";
 import { orte, leistungen, type Frage } from "./daten";
 import { VERKAUFSMODUS } from "./shop/konfiguration";
@@ -278,6 +279,13 @@ export function VerwandteThemen({
       farbe: "bg-amber-100 text-amber-700",
       text: "Wie ein Besuch bei älteren Menschen abläuft, was Angehörige wissen sollten und warum es keine dummen Fragen gibt.",
     },
+    {
+      seite: "/ratgeber",
+      titel: "Ratgeber",
+      icon: BookOpen,
+      farbe: "bg-sky-100 text-sky-700",
+      text: "Anleitungen zu den Problemen, die gerade reihenweise auftreten, verständlich erklärt und zum Selbermachen.",
+    },
   ].filter((thema) => thema.seite !== aktuelleSeite);
 
   return (
@@ -393,6 +401,14 @@ export function FussZeile() {
                 className="underline underline-offset-4 hover:text-blue-800"
               >
                 Kaufberatung
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/ratgeber"
+                className="underline underline-offset-4 hover:text-blue-800"
+              >
+                Ratgeber
               </Link>
             </li>
           </ul>
