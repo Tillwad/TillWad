@@ -69,6 +69,230 @@ export type Beitrag = {
 
 export const beitraege: Beitrag[] = [
   {
+    slug: "windows-10-support-ende-neuer-computer",
+    titel:
+      "Windows 10 wird nicht mehr unterstützt? Sie brauchen keinen neuen Computer",
+    metaTitel: "Windows 10 Support-Ende: brauchen Sie einen neuen PC?",
+    beschreibung:
+      "Windows 10 bekommt in Deutschland kostenlos Sicherheitsupdates bis Oktober 2027. Warum viele die Schaltfläche dafür nicht sehen und wann ein neuer Computer wirklich nötig ist.",
+    thema: "Computer und Windows",
+    veroeffentlicht: "2026-11-12",
+    lesezeit: 8,
+    teaser:
+      "Ihr Computer meldet, dass Windows 10 nicht mehr unterstützt wird, und im Elektromarkt sagt man Ihnen, Sie bräuchten ein neues Gerät. In den meisten Fällen stimmt das nicht. Es gibt kostenlose Sicherheitsupdates bis Oktober 2027, nur sieht die Schaltfläche dafür kaum jemand.",
+    inhalt: [
+      {
+        art: "absatz",
+        text: "Seit Oktober 2025 bekommt Windows 10 keine regulären Updates mehr, und seitdem weist Microsoft mit Meldungen auf dem Bildschirm darauf hin. Diese Meldungen klingen ernst, und das sind sie auch: Ein Computer ohne Sicherheitsupdates ist mit der Zeit angreifbar. Nur führen sie viele Leute zur falschen Schlussfolgerung, nämlich dass jetzt ein neuer Computer her muss.",
+      },
+      {
+        art: "kasten",
+        ton: "gut",
+        titel: "Das Wichtigste zuerst",
+        text: "Microsoft hat im Juni 2026 verlängert: Windows 10 bekommt Sicherheitsupdates bis zum 12. Oktober 2027, und in Deutschland und dem übrigen Europäischen Wirtschaftsraum kostet das nichts. Ihr Computer kann also noch fast ein Jahr sicher weiterlaufen. Sie müssen ihn nur einmal dafür anmelden.",
+      },
+      {
+        art: "absatz",
+        text: "Wenn Sie im Internet etwas anderes lesen, dann liegt das daran: Ursprünglich sollte die Verlängerung am 13. Oktober 2026 enden, und unzählige Artikel aus dieser Zeit stehen noch im Netz. Microsoft hat die Frist danach noch einmal um ein Jahr verlängert. Die alten Texte wurden nie aktualisiert. Es ist also gut möglich, dass Sie gerade eine überholte Nachricht gelesen haben.",
+      },
+      {
+        art: "zwischentitel",
+        text: "Warum Sie die Schaltfläche zum Anmelden wahrscheinlich nicht sehen",
+      },
+      {
+        art: "absatz",
+        text: "Das ist der Punkt, an dem fast alle hängenbleiben, und er hat nichts mit Ihnen zu tun. Die kostenlose Verlängerung setzt ein Microsoft-Konto voraus. Wenn Sie sich an Ihrem Computer mit einem lokalen Benutzerkonto anmelden, also einfach mit Ihrem Namen und einem selbst gewählten Kennwort ohne E-Mail-Adresse, dann erscheint die Schaltfläche zum Anmelden schlicht nicht. Der Rechner meldet weiterhin, er sei nicht mehr unterstützt, obwohl die Updates kostenlos bereitstünden.",
+      },
+      {
+        art: "absatz",
+        text: "Gerade ältere Computer, die noch jemand vor Jahren eingerichtet hat, laufen fast immer mit so einem lokalen Konto. Genau diese Leute bekommen die Verlängerung also nicht angeboten und glauben, sie hätten keine Wahl. Dazu kommen zwei weitere Hürden: Es muss die Windows-10-Version 22H2 installiert sein, und Sie brauchen Administratorrechte, also ein Konto mit vollen Berechtigungen. Ein eingeschränktes Benutzerkonto sieht die Schaltfläche ebenfalls nicht.",
+      },
+      {
+        art: "zwischentitel",
+        text: "Schritt für Schritt: so melden Sie Ihren Computer an",
+      },
+      {
+        art: "absatz",
+        text: "Prüfen Sie zuerst, welche Version auf Ihrem Computer läuft. Das geht in zehn Sekunden und erspart Ihnen die Sucherei, falls die Voraussetzung gar nicht erfüllt ist.",
+      },
+      {
+        art: "pfad",
+        titel: "1. Version prüfen",
+        schritte: [
+          "Windows-Taste und R gleichzeitig drücken",
+          "winver eingeben",
+          "Auf OK klicken",
+          "Es muss Version 22H2 dastehen",
+        ],
+      },
+      {
+        art: "absatz",
+        text: "Steht dort eine ältere Version, holen Sie zuerst alle Updates nach, unter Einstellungen, Update und Sicherheit, Nach Updates suchen. Das kann je nach Rechner eine Weile dauern und mehrere Neustarts brauchen. Erst danach erscheint die Anmeldung.",
+      },
+      {
+        art: "pfad",
+        titel: "2. Für die Verlängerung anmelden",
+        schritte: [
+          "Einstellungen öffnen",
+          "Update und Sicherheit",
+          "Windows Update",
+          "Jetzt registrieren anklicken",
+          "Mit Microsoft-Konto anmelden",
+        ],
+      },
+      {
+        art: "absatz",
+        text: "Haben Sie noch kein Microsoft-Konto, können Sie an dieser Stelle eines anlegen. Es ist kostenlos. Und keine Sorge: Sie müssen sich danach nicht umgewöhnen. Sie können Ihren Computer weiterhin wie gewohnt mit Ihrem lokalen Konto benutzen, denn die Verlängerung gilt für das Gerät und nicht für das Benutzerkonto.",
+      },
+      {
+        art: "kasten",
+        ton: "hinweis",
+        titel: "Wenn Sie sich schon angemeldet haben",
+        text: "Dann müssen Sie gar nichts tun. Die Verlängerung bis Oktober 2027 läuft für bereits angemeldete Geräte automatisch weiter. Sie bekommen Ihre Updates einfach wie bisher.",
+      },
+      {
+        art: "kasten",
+        ton: "wichtig",
+        titel: "Die 60-Tage-Regel, über die viele stolpern",
+        text: "Melden Sie sich länger als 60 Tage nicht mehr mit dem Microsoft-Konto an, stellt Microsoft die Updates wieder ein, und das Gerät muss neu angemeldet werden. Wer seinen Computer nur selten benutzt, sollte sich das notieren. Ich richte das bei meinen Kunden so ein, dass die Anmeldung im Hintergrund bestehen bleibt und man nicht daran denken muss.",
+      },
+      {
+        art: "zwischentitel",
+        text: "Was diese Verlängerung nicht leistet",
+      },
+      {
+        art: "absatz",
+        text: "Damit Sie wissen, woran Sie sind, denn hier wird oft zu viel versprochen:",
+      },
+      {
+        art: "liste",
+        punkte: [
+          "Sie bekommen nur Sicherheitsupdates, also Flicken für gefundene Lücken. Neue Funktionen kommen keine mehr dazu.",
+          "Sie bekommen keinen technischen Support von Microsoft. Bei Problemen hilft Ihnen dort niemand mehr.",
+          "Am 12. Oktober 2027 ist endgültig Schluss. Diese Verlängerung ist eine Atempause, kein Dauerzustand. Nutzen Sie die Zeit, um den Wechsel in Ruhe zu planen, statt ihn unter Druck machen zu müssen.",
+          "Programme wie Ihr Browser oder Ihr Virenschutz stellen die Unterstützung für Windows 10 nach und nach ebenfalls ein. Das passiert schleichend und zu unterschiedlichen Zeitpunkten.",
+        ],
+      },
+      {
+        art: "zwischentitel",
+        text: "Brauche ich nun einen neuen Computer oder nicht?",
+      },
+      {
+        art: "absatz",
+        text: "Ehrliche Antwort: meistens nicht, jedenfalls nicht jetzt. Der naheliegende Weg wäre ein kostenloses Upgrade auf Windows 11. Das geht allerdings nur, wenn Ihr Computer die Voraussetzungen erfüllt, und Microsoft ist da streng. Gefordert werden unter anderem ein Sicherheitsbaustein namens TPM 2.0 und ein ausreichend neuer Hauptprozessor, grob gesagt ab Baujahr 2017 und 2018. Ob Ihr Gerät dazugehört, sagt Ihnen das kostenlose Programm PC-Integritätsprüfung von Microsoft.",
+      },
+      {
+        art: "absatz",
+        text: "Erfüllt Ihr Computer die Voraussetzungen, ist das Upgrade der beste Weg, und es kostet nichts. Erfüllt er sie nicht, läuft er mit der Verlängerung trotzdem sicher weiter, und Sie haben bis Oktober 2027 Zeit. Von Bastellösungen, mit denen man Windows 11 auf eigentlich zu alten Geräten erzwingt, rate ich ab: Diese Rechner bekommen später oft keine Updates mehr und stehen dann schlechter da als vorher.",
+      },
+      {
+        art: "schritte",
+        schritte: [
+          {
+            titel: "Wann sich ein neues Gerät wirklich lohnt",
+            text: "Wenn Ihr Computer schon heute quälend langsam ist, weniger als 8 Gigabyte Arbeitsspeicher hat oder noch mit einer alten mechanischen Festplatte läuft. Dann ist das Support-Ende nicht Ihr eigentliches Problem, sondern nur der Anlass, der es sichtbar macht.",
+          },
+          {
+            titel: "Wann es sich nicht lohnt",
+            text: "Wenn Ihr Gerät zügig startet, alles tut, was Sie brauchen, und Sie nur wegen der Meldung auf dem Bildschirm beunruhigt sind. Dann melden Sie es an und benutzen es weiter. Ein neuer Computer bringt Ihnen in dieser Lage nichts außer Kosten und der Mühe, sich an etwas Neues zu gewöhnen.",
+          },
+          {
+            titel: "Der günstige Mittelweg, den kaum jemand nennt",
+            text: "Oft genügt es, in einen älteren Rechner eine moderne SSD einzubauen oder den Arbeitsspeicher zu erweitern. Das kostet einen Bruchteil eines neuen Geräts und macht aus einem lahmen Computer wieder einen flotten. Ob sich das bei Ihrem Gerät lohnt, sehe ich mir gerne an.",
+          },
+        ],
+      },
+      {
+        art: "kasten",
+        ton: "wichtig",
+        titel: "Vorsicht: Betrüger nutzen genau diese Meldung aus",
+        text: "Rund um das Support-Ende häufen sich Anrufe und Pop-up-Fenster, die behaupten, Ihr Computer sei unsicher, und zu einer Rückrufnummer oder einem Download drängen. Das ist immer Betrug. Microsoft ruft Privatleute nicht an, und ein echtes Windows-Update fordert Sie nie auf, irgendwo anzurufen oder ein Programm aus dem Internet zu installieren. Legen Sie in so einem Fall einfach auf und schließen Sie das Fenster.",
+      },
+      {
+        art: "zwischentitel",
+        text: "Bevor Sie irgendetwas ändern: eine Sicherung",
+      },
+      {
+        art: "absatz",
+        text: "Ob Anmeldung, Upgrade auf Windows 11 oder neues Gerät, vorher gehören Ihre Fotos, Dokumente und E-Mails auf eine externe Festplatte. Nicht weil es dabei oft schiefgeht, sondern weil es der einzige Moment ist, in dem man ohnehin an die Sache denkt. Eine Festplatte für eine vollständige Sicherung kostet unter sechzig Euro und ist die beste Versicherung, die Sie für Ihre Daten kaufen können.",
+      },
+      {
+        art: "zwischentitel",
+        text: "Wenn Sie das nicht allein machen möchten",
+      },
+      {
+        art: "absatz",
+        text: `Das verstehe ich gut, denn an mehreren Stellen kann man hier etwas übersehen. Ich komme zu Ihnen nach Hause, sehe mir an, was Ihr Gerät kann, melde es für die Verlängerung an, richte bei Bedarf das Microsoft-Konto ein und sichere vorher Ihre Daten. Und ich sage Ihnen ehrlich, ob sich bei Ihrem Rechner ein neues Gerät lohnt oder eben nicht. Ein Hausbesuch kostet ${PREIS_STUNDE}, die Anfahrt im Berliner Südwesten ist für Sie kostenlos. Verkaufen muss ich Ihnen nichts, und das ist genau der Unterschied zum Elektromarkt.`,
+      },
+    ],
+    fragen: [
+      {
+        frage: "Wie lange bekommt Windows 10 noch Sicherheitsupdates?",
+        antwort:
+          "Bis zum 12. Oktober 2027. Microsoft hat die Frist im Juni 2026 noch einmal um ein Jahr verlängert. Ältere Artikel nennen oft den 13. Oktober 2026, das ist überholt. In Deutschland und dem übrigen Europäischen Wirtschaftsraum sind diese Updates für Privatleute kostenlos.",
+      },
+      {
+        frage: "Warum sehe ich die Schaltfläche zum Registrieren nicht?",
+        antwort:
+          "Meist aus einem von drei Gründen. Erstens: Sie melden sich mit einem lokalen Konto am Computer an, die Verlängerung setzt aber ein Microsoft-Konto voraus. Zweitens: Es ist nicht die Windows-10-Version 22H2 installiert. Drittens: Ihr Benutzerkonto hat keine Administratorrechte. Alle drei Punkte lassen sich beheben.",
+      },
+      {
+        frage: "Muss ich jetzt einen neuen Computer kaufen?",
+        antwort:
+          "In den meisten Fällen nicht. Wenn Ihr Gerät zügig läuft und tut, was Sie brauchen, melden Sie es für die Verlängerung an und benutzen es weiter. Ein neues Gerät lohnt sich, wenn der Computer schon heute sehr langsam ist, weniger als 8 Gigabyte Arbeitsspeicher hat oder noch mit einer alten mechanischen Festplatte läuft. Oft genügt dann auch eine neue SSD oder mehr Arbeitsspeicher.",
+      },
+      {
+        frage: "Kostet die Verlängerung etwas?",
+        antwort:
+          "In Deutschland nicht. Für Privatleute im Europäischen Wirtschaftsraum sind die erweiterten Sicherheitsupdates kostenlos, Sie brauchen dafür nur ein Microsoft-Konto. Auch ein Microsoft-Konto anzulegen kostet nichts. Wenn Ihnen jemand Geld dafür abnehmen will, stimmt etwas nicht.",
+      },
+      {
+        frage: "Kann ich kostenlos auf Windows 11 wechseln?",
+        antwort:
+          "Ja, wenn Ihr Computer die Voraussetzungen erfüllt. Microsoft verlangt unter anderem den Sicherheitsbaustein TPM 2.0 und einen ausreichend neuen Hauptprozessor, grob ab Baujahr 2017 und 2018. Ob Ihr Gerät dazugehört, zeigt das kostenlose Programm PC-Integritätsprüfung. Erfüllt es die Voraussetzungen nicht, läuft Windows 10 mit der Verlängerung sicher weiter.",
+      },
+      {
+        frage: "Ich wurde angerufen, mein Windows sei unsicher. Stimmt das?",
+        antwort:
+          "Nein, das ist Betrug, und solche Anrufe häufen sich gerade. Microsoft ruft Privatleute nicht an. Auch Pop-up-Fenster, die zu einer Rückrufnummer oder einem Download drängen, sind immer gefälscht. Legen Sie auf, klicken Sie nichts an und schließen Sie das Fenster. Wenn Sie unsicher sind, rufen Sie mich lieber kurz an.",
+      },
+    ],
+    produkte: [
+      "externe-festplatte-2tb",
+      "lenovo-ideapad-slim-3",
+      "lenovo-mini-pc",
+    ],
+    weiterlesen: [
+      { pfad: "/computerhilfe-senioren", titel: "Computerhilfe für Senioren" },
+      { pfad: "/it-hilfe", titel: "IT-Hilfe im Berliner Südwesten" },
+    ],
+    quellen: [
+      {
+        titel:
+          "Microsoft: Informationen zum Supportende von Windows 10 für Privatnutzer",
+        url: "https://news.microsoft.com/de-de/informationen-zum-supportende-von-windows-10-fuer-privatnutzerinnen/",
+      },
+      {
+        titel: "Microsoft: Extended Security Updates für Windows 10",
+        url: "https://learn.microsoft.com/de-de/windows/whats-new/extended-security-updates",
+      },
+      {
+        titel:
+          "Dr. Windows: Windows 10 erhält Updates bis Oktober 2027, nochmalige Verlängerung für Privatnutzer",
+        url: "https://www.drwindows.de/news/windows-10-erhaelt-updates-bis-oktober-2027-nochmalige-verlaengerung-fuer-privatnutzer",
+      },
+      {
+        titel:
+          "Borns IT-Blog: Microsoft verlängert kostenloses ESU bis Oktober 2027",
+        url: "https://borncity.com/blog/2026/06/26/windows-10-microsoft-verlaengert-kostenloses-esu-bis-oktober-2027/",
+      },
+      {
+        titel: "WindowsUnited: Windows 10 ESU wird nicht angezeigt",
+        url: "https://windowsunited.de/windows-10-esu-wird-nicht-angezeigt/",
+      },
+    ],
+  },
+  {
     slug: "samsung-fotos-verschwunden-onedrive",
     titel:
       "Samsung: Fotos nach dem OneDrive-Aus verschwunden? So holen Sie sie zurück",
