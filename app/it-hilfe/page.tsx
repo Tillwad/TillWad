@@ -13,6 +13,7 @@ import {
 import { SITE_URL, itFragen, leistungen, orte } from "../daten";
 import { KopfZeile, FussZeile, FragenAbschnitt } from "../komponenten";
 import { BrotkrumenDaten, FragenDaten } from "../strukturierte-daten";
+import { FirmenHinweis } from "../firmenhinweis";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -75,6 +76,11 @@ export default function ItHilfe() {
     <>
       <FragenDaten fragen={itFragen} seitenUrl={`${SITE_URL}/it-hilfe`} />
       <BrotkrumenDaten stufen={[{ name: "IT-Hilfe", pfad: "/it-hilfe" }]} />
+
+      {/* Nur auf dieser Seite: Über Begriffe wie "it-unterstützung" und
+          "it notfallhilfe" landen hier auch Firmen, und die sind bei der
+          B2B-Marke besser aufgehoben. Siehe app/firmenhinweis.tsx. */}
+      <FirmenHinweis />
 
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen
