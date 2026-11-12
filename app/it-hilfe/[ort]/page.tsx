@@ -29,6 +29,7 @@ import {
   FragenDaten,
   OrtsDaten,
 } from "../../strukturierte-daten";
+import { FirmenHinweis } from "../../firmenhinweis";
 import {
   TelefonLink,
   TelefonAnzeige,
@@ -105,6 +106,11 @@ export default async function OrtSeite({
           { name: ort.name, pfad: `/it-hilfe/${ort.slug}` },
         ]}
       />
+
+      {/* Auch hier landen Firmen: Wer "it support zehlendorf" sucht, kommt
+          auf die Ortsseite und nicht auf /it-hilfe. Siehe
+          app/firmenhinweis.tsx. */}
+      <FirmenHinweis />
 
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen

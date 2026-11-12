@@ -20,6 +20,7 @@ import {
   FotoNebenText,
 } from "./komponenten";
 import { NeuesteBeitraege } from "./ratgeber/teaser";
+import { FirmenHinweis } from "./firmenhinweis";
 import { FragenDaten, UnternehmensDaten } from "./strukturierte-daten";
 import {
   TelefonLink,
@@ -53,8 +54,7 @@ export const metadata: Metadata = {
   // Die Beschreibung nennt bewusst Preis und kostenlose Anfahrt. Das ist genau
   // das, was die Konkurrenz in der Trefferliste verschweigt, und es ist der
   // Grund, warum jemand ausgerechnet hier klickt.
-  description:
-    `Geduldige Computerhilfe bei Ihnen zu Hause: Zehlendorf, Nikolassee, Wannsee, Dahlem, Kleinmachnow, Teltow. ${PREIS_STUNDE}, Anfahrt kostenlos.`,
+  description: `Geduldige Computerhilfe bei Ihnen zu Hause: Zehlendorf, Nikolassee, Wannsee, Dahlem, Kleinmachnow, Teltow. ${PREIS_STUNDE}, Anfahrt kostenlos.`,
   alternates: {
     canonical: "/",
   },
@@ -120,6 +120,11 @@ export default function Home() {
     <>
       <UnternehmensDaten />
       <FragenDaten fragen={fragen} seitenUrl={`${SITE_URL}/`} />
+
+      {/* Hinweis für Firmenbesucher, siehe app/firmenhinweis.tsx. Er steht
+          auch hier, weil über die Marke "Computerhilfe mit Till" ebenfalls
+          Firmen auf der Startseite landen. */}
+      <FirmenHinweis />
 
       <a href="#inhalt" className="skip-link">
         Direkt zum Inhalt springen

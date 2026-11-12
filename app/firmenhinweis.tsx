@@ -21,8 +21,14 @@ import { useEinwilligung } from "./einwilligung";
  * nichts, ist mit einer einzigen Schaltfläche weg und kommt danach nicht
  * wieder.
  *
- * Eingebunden ist der Hinweis NUR auf /it-hilfe, siehe dort. Soll er auf
- * weiteren Seiten erscheinen, genügt es, ihn dort ebenfalls einzuhängen.
+ * Eingebunden ist der Hinweis auf der Startseite, auf /it-hilfe und auf den
+ * acht Ortsseiten, also überall dort, wo Firmen ankommen können. Bewusst
+ * NICHT auf /computerhilfe-senioren und den Themenseiten: Wer dort landet,
+ * sucht sicher keine Firmen-IT, und der Hinweis wäre nur im Weg.
+ *
+ * Dass jemand ihn weggeklickt hat, merkt sich der Browser seitenübergreifend.
+ * Wer ihn auf der Startseite schließt, bekommt ihn auf der Ortsseite nicht
+ * noch einmal zu sehen.
  */
 
 /** Hier merkt sich der Browser, dass der Hinweis schon weggeklickt wurde. */
