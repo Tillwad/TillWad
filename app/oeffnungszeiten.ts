@@ -72,8 +72,9 @@ function stundeLesbar(zeit: string): string {
 }
 
 /**
- * Die Zeiten als Liste von Zeilen für die Anzeige, etwa
- * ["Montag bis Freitag: 9 bis 17 Uhr", "Samstag: 10 bis 16 Uhr"].
+ * Die Zeiten als Liste von Zeilen für die Anzeige, derzeit
+ * ["Montag bis Freitag: 9 bis 17 Uhr"]. Kommt ein Tag mit abweichenden
+ * Zeiten dazu, entsteht daraus von allein eine zweite Zeile.
  */
 export function zeitenLesbar(): string[] {
   return bloecke().map((block) => {

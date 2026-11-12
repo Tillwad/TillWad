@@ -63,6 +63,13 @@ export const geraeteAuswahl = [
  * Zu diesen Zeiten werden Termine angeboten, angegeben in Berliner Zeit.
  * Wochentage: 0 = Sonntag, 1 = Montag, … 6 = Samstag. Ein Tag ohne Eintrag
  * bleibt frei von Terminen.
+ *
+ * Samstag und Sonntag stehen hier bewusst nicht drin: Till arbeitet am
+ * Wochenende nicht.
+ *
+ * Diese Liste ist die einzige Quelle für die Arbeitszeiten. An ihr hängen
+ * nicht nur die buchbaren Termine, sondern auch der sichtbare Text in der
+ * Fußzeile und die Öffnungszeiten für Google, siehe app/oeffnungszeiten.ts.
  */
 export const ARBEITSZEITEN: Record<number, { von: string; bis: string }[]> = {
   1: [{ von: "09:00", bis: "17:00" }],
@@ -70,7 +77,6 @@ export const ARBEITSZEITEN: Record<number, { von: string; bis: string }[]> = {
   3: [{ von: "09:00", bis: "17:00" }],
   4: [{ von: "09:00", bis: "17:00" }],
   5: [{ von: "09:00", bis: "17:00" }],
-  6: [{ von: "10:00", bis: "16:00" }],
 };
 
 /** Mögliche Beginnzeiten liegen in diesem Raster (Minuten). */
